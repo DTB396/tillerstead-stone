@@ -1,28 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
-  <!-- Sacred Geometry Pattern: Flower of Life inspired tile -->
+  <!-- Premium Tile Backsplash Pattern: Sacred Geometry inspired -->
   <!-- Seamlessly repeatable on all edges -->
   
   <!-- Background subtle grid -->
   <defs>
     <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#94a3b8" stroke-width="0.15" opacity="0.12"/>
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#94a3b8" stroke-width="0.15" opacity="0.15"/>
     </pattern>
     
-    <!-- Radial gradient for depth -->
+    <!-- Enhanced radial gradients for premium depth -->
     <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#1ac87a;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#1ac87a;stop-opacity:0" />
+      <stop offset="0%" style="stop-color:#10d97f;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#10d97f;stop-opacity:0" />
+    </radialGradient>
+    
+    <radialGradient id="accentGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#e8c870;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#e8c870;stop-opacity:0" />
     </radialGradient>
   </defs>
   
   <!-- Background grid -->
   <rect width="200" height="200" fill="url(#grid)"/>
   
-  <!-- Central radial glow -->
-  <circle cx="100" cy="100" r="80" fill="url(#centerGlow)"/>
+  <!-- Layered radial glows for premium feel -->
+  <circle cx="100" cy="100" r="85" fill="url(#centerGlow)"/>
+  <circle cx="100" cy="100" r="60" fill="url(#accentGlow)"/>
   
-  <!-- Main hexagonal structure - centered -->
-  <g opacity="0.75" stroke="#8fa4c4" stroke-width="1.5" fill="none">
+  <!-- Main hexagonal structure - centered with emerald green -->
+  <g opacity="0.85" stroke="#10d97f" stroke-width="1.8" fill="none">
     <!-- Outer hexagon -->
     <path d="M 100 10 L 186.6 55 L 186.6 145 L 100 190 L 13.4 145 L 13.4 55 Z"/>
     
@@ -33,8 +39,8 @@
     <path d="M 100 60 L 126.6 77.5 L 126.6 122.5 L 100 140 L 73.4 122.5 L 73.4 77.5 Z"/>
   </g>
   
-  <!-- Connecting lines creating sacred geometry -->
-  <g opacity="0.45" stroke="#38bdf8" stroke-width="1" fill="none">
+  <!-- Connecting lines with golden brass accent -->
+  <g opacity="0.55" stroke="#e8c870" stroke-width="1.2" fill="none">
     <!-- Vertical lines -->
     <path d="M 13.4 55 L 100 100 L 186.6 55"/>
     <path d="M 13.4 145 L 100 100 L 186.6 145"/>
@@ -49,7 +55,7 @@
   </g>
   
   <!-- Corner decorative elements for seamless tiling -->
-  <g opacity="0.35" stroke="#94a3b8" stroke-width="0.8" fill="none">
+  <g opacity="0.4" stroke="#10d97f" stroke-width="0.9" fill="none">
     <!-- Top left corner -->
     <circle cx="0" cy="0" r="30" />
     <circle cx="0" cy="0" r="20" />
@@ -67,23 +73,35 @@
     <circle cx="200" cy="200" r="20" />
   </g>
   
-  <!-- Central focal points -->
+  <!-- Central focal points with premium jewel effect -->
   <g>
-    <!-- Main center point -->
-    <circle cx="100" cy="100" r="8" fill="#1ec98e" fill-opacity="0.8"/>
-    <circle cx="100" cy="100" r="3" fill="#f8fafc"/>
+    <!-- Main center point - emerald jewel -->
+    <circle cx="100" cy="100" r="9" fill="#10d97f" fill-opacity="0.85"/>
+    <circle cx="100" cy="100" r="5" fill="#e8c870" fill-opacity="0.7"/>
+    <circle cx="100" cy="100" r="2.5" fill="#ffffff" fill-opacity="0.95"/>
     
-    <!-- Six surrounding points on inner hexagon vertices -->
-    <circle cx="126.6" cy="77.5" r="4" fill="#1ec98e" fill-opacity="0.5"/>
-    <circle cx="126.6" cy="122.5" r="4" fill="#1ec98e" fill-opacity="0.5"/>
-    <circle cx="100" cy="140" r="4" fill="#1ec98e" fill-opacity="0.5"/>
-    <circle cx="73.4" cy="122.5" r="4" fill="#1ec98e" fill-opacity="0.5"/>
-    <circle cx="73.4" cy="77.5" r="4" fill="#1ec98e" fill-opacity="0.5"/>
-    <circle cx="100" cy="60" r="4" fill="#1ec98e" fill-opacity="0.5"/>
+    <!-- Six surrounding points on inner hexagon vertices with brass accent -->
+    <circle cx="126.6" cy="77.5" r="5" fill="#e8c870" fill-opacity="0.6"/>
+    <circle cx="126.6" cy="77.5" r="2" fill="#10d97f" fill-opacity="0.8"/>
+    
+    <circle cx="126.6" cy="122.5" r="5" fill="#e8c870" fill-opacity="0.6"/>
+    <circle cx="126.6" cy="122.5" r="2" fill="#10d97f" fill-opacity="0.8"/>
+    
+    <circle cx="100" cy="140" r="5" fill="#e8c870" fill-opacity="0.6"/>
+    <circle cx="100" cy="140" r="2" fill="#10d97f" fill-opacity="0.8"/>
+    
+    <circle cx="73.4" cy="122.5" r="5" fill="#e8c870" fill-opacity="0.6"/>
+    <circle cx="73.4" cy="122.5" r="2" fill="#10d97f" fill-opacity="0.8"/>
+    
+    <circle cx="73.4" cy="77.5" r="5" fill="#e8c870" fill-opacity="0.6"/>
+    <circle cx="73.4" cy="77.5" r="2" fill="#10d97f" fill-opacity="0.8"/>
+    
+    <circle cx="100" cy="60" r="5" fill="#e8c870" fill-opacity="0.6"/>
+    <circle cx="100" cy="60" r="2" fill="#10d97f" fill-opacity="0.8"/>
   </g>
   
   <!-- Edge transition elements for seamless tiling -->
-  <g opacity="0.25" stroke="#94a3b8" stroke-width="0.5" fill="none">
+  <g opacity="0.3" stroke="#10d97f" stroke-width="0.6" fill="none">
     <!-- Top edge -->
     <path d="M 60 0 Q 80 -10, 100 0 Q 120 10, 140 0"/>
     <!-- Bottom edge -->

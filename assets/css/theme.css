@@ -347,6 +347,7 @@ pre {
 
 /* ============================================
    Buttons & interactive elements
+   Premium, high-converting CTAs with consistent styling
    ============================================ */
 
 .btn,
@@ -355,64 +356,139 @@ button.btn {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.65rem 1.35rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--ts-radius-pill);
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   background: linear-gradient(
     135deg,
     var(--ts-primary) 0%,
     var(--ts-primary-strong) 100%
   );
   color: #022c1a;
-  font-size: 0.95rem;
-  font-weight: 650;
+  font-size: 1rem;
+  font-weight: 700;
   line-height: 1.2;
   cursor: pointer;
   text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.01em;
   transition:
     transform var(--ts-transition-fast),
     box-shadow var(--ts-transition-fast),
     background var(--ts-transition-fast),
-    color var(--ts-transition-fast);
-  box-shadow: 0 16px 36px rgba(26, 200, 122, 0.35);
+    color var(--ts-transition-fast),
+    border-color var(--ts-transition-fast);
+  box-shadow: var(--shadow-button-primary), var(--shadow-glow-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Premium shine effect on hover */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn:hover,
 .btn:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 24px 48px rgba(26, 200, 122, 0.4);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-primary-hover), var(--shadow-glow-primary);
+  background: linear-gradient(
+    135deg,
+    var(--ts-primary-strong) 0%,
+    var(--ts-primary) 100%
+  );
 }
 
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Primary button variant (default is already primary) */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--ts-primary) 0%,
+    var(--ts-primary-strong) 100%
+  );
+  color: #022c1a;
+}
+
+/* Accent button - Golden brass variant for important secondary actions */
+.btn-accent {
+  background: linear-gradient(
+    135deg,
+    var(--ts-accent) 0%,
+    var(--ts-accent-strong) 100%
+  );
+  color: #1b1504;
+  box-shadow: var(--shadow-button-accent), var(--shadow-glow-accent);
+}
+
+.btn-accent:hover,
+.btn-accent:focus-visible {
+  box-shadow: var(--shadow-button-accent-hover), var(--shadow-glow-accent);
+  background: linear-gradient(
+    135deg,
+    var(--ts-accent-strong) 0%,
+    var(--ts-accent) 100%
+  );
+  color: #1b1504;
+}
+
+/* Ghost button - Transparent with border */
 .btn-ghost {
-  background: transparent;
-  border-color: rgba(148, 163, 184, 0.28);
-  color: var(--ts-text);
-  box-shadow: none;
-}
-
-.btn-ghost:hover,
-.btn-ghost:focus-visible {
-  background: rgba(148, 163, 184, 0.12);
-}
-
-.btn-outline {
   background: transparent;
   border-color: var(--ts-primary);
   color: var(--ts-primary);
   box-shadow: none;
 }
 
-.btn-outline:hover,
-.btn-outline:focus-visible {
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
   background: var(--ts-primary-soft);
-  color: var(--ts-primary);
+  border-color: var(--ts-primary-strong);
+  color: var(--ts-primary-strong);
+  box-shadow: var(--shadow-glow-primary);
 }
 
+/* Outline button - Clean outline style */
+.btn-outline {
+  background: transparent;
+  border-color: rgba(148, 163, 184, 0.35);
+  color: var(--ts-text);
+  box-shadow: none;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.5);
+  color: var(--ts-text);
+}
+
+/* Call button - Phone CTA emphasis */
 .call-btn {
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.02em;
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
   white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================
@@ -448,11 +524,22 @@ html.light .site-header {
   text-decoration: none;
   /* Ensure logo doesn't shrink on small screens */
   flex-shrink: 0;
+  /* Add subtle filter for enhanced clarity */
+  filter: drop-shadow(0 2px 8px rgba(16, 217, 127, 0.2));
+  transition: filter var(--ts-transition-fast);
+}
+
+.site-logo:hover,
+.site-logo:focus-visible {
+  filter: drop-shadow(0 4px 12px rgba(16, 217, 127, 0.35));
 }
 
 .site-logo-img {
-  width: clamp(120px, 14vw, 148px);
+  width: clamp(140px, 16vw, 180px);
   height: auto;
+  /* Ensure crisp rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .site-header-actions {
@@ -653,7 +740,7 @@ body.nav-open {
   }
 
   .site-logo-img {
-    width: clamp(136px, 14vw, 148px);
+    width: clamp(150px, 16vw, 180px);
   }
 
   .nav-toggle {
@@ -821,9 +908,9 @@ body.nav-open {
   );
   border-radius: var(--ts-radius-xl);
   overflow: hidden;
-  border: 1px solid rgba(26, 200, 122, 0.25);
+  border: 1px solid rgba(16, 217, 127, 0.35);
   box-shadow: 
-    0 0 80px rgba(26, 200, 122, 0.15),
+    0 0 100px rgba(16, 217, 127, 0.2),
     var(--ts-shadow-lift);
   z-index: 0;
 }
@@ -835,16 +922,23 @@ body.nav-open {
   background-image: var(--bg-pattern),
     radial-gradient(
       circle at 85% 25%,
-      rgba(26, 200, 122, 0.35),
+      rgba(16, 217, 127, 0.4),
       transparent 55%
+    ),
+    radial-gradient(
+      circle at 15% 75%,
+      rgba(232, 200, 112, 0.15),
+      transparent 50%
     );
-  background-repeat: repeat, no-repeat;
+  background-repeat: repeat, no-repeat, no-repeat;
   background-size:
     var(--bg-pattern-size),
-    520px 520px;
+    520px 520px,
+    420px 420px;
   background-position:
     top left,
-    85% 25%;
+    85% 25%,
+    15% 75%;
   opacity: var(--bg-pattern-opacity);
   pointer-events: none;
   z-index: 0;
@@ -859,8 +953,13 @@ body.nav-open {
     background-image: var(--bg-pattern-fallback),
       radial-gradient(
         circle at 85% 25%,
-        rgba(26, 200, 122, 0.32),
+        rgba(16, 217, 127, 0.35),
         transparent 62%
+      ),
+      radial-gradient(
+        circle at 15% 75%,
+        rgba(232, 200, 112, 0.12),
+        transparent 50%
       );
   }
 }
@@ -915,12 +1014,12 @@ body.nav-open {
 
 .hero-info-bubble {
   margin-top: var(--ts-space-5);
-  padding: 1.15rem 1.3rem;
+  padding: 1.25rem 1.5rem;
   border-radius: var(--ts-radius-lg);
-  border: 1px solid rgba(26, 200, 122, 0.3);
-  background: rgba(11, 18, 36, 0.85);
+  border: 1px solid rgba(16, 217, 127, 0.4);
+  background: rgba(11, 18, 36, 0.9);
   box-shadow: 
-    0 0 40px rgba(26, 200, 122, 0.1),
+    0 0 50px rgba(16, 217, 127, 0.15),
     var(--ts-shadow-soft);
 }
 
@@ -957,13 +1056,13 @@ body.nav-open {
 }
 
 .hero-kpi {
-  padding: 1.15rem 1.3rem;
+  padding: 1.25rem 1.5rem;
   border-radius: var(--ts-radius-lg);
-  border: 1px solid rgba(26, 200, 122, 0.3);
-  background: rgba(11, 18, 36, 0.85);
+  border: 1px solid rgba(16, 217, 127, 0.4);
+  background: rgba(11, 18, 36, 0.9);
   color: var(--ts-text-muted);
   box-shadow: 
-    0 0 40px rgba(26, 200, 122, 0.1),
+    0 0 50px rgba(16, 217, 127, 0.15),
     var(--ts-shadow-soft);
 }
 
@@ -1036,14 +1135,14 @@ body.nav-open {
 }
 
 .plan-card--featured {
-  border-color: rgba(26, 200, 122, 0.45);
-  box-shadow: 0 30px 60px rgba(26, 200, 122, 0.28);
+  border-color: rgba(16, 217, 127, 0.5);
+  box-shadow: 0 30px 60px rgba(16, 217, 127, 0.3), var(--shadow-glow-primary);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .plan-card--featured:hover {
-    border-color: rgba(26, 200, 122, 0.6);
-    box-shadow: 0 36px 72px rgba(26, 200, 122, 0.35);
+    border-color: rgba(16, 217, 127, 0.7);
+    box-shadow: 0 36px 72px rgba(16, 217, 127, 0.4), var(--shadow-glow-primary);
   }
 }
 
@@ -1087,11 +1186,11 @@ body.nav-open {
   position: absolute;
   left: 0;
   top: 0.45rem;
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 999px;
   background: var(--ts-primary);
-  box-shadow: 0 0 0 4px rgba(26, 200, 122, 0.12);
+  box-shadow: 0 0 0 4px rgba(16, 217, 127, 0.15);
 }
 
 .plan-footnote {
@@ -1519,9 +1618,11 @@ textarea {
 }
 
 .footer-logo-img {
-  width: clamp(96px, 12vw, 110px);
+  width: clamp(110px, 14vw, 130px);
   height: auto;
-  filter: drop-shadow(0 6px 18px rgba(2, 6, 23, 0.65));
+  filter: drop-shadow(0 6px 20px rgba(16, 217, 127, 0.2));
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .footer-heading {
