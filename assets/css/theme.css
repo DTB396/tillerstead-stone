@@ -96,7 +96,13 @@ body {
   background: var(--ts-bg);
   color: var(--ts-text);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  /* Improve scrolling performance */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body.site-body {
@@ -113,6 +119,15 @@ img,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
+}
+
+img {
+  /* Modern image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Better loading UX */
+  background-color: var(--ts-surface-elevated);
 }
 
 figure {
@@ -271,6 +286,10 @@ pre {
 .section,
 .ts-section {
   padding-block: clamp(3rem, 6vw, 5rem);
+  /* Performance: CSS containment */
+  contain: layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 .ts-section--muted {
@@ -375,6 +394,14 @@ button.btn {
     background var(--ts-transition-fast),
     color var(--ts-transition-fast);
   box-shadow: 0 16px 36px rgba(26, 200, 122, 0.35);
+  /* Better touch targets for mobile */
+  min-height: 44px;
+  min-width: 44px;
+  /* Prevent text selection on buttons */
+  user-select: none;
+  -webkit-user-select: none;
+  /* Better button performance */
+  will-change: transform;
 }
 
 .btn:hover,
@@ -851,6 +878,9 @@ body.nav-open {
   border-radius: inherit;
   /* Lazy loading - start with transparent, fade in when loaded */
   animation: fadeInPattern 0.4s ease-in-out;
+  /* Performance optimization */
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 /* Fallback for browsers without WebP support */
@@ -1115,12 +1145,8 @@ body.nav-open {
 .who-grid {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2rem);
-}
-
-@media (min-width: 960px) {
-  .who-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  /* Modern responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 }
 
 .who-card {
@@ -1174,12 +1200,8 @@ body.nav-open {
 .why-grid {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2rem);
-}
-
-@media (min-width: 960px) {
-  .why-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  /* Modern responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 }
 
 .why-item {
@@ -1205,12 +1227,8 @@ body.nav-open {
 .scope-grid {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2rem);
-}
-
-@media (min-width: 900px) {
-  .scope-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  /* Modern responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
 }
 
 .scope-card {

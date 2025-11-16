@@ -1,6 +1,10 @@
 <!-- Core meta -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Performance & Security -->
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 <title>
   {% if page.seo_title %}
@@ -80,11 +84,21 @@ otherwise fall back to global defaults from _config.yml
   <meta property="business:contact_data:website" content="{{ site.url }}">
 {% endif %}
 
-<!-- Fonts -->
+<!-- DNS prefetch for performance -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<!-- Fonts with optimized loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Manrope:wght@500..800&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet">
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'; this.onload=null;">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Manrope:wght@500..800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</noscript>
 
 <!-- CSS: legacy styles first, unified theme last so it can normalize colors/contrast -->
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">

@@ -44,6 +44,13 @@
   }
 }
 
+/* Modern alternative using auto-fit for better responsiveness */
+@supports (grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))) {
+  .gc-kpis {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
 .gc-grid {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2rem);
@@ -111,6 +118,14 @@
   .gallery-grid,
   .portfolio-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Modern responsive alternative */
+@supports (grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))) {
+  .gallery-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   }
 }
 
