@@ -41,6 +41,9 @@ jobs:
       - name: Lint (ESLint + HTMLHint)
         run: npm run lint
 
+      - name: Build CSS
+        run: npm run build
+
       - name: Install Ruby & Bundler
         uses: ruby/setup-ruby@v1
         with:
@@ -54,3 +57,28 @@ jobs:
         env:
           JEKYLL_ENV: production
         run: bundle exec jekyll build
+
+      - name: Smoke test - Verify CSS files exist in build
+        run: |
+          echo "Checking for critical CSS files in _site..."
+          test -f _site/assets/styles/tokens.css || { echo "ERROR: tokens.css not found in build"; exit 1; }
+          test -f _site/assets/css/theme-compiled.css || { echo "ERROR: theme-compiled.css not found in build"; exit 1; }
+          echo "✓ Critical CSS files found"
+
+      - name: Smoke test - Verify homepage is built correctly
+        run: |
+          echo "Checking homepage build..."
+          if grep -q "layout: default" _site/index.html; then
+            echo "ERROR: Homepage contains unprocessed Jekyll front-matter"
+            echo "This indicates Jekyll did not process the file correctly"
+            exit 1
+          fi
+          if ! grep -q "<link rel=\"stylesheet\"" _site/index.html; then
+            echo "ERROR: Homepage missing CSS link tags"
+            exit 1
+          fi
+          if ! grep -q "<!doctype html>" _site/index.html; then
+            echo "ERROR: Homepage missing DOCTYPE"
+            exit 1
+          fi
+          echo "✓ Homepage built correctly"

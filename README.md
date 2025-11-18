@@ -11,33 +11,43 @@ Optimized for **GitHub Pages** and **Netlify**, using pure **HTML/CSS/JS** for s
 ## 🚀 Quick Start
 
 ### Local Development (Simple HTTP Server)
-For quick testing without Jekyll processing:
+⚠️ **WARNING**: Serving files directly from the root will NOT work correctly.
+
 ```bash
+# ❌ DO NOT DO THIS - will show blank page with raw Liquid templates
 python3 -m http.server
-# then open http://localhost:8000
 ```
 
-**Note**: This will show raw Liquid templates. For full rendering, use one of the methods below.
-
-### Production Build (Jekyll)
-The site uses Jekyll for templating. To build locally:
+### Production Build (Recommended for Local Testing)
+The site uses Jekyll for templating and MUST be built before viewing:
 
 ```bash
-# Install Ruby dependencies (vendored Jekyll)
+# 1. Install Node dependencies and build CSS
+npm install
+npm run build
+
+# 2. Install Ruby dependencies (vendored Jekyll)
 bundle config set --local path 'vendor/bundle'
 bundle install
 
-# Build the site to ./_site
-bundle exec jekyll build
+# 3. Build the site to ./_site
+JEKYLL_ENV=production bundle exec jekyll build
 
-# Serve the built site
-cd _site && python3 -m http.server
+# 4. Serve the BUILT site (not the root directory!)
+cd _site && python3 -m http.server 8000
+# Open http://localhost:8000
 ```
 
 ### Automatic Deployment
-When pushed to GitHub or Netlify, Jekyll processes automatically:
-- **GitHub Pages**: Automatically builds on push to main
-- **Netlify**: Configured in deploy settings
+The site deploys automatically when changes are pushed to `main`:
+
+- **GitHub Pages**: `.github/workflows/pages.yml` builds Jekyll and deploys to Pages
+  - Builds CSS from SCSS
+  - Processes Jekyll templates
+  - Deploys `_site/` directory to GitHub Pages
+  - **CRITICAL**: GitHub Pages must be configured to deploy from GitHub Actions (not branch)
+
+- **Netlify** (if configured): Uses build command from `netlify.toml` or deploy settings
 
 ---
 
@@ -215,9 +225,46 @@ Front‑matter fields supported:
 
 3. Reference the slug in front‑matter: `hero_bg_pattern: "my-pattern"`.
 
-## CI
+## CI & Deployment
 
 Every PR runs ESLint, HTMLHint, and a full Jekyll build. Fix any lint errors before merging.
+
+### GitHub Pages Configuration
+
+**CRITICAL**: GitHub Pages must be configured to deploy from **GitHub Actions**, not directly from a branch.
+
+To verify/configure:
+1. Go to repository Settings → Pages
+2. Under "Build and deployment"
+3. Set **Source** to "GitHub Actions" (not "Deploy from a branch")
+
+If set to deploy from a branch, the site will serve raw source files and show a blank page.
+
+### Troubleshooting Blank Page
+
+If you see a blank page with just a loading screen:
+
+**Symptom**: Page shows white space with loading animation that never disappears.
+
+**Cause**: Site is being served without Jekyll processing (raw source files).
+
+**Fix**: 
+1. Ensure GitHub Pages is set to deploy from "GitHub Actions" (see above)
+2. Push to `main` branch to trigger `.github/workflows/pages.yml`
+3. Wait for deployment to complete
+4. Clear browser cache and reload
+
+**Local Testing**:
+```bash
+# ✅ CORRECT - Build and serve _site/
+npm install && npm run build
+bundle install
+bundle exec jekyll build
+cd _site && python3 -m http.server
+
+# ❌ WRONG - Serves raw files, shows blank page
+python3 -m http.server  # from repo root
+```
 
 ---
 
