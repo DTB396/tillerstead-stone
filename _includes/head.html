@@ -105,7 +105,8 @@ otherwise fall back to global defaults from _config.yml
 
 <!-- Hero patterns and special components -->
 <link rel="stylesheet" href="{{ '/assets/css/pattern-showcase.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/loading-screen.css' | relative_url }}">
+<!-- Loading screen CSS disabled - was causing blank page overlay without JS -->
+<!-- <link rel="stylesheet" href="{{ '/assets/css/loading-screen.css' | relative_url }}"> -->
 
 <!-- Page-specific styles -->
 {% if page.styles %}

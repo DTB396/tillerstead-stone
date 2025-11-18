@@ -82,3 +82,19 @@ jobs:
             exit 1
           fi
           echo "✓ Homepage built correctly"
+      
+      - name: Smoke test - Verify loading screen is disabled
+        run: |
+          echo "Checking loading screen is properly disabled..."
+          # Check if there's an active (non-commented) loading-screen.css link
+          if grep -E '^[[:space:]]*<link rel="stylesheet" href=".*/loading-screen\.css"' _site/index.html; then
+            echo "ERROR: loading-screen.css is being loaded but the JS is disabled"
+            echo "This causes a blank page overlay that never disappears"
+            exit 1
+          fi
+          # Verify it's properly commented out
+          if grep -q '<!-- <link rel="stylesheet" href=".*/loading-screen.css"> -->' _site/index.html; then
+            echo "✓ Loading screen correctly disabled (commented out)"
+          else
+            echo "✓ Loading screen not referenced (removed or never added)"
+          fi
