@@ -1,103 +1,36 @@
 ---
 layout: default
 title: Tile, Remodeling & Property Maintenance in South Jersey | Tillerstead LLC
-description: Tillerstead LLC provides reliable tile assemblies, organized remodeling projects, and consistent property maintenance for South Jersey homeowners, landlords, and commercial properties.
+description: Tillerstead LLC provides reliable tile assemblies, organized remodeling projects, and consistent property maintenance for South Jersey homeowners, landlords, and small commercial spaces.
 body_class: page-home
-hide_hero: true
 is_home: true
 styles:
   - /assets/css/home.css
+
+# Unified hero configuration
+hero_eyebrow: "South Jersey"
+hero_title: "Remodeling, Tile & Property Maintenance"
+hero_summary: >
+  Owner-led tile, remodeling, and monthly property care with certified waterproof assemblies, documented scopes & change orders, and optional design consultations — built for shore homes, rentals, and small commercial spaces.
+hero_primary_url: "/contact/"
+hero_primary_label: "Book a consultation"
+hero_secondary_url: "/services/"
+hero_secondary_label: "Explore services"
+hero_bg_pattern: "sacred-tile"
+hero_kpis:
+  - label: "Licensed"
+    text: "NJ Home Improvement Contractor #13VH10808800"
+  - label: "Service Area"
+    text: "Atlantic, Ocean & Cape May Counties"
+  - label: "Specialty"
+    text: "Waterproof tile builds & organized remodeling"
+  - label: "Maintenance"
+    text: "Recurring inspections with proactive reporting"
 ---
-<section class="section hero" aria-labelledby="hero-title" data-animate="intro">
-  <div class="container hero__grid">
-    <div class="hero__content">
-      {% include logo-hero.html %}
+{% comment %} Hero rendered by unified-hero include via front-matter above {% endcomment %}
 
-      <p class="eyebrow">Design-first. Waterproof by default.</p>
-      <h1 id="hero-title">Remodeling, Tile &amp; Property Maintenance in South Jersey</h1>
-      <p class="lead">
-        Owner-led tile, remodeling, and maintenance with certified waterproof assemblies, documented scopes and change
-        orders, and optional design consultations—built for shore homes, rentals, and small commercial spaces.
-      </p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}">Book a consultation</a>
-        <a class="btn btn--ghost" href="{{ '/services/' | relative_url }}">Explore services</a>
-        <a class="btn btn--ghost" href="tel:+16096659350">Call (609) 665-9350</a>
-      </div>
-      <ul class="hero__meta">
-        <li>NJ Licensed HIC #13VH10808800</li>
-        <li>Atlantic, Ocean &amp; Cape May Counties</li>
-        <li>Design consultations • Waterproof tile • Organized remodeling</li>
-      </ul>
-    </div>
-    <div class="hero__panel" aria-label="Highlighted capabilities">
-      <div class="pill">Owner-operated</div>
-      <p class="hero__panel-eyebrow">What clients count on</p>
-      <h2>Waterproof builds, transparent communication, and recurring care</h2>
-      <p>
-        From tile showers and kitchen updates to monthly inspections, we treat every property as if it were our own and
-        keep you informed with documented scope, photos, and predictable scheduling.
-      </p>
-      <dl class="stat-list">
-        <div>
-          <dt>12+</dt>
-          <dd>years of tile and remodeling experience</dd>
-        </div>
-        <div>
-          <dt>30+</dt>
-          <dd>recurring maintenance clients cared for each season</dd>
-        </div>
-      </dl>
-    </div>
-  </div>
-</section>
+{% include services-section.html %}
 
-<section id="services" class="section" aria-labelledby="services-title" data-animate="reveal">
-  <div class="container">
-    <div class="section__intro">
-      <p class="eyebrow">What we deliver</p>
-      <h2 id="services-title">Craftsmanship built to handle shore life</h2>
-      <p>
-        We combine waterproof tile assemblies, clean remodeling finishes, and a maintenance mindset to keep rentals,
-        second homes, and storefronts on schedule. Design consultations available to align look, budget, and timeline.
-      </p>
-    </div>
-    <div class="card-grid">
-      <article class="card">
-        <h3>Tile &amp; Stone</h3>
-        <p>Showers, backsplashes, heated floors, and large-format installs built on certified waterproof systems.</p>
-        <ul>
-          <li>Shower &amp; bath rebuilds</li>
-          <li>Waterproofing &amp; membranes</li>
-          <li>Stone &amp; slab work</li>
-          <li>Tile selections &amp; layout consultations</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>Remodeling</h3>
-        <p>Kitchen and bath updates, drywall, trim, flooring, and finish carpentry coordinated start to finish.</p>
-        <ul>
-          <li>Design collaboration &amp; consultations</li>
-          <li>Material sourcing</li>
-          <li>Detailed schedules</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>Maintenance</h3>
-        <p>Recurring visits with checklists, seasonal tune-ups, and documented repairs handled in one visit.</p>
-        <ul>
-          <li>Monthly walkthroughs</li>
-          <li>Punch list repairs</li>
-          <li>Emergency coordination</li>
-        </ul>
-      </article>
-    </div>
-    <div class="hero__actions">
-      <a class="btn btn--primary" href="{{ '/services/' | relative_url }}">View full services</a>
-      <a class="btn btn--ghost" href="{{ '/portfolio/' | relative_url }}">See recent projects</a>
-    </div>
-  </div>
-</section>
 
 <section id="plans" class="section section--muted" aria-labelledby="plans-title" data-animate="reveal">
   <div class="container">
@@ -244,25 +177,3 @@ styles:
   }
 </style>
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "Tillerstead LLC",
-    "image": "https://tillerstead.com/assets/img/og.jpg",
-    "url": "https://tillerstead.com/",
-    "telephone": "+1-609-665-9350",
-    "email": "info@tillerstead.com",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "325 E. Jimmie Leeds Road, Suite 7-333",
-      "addressLocality": "Galloway",
-      "addressRegion": "NJ",
-      "postalCode": "08205",
-      "addressCountry": "US"
-    },
-    "areaServed": ["Atlantic County", "Ocean County", "Cape May County"],
-    "serviceType": ["Tile installation and waterproofing", "Kitchen and bathroom remodeling", "Monthly property maintenance"]
-  }
-</script>

@@ -19,7 +19,8 @@
 
 {%- assign meta_description = page.description | default: site.description | default: 'Tillerstead LLC provides monthly property maintenance, remodeling, and waterproof tile installations for South Jersey homeowners, landlords, and small commercial spaces.' -%}
 <meta name="description" content="{{ meta_description | escape }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- Viewport (single authoritative declaration) -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 {%- assign meta_keywords = page.keywords | default: site.keywords -%}
 {% if meta_keywords %}
@@ -73,6 +74,8 @@
 <meta property="og:image:alt" content="Tillerstead LLC - Property Maintenance, Remodeling & Tile in South Jersey">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<!-- Preload hero logo for faster LCP -->
+<link rel="preload" as="image" href="{{ '/assets/img/logo/tillerstead-logo-full.svg' | relative_url }}" imagesrcset="{{ '/assets/img/logo/tillerstead-logo-full.svg' | relative_url }}" fetchpriority="high">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -97,8 +100,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Preload Critical CSS -->
-<link rel="preload" href="{{ '/assets/css/tokens.css' | relative_url }}" as="style">
+<!-- Preload Critical CSS (corrected path for tokens) -->
+<link rel="preload" href="{{ '/assets/styles/tokens.css' | relative_url }}" as="style">
 <link rel="preload" href="{{ '/assets/css/base.css' | relative_url }}" as="style">
 
 <!-- Fonts: Optimized Loading with Font Display -->
@@ -111,8 +114,33 @@
         rel="stylesheet">
 </noscript>
 
-<!-- CSS Architecture - Organized by Layer -->
-<link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}" media="screen">
+<!-- Inline critical CSS: minimal above-the-fold (header, hero, buttons, layout) -->
+<style data-critical>
+  :root { color-scheme: dark light; }
+  body { margin:0; font-family: var(--font-sans, system-ui); background: var(--color-bg,#0a1628); color: var(--color-text,#fff); }
+  .site-header { position:sticky; top:0; z-index:1000; background:rgba(2,6,23,.88); backdrop-filter:blur(12px); border-bottom:1px solid rgba(148,163,184,.12); }
+  .site-header-inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; min-height:4rem; padding:.75rem clamp(.75rem,3vw,1.5rem); }
+  .site-logo-img { width:clamp(100px,14vw,148px); height:auto; display:block; }
+  .nav-toggle { display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(148,163,184,.35); background:transparent; color:var(--color-text,#fff); font-size:.875rem; font-weight:600; min-width:44px; min-height:44px; padding:.5rem .9rem; border-radius:999px; cursor:pointer; }
+  .nav-toggle:hover { background:rgba(148,163,184,.12); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.65rem 1.25rem; font-size:.95rem; font-weight:650; line-height:1.2; border-radius:999px; text-decoration:none; background:linear-gradient(135deg,#1ac87a,#0fa868); color:#022c1a; border:1px solid transparent; box-shadow:0 6px 16px rgba(26,200,122,.32); transition:box-shadow .15s,transform .15s; min-height:44px; }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(26,200,122,.38); }
+  .btn.btn-ghost { background:transparent; color:var(--color-text,#fff); box-shadow:none; border:1px solid rgba(148,163,184,.28); }
+  .btn.btn-ghost:hover { background:rgba(148,163,184,.12); }
+  .hero-title { font-weight:800; letter-spacing:-.02em; line-height:1.1; font-size:clamp(2.1rem,3.6vw,3rem); margin:0 0 1rem; }
+  .hero-lead { font-size:1.05rem; line-height:1.65; max-width:65ch; margin:0 0 1.25rem; color:var(--color-text-muted,#e2e8f0); }
+  .hero-actions { display:flex; flex-wrap:wrap; gap:.75rem; }
+  .eyebrow,.hero-eyebrow { display:inline-block; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; font-weight:700; margin:0 0 .75rem; color:var(--color-accent,#d8b25a); }
+  .hero-kpis { display:grid; gap:.75rem; margin:1.25rem 0 0; padding:0; list-style:none; }
+  .hero-kpi { padding:.9rem 1rem; border:1px solid rgba(26,200,122,.2); border-radius:1rem; background:rgba(15,34,64,.6); }
+  .hero-kpi-label { display:block; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; margin:0 0 .25rem; color:#1ac87a; }
+  main.site-main { min-height:50vh; }
+  .container { max-width:1140px; margin-inline:auto; padding-inline:clamp(1rem,4vw,2.5rem); }
+  @media (min-width:920px){ .hero-kpis{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));} }
+  @media (prefers-reduced-motion:reduce){ .btn,.nav-toggle{transition:none;} }
+</style>
+<!-- CSS Architecture - Organized by Layer (corrected tokens path) -->
+<link rel="stylesheet" href="{{ '/assets/styles/tokens.css' | relative_url }}" media="screen">
 <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}" media="screen">
 <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}" media="screen">
 <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}" media="screen">
@@ -131,40 +159,20 @@
 {% endif %}
 
 <!-- Structured Data / JSON-LD -->
+<!-- Core LocalBusiness schema (single source to avoid duplication). Page-specific schemas can extend via page.schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "@id": "{{ site.url }}/#contractor",
   "name": "Tillerstead LLC",
-  "alternateName": "Tillerstead",
   "description": "{{ meta_description | escape }}",
   "url": "{{ site.url }}/",
   "image": "{{ site.default_og_image | absolute_url }}",
   "telephone": "{{ site.company.phone_link }}",
   "email": "{{ site.company.email }}",
   "priceRange": "$$",
-  "areaServed": [
-    {
-      "@type": "State",
-      "name": "New Jersey"
-    },
-    {
-      "@type": "City",
-      "name": "Atlantic County",
-      "addressRegion": "NJ"
-    },
-    {
-      "@type": "City",
-      "name": "Ocean County",
-      "addressRegion": "NJ"
-    },
-    {
-      "@type": "City",
-      "name": "Cape May County",
-      "addressRegion": "NJ"
-    }
-  ],
+  "areaServed": ["Atlantic County NJ","Ocean County NJ","Cape May County NJ"],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "{{ site.company.address_line }}",
@@ -172,13 +180,7 @@
     "addressRegion": "{{ site.company.address_region }}",
     "postalCode": "{{ site.company.address_postal_code }}",
     "addressCountry": "US"
-  },
-  "serviceType": [
-    "Tile installation and waterproofing",
-    "Kitchen and bathroom remodeling",
-    "Monthly property maintenance",
-    "Drywall and finish carpentry"
-  ]
+  }
 }
 </script>
 

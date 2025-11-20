@@ -132,13 +132,14 @@
      Shadows (Enhanced for Boss Theme)
      =========================== */
   
-  --shadow-soft: 0 24px 40px rgba(2, 6, 23, 0.45);
-  --shadow-lift: 0 36px 72px rgba(2, 6, 23, 0.6);
-  --shadow-sharp: 0 20px 38px rgba(15, 23, 42, 0.55);
-  --shadow-button: 0 16px 36px rgba(26, 200, 122, 0.35);
-  --shadow-button-hover: 0 24px 48px rgba(26, 200, 122, 0.4);
-  --shadow-glow: 0 0 20px rgba(26, 200, 122, 0.4), 0 0 40px rgba(26, 200, 122, 0.2);
-  --shadow-glow-accent: 0 0 20px rgba(216, 178, 90, 0.4), 0 0 40px rgba(216, 178, 90, 0.2);
+   /* Performance-tuned shadows (reduced blur + spread for lower paint cost) */
+   --shadow-soft: 0 8px 20px rgba(2, 6, 23, 0.35);
+   --shadow-lift: 0 16px 32px rgba(2, 6, 23, 0.45);
+   --shadow-sharp: 0 12px 24px rgba(15, 23, 42, 0.5);
+   --shadow-button: 0 6px 16px rgba(26, 200, 122, 0.32);
+   --shadow-button-hover: 0 10px 24px rgba(26, 200, 122, 0.38);
+   --shadow-glow: 0 0 14px rgba(26, 200, 122, 0.35), 0 0 28px rgba(26, 200, 122, 0.18);
+   --shadow-glow-accent: 0 0 14px rgba(216, 178, 90, 0.35), 0 0 28px rgba(216, 178, 90, 0.18);
 
   /* ===========================
      Transitions

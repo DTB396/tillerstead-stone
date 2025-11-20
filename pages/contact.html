@@ -62,6 +62,7 @@ hero_kpis:
       method="post"
       action="{{ page.url | relative_url }}"
       aria-describedby="form-intro"
+      aria-live="polite"
     >
       <div class="form-grid">
         <div class="form-field">
@@ -203,14 +204,26 @@ hero_kpis:
         >
       </div>
 
-      <p class="form-note">
-        Your information stays with Tillerstead. It’s used only to coordinate your tile scope,
-        prepare documentation, and keep you updated — never sold or shared.
-      </p>
+      <div class="form-field">
+        <label for="request-type">Request type<span class="sr-only"> (required)</span><span aria-hidden="true">*</span></label>
+        <select id="request-type" name="request_type" required aria-required="true">
+          <option value="">Select a request focus</option>
+          <option>Design & Tile Consultation</option>
+          <option>Site Visit / Estimate</option>
+          <option>Monthly Property Maintenance Plan</option>
+          <option>General Contractor / Trade Partner Collaboration</option>
+          <option>Subcontracting Inquiry</option>
+          <option>Other / Not Sure Yet</option>
+        </select>
+      </div>
 
-      <button type="submit" class="btn btn-primary">
-        Submit request
-      </button>
+      <p class="form-note" id="privacy-note">
+        Your information stays with Tillerstead. It’s used only to coordinate your scope, prepare documentation,
+        and keep you updated — never sold or shared.
+      </p>
+      <div class="form-status sr-only" aria-live="polite" id="form-status"></div>
+
+      <button type="submit" class="btn btn-primary" aria-describedby="privacy-note">Submit request</button>
     </form>
 
     <aside class="contact-alt">
@@ -231,3 +244,26 @@ hero_kpis:
     </aside>
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "{{ site.url }}/contact/#page",
+  "url": "{{ site.url }}/contact/",
+  "about": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Tillerstead LLC",
+    "telephone": "{{ site.company.phone_link }}"
+  },
+  "mainEntity": {
+    "@type": "Action",
+    "name": "Submit Service or Maintenance Request",
+    "target": "{{ site.url }}/contact/",
+    "result": {
+      "@type": "Thing",
+      "name": "Estimate / Plan Follow-up"
+    }
+  }
+}
+</script>

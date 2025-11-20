@@ -25,40 +25,29 @@ button.btn {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.65rem 1.35rem;
+  padding: 0.65rem 1.25rem;
   border-radius: var(--ts-radius-pill);
   border: 1px solid transparent;
-  background: linear-gradient(
-    135deg,
-    var(--ts-primary) 0%,
-    var(--ts-primary-strong) 100%
-  );
+  background: var(--gradient-primary);
   color: #022c1a;
   font-size: 0.95rem;
   font-weight: 650;
   line-height: 1.2;
   cursor: pointer;
   text-decoration: none;
-  transition:
-    transform var(--ts-transition-fast),
-    box-shadow var(--ts-transition-fast),
-    background var(--ts-transition-fast),
-    color var(--ts-transition-fast);
-  box-shadow: 0 16px 36px rgba(26, 200, 122, 0.35);
-  /* Better touch targets for mobile */
+  transition: background var(--ts-transition-fast), color var(--ts-transition-fast), box-shadow var(--ts-transition-fast), transform var(--ts-transition-fast);
+  box-shadow: var(--shadow-button);
   min-height: 44px;
   min-width: 44px;
-  /* Prevent text selection on buttons */
   user-select: none;
   -webkit-user-select: none;
-  /* Better button performance */
   will-change: transform;
 }
 
 .btn:hover,
 .btn:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 24px 48px rgba(26, 200, 122, 0.4);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
 }
 
 .btn-ghost {
@@ -255,17 +244,17 @@ button.btn {
 .hero-ctas .btn,
 .hero-actions .btn {
   position: relative;
-  padding: 0.85rem 2rem;
-  font-size: 1.05rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 1.02rem;
   font-weight: 600;
-  box-shadow: 0 20px 40px rgba(26, 200, 122, 0.3);
+  box-shadow: var(--shadow-button);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-ctas .btn:hover,
   .hero-actions .btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 28px 56px rgba(26, 200, 122, 0.4);
+    transform: translateY(-2px) scale(1.015);
+    box-shadow: var(--shadow-button-hover);
   }
 }
 
@@ -2550,4 +2539,123 @@ textarea {
     border-width: 2px;
   }
 }
+
+/* ============================================
+   Inline SVG Logo Theming
+   ============================================ */
+.ts-logo-svg,
+.ts-logo-svg-full {
+  display: block;
+}
+.ts-logo-mark {
+  stroke: var(--color-accent, #d8b25a);
+}
+.ts-logo-tile {
+  fill: var(--color-surface, #0a1628);
+}
+.ts-logo-word {
+  fill: var(--color-primary, #1ac87a);
+  font-family: var(--font-sans, system-ui, -apple-system, 'Segoe UI', sans-serif);
+  letter-spacing: 0.5px;
+}
+.ts-logo-tag {
+  fill: var(--color-primary, #1ac87a);
+  opacity: 0.9;
+  font-family: var(--font-sans, system-ui, -apple-system, 'Segoe UI', sans-serif);
+}
+
+/* Light mode overrides for better contrast */
+@media (prefers-color-scheme: light) {
+  .ts-logo-tile { fill: var(--color-surface-elevated, #f8fafc); }
+  .ts-logo-word, .ts-logo-tag { fill: var(--color-heading, #0a1628); }
+}
+
+/* Hover / focus glow interactions */
+.ts-logo-tile { transition: transform var(--transition-fast), fill var(--transition-fast), stroke var(--transition-fast), filter var(--transition-fast); }
+@media (hover: hover) and (pointer: fine) {
+  .ts-logo-link:hover .ts-logo-mark,
+  .ts-logo-link:focus-visible .ts-logo-mark,
+  .ts-logo-footer:hover .ts-logo-mark {
+    filter: drop-shadow(0 0 6px rgba(26, 200, 122, 0.55)) drop-shadow(0 0 12px rgba(216, 178, 90, 0.35));
+  }
+  .ts-logo-link:hover .ts-logo-tile,
+  .ts-logo-link:focus-visible .ts-logo-tile,
+  .ts-logo-footer:hover .ts-logo-tile { transform: translateY(-2px); }
+}
+
+/* Active state (mouse down) provides tactile feedback */
+.ts-logo-link:active .ts-logo-tile { transform: translateY(0) scale(.96); }
+
+/* Explicit theme class support from JS (html.light) */
+html.light .ts-logo-tile { fill: var(--color-surface-elevated, #f8fafc); }
+html.light .ts-logo-word,
+html.light .ts-logo-tag { fill: var(--color-heading, #0a1628); }
+
+/* Reduced motion: remove transforms & glows */
+@media (prefers-reduced-motion: reduce) {
+  .ts-logo-tile,
+  .ts-logo-link:hover .ts-logo-tile,
+  .ts-logo-link:focus-visible .ts-logo-tile { transition: none; transform: none; }
+  .ts-logo-link:hover .ts-logo-mark,
+  .ts-logo-link:focus-visible .ts-logo-mark { filter: none; }
+}
+
+/* ============================================
+   Global High Contrast Mode (html.high-contrast)
+   ============================================ */
+html.high-contrast {
+  --color-surface: #000 !important;
+  --color-surface-elevated: #000 !important;
+  --color-bg: #000 !important;
+  --color-text: #fff !important;
+  --color-heading: #fff !important;
+  --color-primary: #fff !important;
+  --color-accent: #ffff33 !important;
+  --color-border: #fff !important;
+  --color-border-strong: #fff !important;
+  --shadow-button: none !important;
+  --shadow-button-hover: none !important;
+  --shadow-lift: none !important;
+  --shadow-soft: none !important;
+  background: #000;
+  color: #fff;
+}
+html.high-contrast body { background:#000; color:#fff; }
+html.high-contrast .btn,
+html.high-contrast a.btn { background:#fff !important; color:#000 !important; box-shadow:none !important; border:2px solid #fff !important; }
+html.high-contrast .btn:hover { transform:none; }
+html.high-contrast .nav-toggle { background:#000; color:#fff; border:2px solid #fff; }
+html.high-contrast .site-header { background:#000 !important; backdrop-filter:none; border-bottom:2px solid #fff; }
+html.high-contrast .ts-logo-word, html.high-contrast .ts-logo-tag { fill:#fff !important; }
+html.high-contrast .ts-logo-tile { fill:#000 !important; stroke:#fff !important; }
+html.high-contrast .hero-kpi { background:#000 !important; border:2px solid #fff !important; }
+html.high-contrast img { filter:none !important; }
+html.high-contrast .chip, html.high-contrast .ts-eyebrow { background:#000 !important; border:2px solid #fff !important; color:#fff !important; box-shadow:none !important; }
+html.high-contrast .service-card, html.high-contrast .feature-card, html.high-contrast .contact-card { background:#000 !important; border:2px solid #fff !important; box-shadow:none !important; }
+html.high-contrast .section-divider { background:#fff !important; }
+html.high-contrast .footer-heading { color:#fff !important; }
+html.high-contrast a { color:#fff; text-decoration:underline; }
+html.high-contrast a:hover { color:#ffff33; }
+html.high-contrast *:focus-visible { outline:3px solid #ffff33 !important; outline-offset:3px; box-shadow:none !important; }
+html.high-contrast .contrast-toggle { background:#000; color:#ffff33; border:2px solid #ffff33; }
+html.high-contrast .contrast-toggle[aria-pressed="true"] { background:#ffff33; color:#000; }
+
+/* Dev overlay styling */
+.ts-dev-overlay { position:fixed; bottom:0; right:0; width:340px; max-height:70vh; z-index:4000; background:#0a1628; color:#fff; font:12px/1.4 var(--font-sans, system-ui); border:1px solid rgba(255,255,255,.25); border-radius:.5rem .5rem 0 0; box-shadow:0 8px 24px rgba(0,0,0,.45); display:flex; flex-direction:column; }
+.ts-dev-overlay-head { display:flex; justify-content:space-between; align-items:center; padding:.5rem .75rem; background:#14263d; border-bottom:1px solid rgba(255,255,255,.12); }
+.ts-dev-overlay-head button { background:none; border:none; color:#fff; font-size:1.1rem; cursor:pointer; }
+.ts-dev-section { padding:.5rem .75rem; overflow:auto; }
+.ts-dev-section h4 { margin:.25rem 0 .5rem; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:#1ac87a; }
+.ts-dev-contrast-list { display:grid; gap:.4rem; max-height:180px; overflow:auto; }
+.ts-dev-item { padding:.4rem .5rem; background:#14263d; border:1px solid rgba(255,255,255,.1); border-radius:.35rem; display:grid; gap:.25rem; }
+.ts-dev-meta { display:flex; flex-wrap:wrap; gap:.5rem; font-size:.65rem; color:#cbd5e1; }
+.ts-dev-item code { font-size:.65rem; background:#0a1628; padding:.15rem .3rem; border-radius:.25rem; }
+.ts-dev-text { font-size:.7rem; font-weight:600; }
+.ts-dev-seo { margin:0; font-size:.65rem; background:#0a1628; padding:.5rem; border:1px solid rgba(255,255,255,.1); border-radius:.35rem; max-height:140px; overflow:auto; }
+.ts-dev-foot { padding:.4rem .75rem; border-top:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:space-between; font-size:.65rem; }
+.ts-dev-overlay button[data-copy-contrast] { margin-top:.4rem; background:#1ac87a; border:none; color:#022c1a; font-weight:700; padding:.35rem .6rem; font-size:.65rem; border-radius:.35rem; cursor:pointer; }
+.ts-dev-overlay button[data-copy-contrast]:hover { filter:brightness(1.1); }
+.ts-dev-overlay input[type="checkbox"] { vertical-align:middle; }
+
+
 

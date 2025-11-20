@@ -329,3 +329,98 @@ npm run lint
 2. Deploy to GitHub Pages or Netlify (automatic Jekyll processing)
 3. Serve locally: `python3 -m http.server` after Jekyll build
 
+---
+
+## ♿ Accessibility & Contrast System
+
+The site implements a two‑layer automated contrast strategy to help maintain WCAG 2.1 AA/AAA color ratios during theme changes and future content updates.
+
+### 1. Mix‑Based Contrast (`contrast.js`)
+Elements marked with the class `.c-contrast` get dynamic CSS custom properties:
+- Computes relative luminance of the effective background (walks up DOM tree)
+- Chooses white or black “pole” yielding higher ratio
+- Binary‑searches the minimum color‑mix percentage needed to reach a target ratio (default 7:1 AAA)
+- Exposes `window.applyContrast(targetRatio?)` for manual invocation (used after theme toggle)
+
+Use when you want deterministic, token‑agnostic high contrast for critical UI (e.g., badges, metric labels):
+```html
+<span class="c-contrast" style="color: color-mix(in srgb, var(--mix-pole) var(--mix-perc), transparent);">42 Projects</span>
+```
+
+### 2. Brand Auto‑Correction (`auto-contrast.js`)
+Runs once on load (and re‑invoked after theme toggle) scanning semantic text nodes:
+- Targets: `h1–h6, p, li, a, button, span, small`
+- Skips: `.c-contrast` and empty/whitespace elements
+- Determines required ratio: 4.5:1 for normal, 3.0:1 for “large” (≥18.66px or ≥14px & bold ≥700)
+- Attempts brand palette substitutions in priority order: heading → primary → accent → primaryStrong
+- Fallback: incremental lightening/darkening toward black or white (15% steps, max 16 iterations)
+- Safety: Never applies a color that worsens existing contrast
+- Metadata attributes added for auditing: `data-contrast-original`, `data-contrast-bg`, `data-contrast-fixed`, `data-contrast-ratio`
+- Exposes `window.autoContrast()` for manual calls
+
+### Theme Toggle Integration
+`main.js` theme button now triggers:
+```js
+if (typeof window.applyContrast === 'function') window.applyContrast();
+if (typeof window.autoContrast === 'function') window.autoContrast();
+```
+Ensures both systems re‑evaluate after switching between dark and light palettes (`html.light`).
+
+### When to Use Which
+| Use Case | Recommended Layer |
+|----------|-------------------|
+| KPI badges, status chips | `.c-contrast` (precise mix) |
+| Long‑form content paragraphs | Auto‑contrast (brand‑first) |
+| Dynamically injected text via JS | Call `autoContrast()` after insertion |
+| Marketing highlight needing exact AAA | `.c-contrast` with explicit target 7 |
+
+### Manual Re‑Run Examples
+```html
+<script>
+  // Re-evaluate after dynamically inserting cards
+  fetch('/data/new.json')
+    .then(r => r.json())
+    .then(items => {
+      const list = document.getElementById('dynamic-list');
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.title;
+        list.appendChild(li);
+      });
+      window.autoContrast?.();
+    });
+</script>
+```
+
+### Auditing Adjusted Elements
+In DevTools console:
+```js
+[...document.querySelectorAll('[data-contrast-fixed]')]
+  .map(el => ({text: el.textContent.trim().slice(0,40), orig: el.dataset.contrastOriginal, bg: el.dataset.contrastBg, ratio: el.dataset.contrastRatio}))
+```
+
+### Reduced Motion & Safety Considerations
+- Neither script uses MutationObservers (avoids Safari infinite loop crash).
+- Auto‑contrast ignores elements with gradient backgrounds to prevent unintended brand clashes.
+
+### Extending Further
+Potential future enhancements (not yet implemented):
+- Dev overlay panel listing contrast fixes live.
+- Color contrast warnings for images overlaid with text (needs pixel sampling or API).
+- Persisting user “high contrast mode” preference (toggle to force 7:1 everywhere).
+
+### Keyboard Shortcuts
+| Shortcut | Action |
+|----------|--------|
+| Alt + Shift + C | Toggle High Contrast mode (global palette swap) |
+| Alt + Shift + A | Toggle Audit Panel (reloads when enabling) |
+
+### Dev Audit (No Node Fallback)
+Run a lightweight heuristic audit without installing Node:
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/dev-audit.ps1
+```
+Outputs per HTML file: title length, meta description length, canonical presence, H1 count, missing `alt`, inline color style count.
+
+---
+

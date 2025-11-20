@@ -1,3 +1,7 @@
+<!-- Dev overlay audit (loaded always; self-activates only with ?audit=1 or localStorage flag) -->
+<script defer
+  src="{{ '/assets/js/dev-overlay.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
+  crossorigin="anonymous"></script>
 {%- comment -%}
   Global and per-page scripts with modern loading strategies
   - defer: Non-blocking, executes in order
@@ -8,32 +12,25 @@
   IMPORTANT: Each script loaded only ONCE to prevent conflicts.
 {%- endcomment -%}
 
-<!-- Navigation / Interactivity -->
+<!-- Brand auto contrast correction (runs first so main.js theme toggle can call it) -->
 <script defer
-        src="{{ '/assets/js/nav-toggle.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
-        crossorigin="anonymous"
-        integrity="">
-</script>
+  src="{{ '/assets/js/auto-contrast.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
+  crossorigin="anonymous"></script>
 
-<!-- Main site behaviors -->
+<!-- Dynamic contrast adjustments (WCAG color ratios via mix system) -->
 <script defer
-        src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
-        crossorigin="anonymous">
-</script>
+  src="{{ '/assets/js/contrast.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
+  crossorigin="anonymous"></script>
 
-<!-- Accessibility enhancements -->
+<!-- Main site behaviors (navigation, theme, form handling) -->
 <script defer
-        src="{{ '/assets/js/accessibility.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
-        crossorigin="anonymous">
-</script>
+  src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
+  crossorigin="anonymous"></script>
 
-<!-- Contrast / Theme toggle (if enabled) -->
-{% if site.theme.animations_enabled %}
-  <script defer
-          src="{{ '/assets/js/animation-controller.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
-          crossorigin="anonymous">
-  </script>
-{% endif %}
+<!-- Optional loading screen (non-blocking) -->
+<script defer
+  src="{{ '/assets/js/loading-screen.js' | relative_url }}?v={{ site.assets_version | default: '1.0' }}"
+  crossorigin="anonymous"></script>
 
 <!-- Reduced motion detection -->
 <script>

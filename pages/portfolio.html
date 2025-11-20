@@ -33,13 +33,16 @@ hero_bg_pattern: "sacred-tile"
   <div class="gallery-slider" id="gallery-slider" aria-live="polite">
     <figure class="slide">
       <div class="slide-media">
-        <img id="slide-image"
-             src="{{ fallback_src }}"
-             alt="{{ fallback_alt | escape }}"
-             width="1280"
-             height="960"
-             loading="lazy"
-             decoding="async">
+        <picture id="slide-picture">
+          <source id="slide-source-webp" type="image/webp">
+          <img id="slide-image"
+               src="{{ fallback_src }}"
+               alt="{{ fallback_alt | escape }}"
+               width="1280"
+               height="960"
+               loading="lazy"
+               decoding="async">
+        </picture>
       </div>
       <figcaption class="slide-caption">
         <p id="slide-caption-text">{{ fallback_caption }}</p>
@@ -162,8 +165,16 @@ const PROJECTS = {{ projects | jsonify | replace: '</', '<\/' }};
     if (!slides.length) return;
     index = (newIndex + slides.length) % slides.length;
     const slide = slides[index];
-
-    imgEl.src = BASE + slide.file;
+    const sourceEl = document.getElementById('slide-source-webp');
+    const hasWebp = !!slide.file_webp;
+    if (sourceEl) {
+      if (hasWebp) {
+        sourceEl.srcset = BASE + slide.file_webp;
+      } else {
+        sourceEl.removeAttribute('srcset');
+      }
+    }
+    imgEl.src = BASE + slide.file; // Primary (jpg or webp). If webp-only older browsers may not show; acceptable given support.
     imgEl.alt = slide.alt || '';
     captionEl.textContent = slide.caption || '';
     metaEl.textContent = `${TAG_LABELS[currentFilter] || 'All work'} · ${index + 1} of ${slides.length}`;

@@ -20,6 +20,35 @@
       <!-- Breadcrumb navigation (hidden on homepage) -->
       {%- include breadcrumbs.html -%}
 
+      {%- comment -%}
+      BreadcrumbList JSON-LD (lightweight; avoids duplication with inline microdata)
+      Generated only for non-home pages.
+      {%- endcomment -%}
+      {%- if page.url != '/' and page.breadcrumb != false -%}
+        {%- assign crumb_position = 1 -%}
+        {%- assign path = page.url | replace: 'index.html', '' -%}
+        {%- assign segments = path | split: '/' -%}
+        {%- assign crumbs = '' -%}
+        {%- assign crumbs = crumbs | append: '{"@type":"ListItem","position":' | append: crumb_position | append: ',"name":"Home","item":"' | append: site.url | append: '/"}' -%}
+        {%- assign crumb_position = crumb_position | plus: 1 -%}
+        {%- assign current_path = '' -%}
+        {%- for segment in segments -%}
+          {%- if segment == '' -%}{% continue %}{%- endif -%}
+          {%- assign current_path = current_path | append: '/' | append: segment -%}
+          {%- assign is_last = forloop.last -%}
+          {%- if is_last -%}
+            {%- assign label = page.breadcrumb_title | default: page.title | default: segment | replace: '-', ' ' | capitalize -%}
+          {%- else -%}
+            {%- assign label = segment | replace: '-', ' ' | capitalize -%}
+          {%- endif -%}
+          {%- assign crumbs = crumbs | append: ',{"@type":"ListItem","position":' | append: crumb_position | append: ',"name":"' | append: label | append: '","item":"' | append: site.url | append: current_path | append: '/"}' -%}
+          {%- assign crumb_position = crumb_position | plus: 1 -%}
+        {%- endfor -%}
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{ crumbs }}]}
+        </script>
+      {%- endif -%}
+
       <!-- Page hero section (unless hidden) -->
       {%- unless page.hide_hero -%}
         {%- include page-hero.html -%}
