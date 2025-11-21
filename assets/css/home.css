@@ -25,22 +25,90 @@
   padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
-.hero__grid {
-  display: grid;
-  gap: clamp(2.5rem, 5vw, 4rem);
-  align-items: start;
+.hero--center {
+  border-radius: var(--radius-xl);
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lift);
+  padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
-@media (min-width: 920px) {
-  .hero__grid {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: clamp(3rem, 6vw, 5rem);
-  }
+.hero--center::before,
+.hero--center::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero--center::before {
+  background-image:
+    linear-gradient(120deg, rgba(244, 239, 228, 0.92), rgba(244, 239, 228, 0.65)),
+    var(--hero-texture);
+  background-size: cover;
+  background-position: center;
+  opacity: var(--hero-texture-opacity);
+  mix-blend-mode: multiply;
+}
+
+.hero--center::after {
+  background: radial-gradient(circle at 85% 20%, rgba(201, 154, 63, 0.35), transparent 55%);
+  opacity: 0.5;
+}
+
+.hero--center > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__grid {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__grid--centered {
+  text-align: center;
 }
 
 .hero__content {
   display: grid;
   gap: var(--space-4);
+  max-width: 760px;
+}
+
+.hero__content--center {
+  justify-items: center;
+}
+
+.hero__logo {
+  width: min(420px, 70vw);
+  margin-inline: auto;
+}
+
+.hero__actions--center {
+  justify-content: center;
+}
+
+.hero__stats {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  text-align: left;
+}
+
+.hero__stats dt {
+  font-weight: 700;
+  color: var(--color-heading);
+  font-size: 1.2rem;
+}
+
+.hero__stats dd {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
 }
 
 .hero__panel {
@@ -153,6 +221,114 @@
 }
 
 /* ============================================
+   GALLERY STRIP
+   ============================================ */
+
+.gallery-strip {
+  padding: clamp(2rem, 5vw, 3rem) 0;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.gallery-strip__inner {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  background: var(--gradient-section);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+@media (min-width: 960px) {
+  .gallery-strip__inner {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+  }
+}
+
+.gallery-strip__copy {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.gallery-strip__copy h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--color-heading);
+}
+
+.gallery-strip__copy p {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.gallery-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.gallery-strip__item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 180px;
+  box-shadow: var(--shadow-soft);
+  isolation: isolate;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-strip__item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-med);
+}
+
+.gallery-strip__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.55) 100%);
+  opacity: 0.85;
+  z-index: 1;
+  transition: opacity var(--transition-med);
+}
+
+.gallery-strip__item figcaption {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  color: #fdfbf7;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.gallery-strip__item figcaption strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.gallery-strip__item figcaption span {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.gallery-strip__item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-strip__item:hover::after {
+  opacity: 0.7;
+}
+
+/* ============================================
    MODERN SERVICE GRID
    ============================================ */
 
@@ -222,9 +398,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(0, 168, 107, 0.16) 0%, rgba(139, 111, 71, 0.12) 100%);
-  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-accent-soft) 100%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.service-card__icon svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  stroke: var(--color-primary);
+  stroke-width: 1.6;
+  fill: none;
+}
+
+.service-card__icon svg .accent {
+  stroke: var(--color-accent);
 }
 
 .service-card__eyebrow {

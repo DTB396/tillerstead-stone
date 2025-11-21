@@ -21,9 +21,37 @@ Usage: {% include services-section.html %}
         {% for s in services %}
           <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
             <div class="service-card__header">
-              {% if s.icon %}
-                <div class="service-card__icon" aria-hidden="true">{{ s.icon }}</div>
-              {% endif %}
+              {% assign service_icon = s.icon | default: s.id %}
+              <div class="service-card__icon" aria-hidden="true">
+                {% case service_icon %}
+                  {% when 'tile' %}
+                    <svg viewBox="0 0 32 32" role="presentation" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="10" height="10" rx="2"/>
+                      <rect x="13" y="3" width="10" height="10" rx="2"/>
+                      <rect x="23" y="3" width="6" height="10" rx="2"/>
+                      <rect x="8" y="15" width="10" height="10" rx="2"/>
+                      <rect x="18" y="15" width="10" height="10" rx="2"/>
+                      <path class="accent" d="M6 27h8M18 27h8"/>
+                    </svg>
+                  {% when 'remodeling' %}
+                    <svg viewBox="0 0 34 32" role="presentation" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 28h28" />
+                      <path d="M7 28v-9.5a2 2 0 0 1 .74-1.55l8.26-6.64a2 2 0 0 1 2.5 0l8.26 6.64A2 2 0 0 1 27 18.5V28" />
+                      <path class="accent" d="M13 28v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6" />
+                      <path d="M4 13l13-10 13 10" />
+                    </svg>
+                  {% when 'maintenance' %}
+                    <svg viewBox="0 0 32 32" role="presentation" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 29s10-4.5 10-13V7.5L16 3 6 7.5V16c0 8.5 10 13 10 13z" />
+                      <path class="accent" d="M11 16l3 3 6-6" />
+                    </svg>
+                  {% else %}
+                    <svg viewBox="0 0 32 32" role="presentation" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="16" cy="16" r="10" />
+                      <path class="accent" d="M16 10v12M10 16h12" />
+                    </svg>
+                {% endcase %}
+              </div>
               <div>
                 <p class="service-card__eyebrow">Specialized service</p>
                 <h3 class="service-card__title" itemprop="name">{{ s.name }}</h3>

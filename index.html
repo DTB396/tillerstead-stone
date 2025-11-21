@@ -26,14 +26,72 @@ hero_kpis:
 ---
 {% comment %} Hero rendered by unified-hero include via front-matter above {% endcomment %}
 
-<section class="home-logo" aria-labelledby="home-logo-title" data-animate="reveal">
-  <div class="container">
-    <div class="home-logo__inner">
-      <h1 id="home-logo-title" class="sr-only">Tillerstead LLC logo</h1>
-      {% include logo-hero.html %}
+<section class="hero hero--center" aria-labelledby="home-hero-title" data-animate="reveal">
+  <div class="container hero__grid hero__grid--centered">
+    <div class="hero__content hero__content--center">
+      <div class="hero__logo">
+        {% include logo-hero.html %}
+      </div>
+      <p class="eyebrow">Owner-led remodels & tile for shore life</p>
+      <h1 id="home-hero-title">Craftsmanship built to handle shore life</h1>
+      <p class="lead">
+        Waterproof tile assemblies, clean remodeling finishes, and recurring property care for rentals, second homes, and boutique commercial spaces in South Jersey.
+      </p>
+      <div class="hero__actions hero__actions--center">
+        <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}">Book a consultation</a>
+        <a class="btn btn--ghost" href="{{ '/portfolio/' | relative_url }}">View recent work</a>
+      </div>
+      <dl class="hero__stats">
+        <div>
+          <dt>100% documented</dt>
+          <dd>Scopes, waterproof assemblies & change orders</dd>
+        </div>
+        <div>
+          <dt>&lt;24 hrs</dt>
+          <dd>Response time for maintenance clients</dd>
+        </div>
+        <div>
+          <dt>Licensed</dt>
+          <dd>NJ HIC #13VH10808800</dd>
+        </div>
+      </dl>
     </div>
   </div>
 </section>
+
+{% assign gallery_strip = site.data.portfolio_highlights.highlights | default: site.data.portfolio_highlights %}
+{% if gallery_strip and gallery_strip.size > 0 %}
+  <section class="gallery-strip" aria-labelledby="gallery-strip-title" data-animate="reveal">
+    <div class="container">
+      <div class="gallery-strip__inner">
+        <div class="gallery-strip__copy">
+          <p class="eyebrow">Documented detail</p>
+          <h2 id="gallery-strip-title">A glimpse at recent installs</h2>
+          <p>Large-format marble, brass-inlay niches, and waterproof assemblies photographed in Atlantic City, Margate, and Stone Harbor.</p>
+          <div class="hero__actions hero__actions--center">
+            <a class="btn btn--primary" href="{{ '/portfolio/' | relative_url }}">See the portfolio</a>
+            <a class="btn btn--ghost" href="{{ '/services/' | relative_url }}">Explore services</a>
+          </div>
+        </div>
+        <div class="gallery-strip__grid">
+          {% assign preview_items = gallery_strip | slice: 0, 5 %}
+          {% for item in preview_items %}
+            <figure class="gallery-strip__item">
+              <img src="{{ item.file | relative_url }}"
+                   alt="{{ item.alt | default: item.title | escape }}"
+                   loading="lazy"
+                   decoding="async">
+              <figcaption>
+                {% if item.title %}<strong>{{ item.title }}</strong>{% endif %}
+                {% if item.category %}<span> • {{ item.category }}</span>{% endif %}
+              </figcaption>
+            </figure>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
 
 <!-- Services overview (standardized include) -->
 {% include services-section.html %}
@@ -42,11 +100,10 @@ hero_kpis:
 <section id="plans" class="section section--muted" aria-labelledby="plans-title" data-animate="reveal">
   <div class="container">
     <div class="section__intro">
-      <p class="eyebrow">Stay ahead of issues</p>
-      <h2 id="plans-title">Monthly property care plans</h2>
+      <p class="eyebrow">Property care programs</p>
+      <h2 id="plans-title">Monthly maintenance plans for shore properties</h2>
       <p>
-        Choose the cadence that fits your property portfolio. Every visit includes photo documentation, a punch list, and
-        proactive recommendations before problems escalate.
+        Choose a cadence that matches your portfolio. Each visit delivers photo documentation, a punch list, and proactive recommendations before small issues become headline repairs.
       </p>
     </div>
     <div class="plan-grid">

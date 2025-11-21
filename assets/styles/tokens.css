@@ -69,6 +69,9 @@
   --bg-pattern: url("/assets/img/patterns/sacred-geometry-tile.webp");
   --bg-pattern-fallback: url("/assets/img/patterns/sacred-geometry-tile.png");
   --bg-pattern-svg: url("/assets/img/patterns/sacred-geometry-tile.svg");
+  --hero-texture: url("/assets/img/marble-bath.jpg");
+  --hero-texture-size: cover;
+  --hero-texture-opacity: 0.28;
   
   /* Pattern display properties */
   --bg-pattern-size: 200px;
