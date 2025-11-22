@@ -25,22 +25,21 @@ hero_bg_pattern: "sacred-tile"
 ---
 {% comment %} Hero rendered by unified-hero include via front-matter above {% endcomment %}
 
-<section class="hero hero--center" aria-labelledby="home-hero-title" data-animate="reveal">
+<section class="hero hero--center bg-gradient" aria-labelledby="home-hero-title" data-animate="reveal" style="border-radius: 2.5rem; box-shadow: var(--shadow-lift);">
   <div class="container hero__grid hero__grid--centered">
     <div class="hero__content hero__content--center">
-      <div class="hero__logo" aria-label="Tillerstead LLC logo">
+      <div class="hero__logo" aria-label="Tillerstead LLC logo" style="border-radius: 1.5rem; box-shadow: var(--shadow-soft); background: var(--gradient-primary);">
         {% include logo-hero.html %}
       </div>
-      <p class="eyebrow">Licensed NJ Home Improvement Contractor</p>
-      <h1 id="home-hero-title">Precision Tile, Remodeling & Property Care in South Jersey</h1>
-      <p class="lead">
+      <p class="eyebrow text-accent">Licensed NJ Home Improvement Contractor</p>
+      <h1 id="home-hero-title" class="heading-1 text-primary" style="text-shadow: 0 2px 8px rgba(26,200,122,0.12);">Precision Tile, Remodeling & Property Care in South Jersey</h1>
+      <p class="lead text-muted">
         Tillerstead LLC delivers waterproof tile assemblies, organized remodels, and proactive maintenance for homes, rentals, and businesses in Atlantic, Ocean, and Cape May Counties. Every project is documented, transparent, and built to earn your trust.
       </p>
-      <ul class="hero__stats" aria-label="Credentials and guarantees">
-        <li><strong>Documentation:</strong> 100% written scopes, waterproofing details & change orders</li>
-        <li><strong>Response time:</strong> &lt;24 hours for active clients</li>
-        <li><strong>Licensing:</strong> NJ HIC #13VH10808800, fully insured</li>
-        <li><strong>Warranty:</strong> Craftsmanship coverage on every tile assembly</li>
+      <ul class="hero__stats" aria-label="Credentials and guarantees" style="background: var(--gradient-surface-alt); border-radius: 1.25rem; box-shadow: var(--shadow-soft); padding: 1rem 2rem;">
+        <li><strong class="text-accent">Documentation:</strong> 100% written scopes, waterproofing details & change orders</li>
+        <li><strong class="text-accent">Response time:</strong> &lt;24 hours for active clients</li>
+        <li><strong class="text-accent">Licensing:</strong> NJ HIC #13VH10808800, fully insured</li>
       </ul>
       <div class="hero__actions hero__actions--center">
         <a class="btn btn--primary" href="{{ '/contact/' | relative_url }}">Request a consultation</a>
