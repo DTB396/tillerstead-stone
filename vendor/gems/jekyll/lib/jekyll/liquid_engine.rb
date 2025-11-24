@@ -81,6 +81,7 @@ module Jekyll
           case body
           when /^include\s+(.+)$/
             name = Regexp.last_match(1).strip
+            # Always render includes, especially in <head>
             "<%= render_include(#{name.dump}) %>"
           when /^if\s+(.+)$/
             "<% if liquid_condition(#{Regexp.last_match(1).dump}) %>"
@@ -108,9 +109,10 @@ module Jekyll
             ''
           end
         else
-          # For inline HTML, especially <a> tags, do not break tag pairing
-          if body =~ /^\/?a(\s|$)/
-            ""
+          # Always render includes and all tags
+          if body =~ /^include\s+(.+)$/
+            name = Regexp.last_match(1).strip
+            "<%= render_include(#{name.dump}) %>"
           else
             "{% #{body} %}"
           end

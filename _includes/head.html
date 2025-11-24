@@ -132,14 +132,16 @@
 <link rel="stylesheet" href="{{ '/assets/styles/tokens.css' | relative_url }}" media="screen">
 
 <!-- Page + theme layers (home.css then theme.css, then every remaining stylesheet to guarantee full coverage) -->
-{%- assign prioritized = 'home.css|theme.css' | split: '|' -%}
-{%- assign remaining = 'base.css|layout.css|components.css|breadcrumbs.css|cards.css|gallery.css|pattern-showcase.css|construction-banner.css' | split: '|' -%}
-{%- assign css_bundle = prioritized | concat: remaining -%}
-{%- for css_file in css_bundle -%}
-  <link rel="stylesheet"
-        href="{{ '/assets/css/' | append: css_file | relative_url }}"
-        media="screen">
-{%- endfor -%}
+<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/breadcrumbs.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/cards.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/pattern-showcase.css' | relative_url }}" media="screen">
+<link rel="stylesheet" href="{{ '/assets/css/construction-banner.css' | relative_url }}" media="screen">
 
 <!-- Page-Specific Styles -->
 {% if page.styles %}
