@@ -1,6 +1,6 @@
 {% assign hero_eyebrow = include.eyebrow | default: page.hero_eyebrow | default: 'Licensed NJ contractor' %}
-{% assign hero_title = include.title | default: page.hero_title | default: site.title %}
-{% assign hero_summary = include.summary | default: page.hero_summary | default: site.tagline %}
+{% assign hero_title = include.title | default: page.hero_title | default: 'Professional Property Upkeep for Landlords & Homeowners' %}
+{% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated waterproofing, refinishing, and maintenance plans that keep every rental or residence show-ready year-round.' %}
 {% assign hero_kpis = include.kpis | default: page.hero_kpis %}
 {% assign hero_primary_url = include.primary_url | default: page.hero_primary_url | default: '/contact/' %}
 {% assign hero_primary_label = include.primary_label | default: page.hero_primary_label | default: 'Request a consultation' %}
@@ -15,14 +15,25 @@
         <h1 class="hero-title">{{ hero_title }}</h1>
         <p class="hero-lead">{{ hero_summary }}</p>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="{{ hero_primary_url | relative_url }}">{{ hero_primary_label }}</a>
-          <a class="btn btn-ghost" href="{{ hero_secondary_url | relative_url }}">{{ hero_secondary_label }}</a>
+        <div class="hero-actions" role="group" aria-label="Primary actions">
+          <button class="btn btn--primary hero-cta" type="button" aria-label="{{ hero_primary_label }}" onclick="window.location.href='{{ hero_primary_url | relative_url }}'">
+            {{ hero_primary_label }}
+          </button>
+          <a class="btn btn--ghost" href="{{ hero_secondary_url | relative_url }}">{{ hero_secondary_label }}</a>
         </div>
 
         <div class="hero-cred">
           <p class="hero-note">Owner-operated | NJ HIC #{{ site.company.hic | default: '13VH10808800' }} | Fully insured</p>
         </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Examples of cared-for homes">
+        <figure class="hero-visual__primary">
+          <img src="{{ '/assets/img/bathroom-remodel-final.webp' | relative_url }}" alt="Tiled shower with glass door and bright natural light" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-visual__secondary">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Freshly painted coastal home exterior with clean trim" loading="lazy" decoding="async">
+        </figure>
       </div>
 
       {% if hero_kpis %}

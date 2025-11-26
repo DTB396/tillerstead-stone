@@ -36,23 +36,15 @@
   --ts-text: var(--color-text);
   --ts-text-muted: var(--color-text-muted);
   --ts-text-subtle: var(--color-text-subtle);
-  /* Modern CSS3 tokens */
-  --radius-lg: 2rem;
-  --gradient-surface: linear-gradient(135deg, #f8f6ee 0%, #ece7d9 100%);
-  --shadow-soft: 0 2px 8px rgba(0,0,0,0.08);
-}
-  
   --ts-border: var(--color-border);
   --ts-border-strong: var(--color-border-strong);
   --ts-divider: var(--color-divider);
-  
   --ts-shell-width: var(--shell-width);
   --ts-radius-sm: var(--radius-sm);
   --ts-radius-md: var(--radius-md);
   --ts-radius-lg: var(--radius-lg);
   --ts-radius-xl: var(--radius-xl);
   --ts-radius-pill: var(--radius-pill);
-  
   --ts-space-1: var(--space-1);
   --ts-space-2: var(--space-2);
   --ts-space-3: var(--space-3);
@@ -61,20 +53,16 @@
   --ts-space-6: var(--space-6);
   --ts-space-7: var(--space-7);
   --ts-space-8: var(--space-8);
-  
   --ts-shadow-soft: var(--shadow-soft);
   --ts-shadow-lift: var(--shadow-lift);
   --ts-shadow-sharp: var(--shadow-sharp);
-  
   --ts-transition-fast: var(--transition-fast);
   --ts-transition-med: var(--transition-med);
-  
-  --ts-font-sans: var(--font-sans);
+  --ts-font-sans: var(--font-body);
+  --ts-font-heading: var(--font-heading);
   --ts-font-mono: var(--font-mono);
-  
   --ts-focus-ring: var(--focus-ring);
-  
-  /* Color scheme */
+  --gradient-surface: var(--gradient-surface);
   color-scheme: light;
 }
 
@@ -104,15 +92,12 @@ body {
   line-height: 1.65;
   background-color: var(--ts-bg);
   background-image:
-    radial-gradient(circle at 20% 18%, rgba(201, 154, 63, 0.08), transparent 42%),
-    radial-gradient(circle at 82% 6%, rgba(13, 59, 44, 0.08), transparent 40%),
-    linear-gradient(135deg, rgba(13, 59, 44, 0.05), rgba(201, 154, 63, 0.06)),
-    var(--bg-pattern-svg);
-  background-size: auto, auto, 100% 100%, var(--bg-pattern-size);
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
-  background-position: center, center, center, center;
+    linear-gradient(180deg, rgba(12, 79, 53, 0.04), rgba(24, 178, 121, 0.06)),
+    var(--bg-pattern);
+  background-size: 100% 100%, var(--bg-pattern-size);
+  background-repeat: no-repeat, repeat;
+  background-position: center, center;
   background-attachment: fixed;
-  background-blend-mode: normal, normal, multiply, soft-light;
   color: var(--ts-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -161,6 +146,7 @@ h6 {
   line-height: 1.2;
   color: var(--ts-heading);
   letter-spacing: -0.01em;
+  font-family: var(--ts-font-heading);
 }
 
 h1 {
@@ -252,7 +238,8 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: none;
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 2px;
   box-shadow: var(--ts-focus-ring);
 }
 

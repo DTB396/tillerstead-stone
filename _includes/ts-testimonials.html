@@ -1,0 +1,49 @@
+{% assign testimonials = include.testimonials | default: page.testimonials %}
+{% unless testimonials %}
+  {% assign testimonials = \
+    site.data.testimonials | default: [
+      {
+        'quote': 'Scheduling was clear, the scope was documented, and every update came with photos. Our rental stayed booked because the repairs were finished ahead of turnover.',
+        'name': 'Mara D., Property Owner',
+        'role': 'Longport, NJ'
+      },
+      {
+        'quote': 'Tile work and waterproofing were meticulous. Communication was steady, and the jobsite stayed clean even while the unit was occupied.',
+        'name': 'James R., HOA Board Member',
+        'role': 'Atlantic County'
+      },
+      {
+        'quote': 'As a landlord, I need fast response and proof of work. Tillerstead delivered both with organized maintenance visits and clear pricing.',
+        'name': 'Priya S., Landlord',
+        'role': 'Galloway, NJ'
+      }
+    ]
+  %}
+{% endunless %}
+
+<section class="ts-testimonials" aria-labelledby="ts-testimonials-title">
+  <div class="container">
+    <header class="ts-testimonials__header">
+      <span class="eyebrow eyebrow--on-dark">Trust & Proof</span>
+      <h2 id="ts-testimonials-title" class="heading-2">Documented workmanship partners rely on</h2>
+      <p class="lead">Owner-led communication, daily photos, and durable finishes give landlords and homeowners confidence from the first walkthrough to the final punch list.</p>
+    </header>
+    <div class="ts-testimonials__grid" role="list">
+      {% for testimonial in testimonials %}
+        <article class="ts-testimonial" role="listitem">
+          <p class="ts-testimonial__quote">“{{ testimonial.quote }}”</p>
+          <div class="ts-testimonial__meta">
+            <span class="ts-testimonial__name">{{ testimonial.name }}</span>
+            <span class="ts-testimonial__role">{{ testimonial.role }}</span>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="ts-testimonials__logos" aria-label="Trusted by property teams">
+      <div class="ts-testimonials__logo" aria-hidden="true">Shoreline Rentals</div>
+      <div class="ts-testimonials__logo" aria-hidden="true">Boardwalk Homes</div>
+      <div class="ts-testimonials__logo" aria-hidden="true">Atlantic Property Co.</div>
+      <div class="ts-testimonials__logo" aria-hidden="true">Harborview Holdings</div>
+    </div>
+  </div>
+</section>

@@ -1,31 +1,49 @@
-<!-- Unified Services Section: Modernized & Organized -->
-<section class="ts-services parchment-bg celtic-border sicilian-accent" aria-labelledby="ts-services-title">
+{% assign summary = include.summary | default: page.services_summary | default: 'Consistent finish work, waterproof assemblies, and recurring care that keep rentals, shore homes, and owner-occupied properties in top shape.' %}
+{% assign services = include.services | default: page.services %}
+
+{% unless services %}
+  {% capture default_services %}
+paint|Interior & exterior repainting with durable coatings|lines and trim repaints, cabinet refreshes, low-VOC materials|/services/#paint;
+flooring|Vinyl plank & tile flooring|moisture preps, transitions, and trim details|/services/#flooring;
+waterproof|Tile & shower waterproofing|custom pans, backer prep, heated floors|/services/#tile;
+trim|Property upkeep plans|seasonal inspections, quick-turn repairs, owner reporting|/services/#maintenance
+  {% endcapture %}
+  {% assign services = default_services | split: ';' %}
+{% endunless %}
+
+<section class="ts-services" aria-labelledby="ts-services-title">
   <div class="container">
     <header class="ts-services__header">
       <span class="eyebrow text-accent">Core Capabilities</span>
-      <h2 id="ts-services-title" class="heading-2 text-primary">Tile, Remodeling &amp; Property Maintenance Expertise</h2>
+      <h2 id="ts-services-title" class="heading-2 text-primary">Property upkeep for rentals and residences</h2>
       <p class="lead">{{ summary }}</p>
     </header>
     <div class="ts-services__grid" role="list">
-      <article class="ts-service-card" role="listitem">
-        <h3 class="heading-3">Tile Installation</h3>
-        <p>Showers, baths, heated floors, and large-format tile—built on certified waterproof systems.</p>
-        <a href="/services/#tile" class="btn btn--ghost">Learn More</a>
-      </article>
-      <article class="ts-service-card" role="listitem">
-        <h3 class="heading-3">Remodeling</h3>
-        <p>Full bath and kitchen remodels, finish carpentry, and owner-led project management.</p>
-        <a href="/services/#remodeling" class="btn btn--ghost">Learn More</a>
-      </article>
-      <article class="ts-service-card" role="listitem">
-        <h3 class="heading-3">Property Maintenance</h3>
-        <p>Monthly and seasonal plans for shore homes—photo documentation, repairs, and fast response.</p>
-        <a href="/services/#maintenance" class="btn btn--ghost">Learn More</a>
-      </article>
+      {% for raw in services %}
+        {% if raw contains '|' %}
+          {% assign parts = raw | split: '|' %}
+          {% assign service_icon = parts[0] %}
+          {% assign service_title = parts[1] %}
+          {% assign service_description = parts[2] %}
+          {% assign service_url = parts[3] %}
+        {% else %}
+          {% assign service_icon = raw.icon %}
+          {% assign service_title = raw.title %}
+          {% assign service_description = raw.description %}
+          {% assign service_url = raw.url %}
+        {% endif %}
+        {% include ts-service-card.html
+          icon=service_icon
+          title=service_title
+          description=service_description
+          tagline=raw.tagline
+          details=raw.details
+          url=service_url %}
+      {% endfor %}
     </div>
-    <nav class="ts-services__actions" aria-label="Service Actions">
-      <a class="btn btn--primary" href="/services/">Browse All Services</a>
-      <a class="btn btn--ghost" href="/portfolio/">See Recent Projects</a>
+    <nav class="ts-services__actions" aria-label="Service actions">
+      <a class="btn btn--primary" href="/contact/">Book property upkeep</a>
+      <a class="btn btn--ghost" href="/portfolio/">See recent projects</a>
     </nav>
   </div>
 </section>

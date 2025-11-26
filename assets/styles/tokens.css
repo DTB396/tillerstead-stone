@@ -1,98 +1,61 @@
 /* ============================================
-   Tillerstead Design Tokens
-   Single source of truth for all visual properties
+   Tillerstead Design Tokens (Modern Refresh)
    ============================================ */
 
 :root {
   /* ===========================
-     Color Tokens (Refactored)
-     Light: Parchment/Khaki base
-     Dark Accents: Emerald bright + Brass/Black depth
+     Color Tokens
      =========================== */
-  
-  /* Brand Colors - Vibrant Emerald on Parchment */
-  --color-emerald: #0bbf84;           /* Vibrant emerald - energetic with crisp contrast */
-  --color-emerald-strong: #0a9d6c;    /* Deep emerald for hover/active depth */
-  --color-emerald-soft: rgba(11, 191, 132, 0.14);
-  --color-primary: var(--color-emerald);
-  --color-primary-strong: var(--color-emerald-strong);
-  --color-primary-soft: var(--color-emerald-soft);
-  --color-accent: #f4a740;            /* Radiant brass-gold for premium cues */
-  --color-accent-soft: rgba(244, 167, 64, 0.18);
-  --color-khaki: #e7eefc;             /* Airy parchment with a cool tint */
-  /* Brand Colors - Evergreen + Brass on Parchment */
-  --color-primary: #0d3b2c;           /* Evergreen base */
-  --color-primary-strong: #0a2c21;    /* Deeper evergreen for hover/active */
-  --color-primary-soft: rgba(13, 59, 44, 0.22);
-  --color-accent: #c99a3f;            /* Brass/gold accent */
-  --color-accent-soft: rgba(201, 154, 63, 0.28);
-  --color-khaki: #f1e7d4;             /* Warm parchment */
-  
-  /* Primary Background - Parchment with depth overlays */
-  --color-bg: #f4efe4;                /* Warm parchment canvas */
-  --color-surface: #fdfbf7;           /* Light surface for readability */
-  --color-surface-elevated: #f3ebdc;  /* Elevated panels */
-  --color-surface-muted: #e9dec9;     /* Section wash */
-  --color-surface-highlight: #e2d5be; /* Highlight tone */
-  
-  /* Dark Accent Layer - evergreen anchors */
-  --color-dark-primary: #152016;
-  --color-dark-secondary: #1f291d;
-  
-  /* Text Colors - strong contrast on parchment */
-  --color-heading: #171f14;
-  --color-text: #2a3226;
-  --color-text-muted: #3d4637;
-  --color-text-subtle: #58614f;
+  --color-primary: #0f8a5f;           /* Emerald for trust and stability */
+  --color-primary-strong: #0b6f4c;    /* Darker emerald for hover/active */
+  --color-primary-soft: rgba(15, 138, 95, 0.14);
+  --color-accent: #18b279;            /* Bright emerald accent for calls to action */
+  --color-accent-strong: #0f9663;
+  --color-accent-soft: rgba(24, 178, 121, 0.18);
+  --color-bg: #f6edda;                /* Parchment canvas */
+  --color-surface: #fffaf2;           /* Base surface */
+  --color-surface-elevated: #f1e7d5;  /* Elevated surface panels */
+  --color-surface-muted: #e6ddc7;     /* Section wash */
+  --color-surface-highlight: #ded3ba; /* Subtle highlight */
+  --color-dark-primary: #0c5a3c;
+  --color-dark-secondary: #0b4b32;
 
-  /* Border Colors - subtle brass/evergreen mix */
-  --color-border: rgba(23, 31, 20, 0.14);
-  --color-border-strong: rgba(23, 31, 20, 0.22);
-  --color-divider: rgba(23, 31, 20, 0.18);
+  /* Text Colors */
+  --color-heading: #0c4f35;
+  --color-text: #2f2a25;
+  --color-text-muted: #4a4339;
+  --color-text-subtle: #5a534a;
 
-  /* ===========================
-     Gradient Definitions (Refactored)
-     =========================== */
-  
-  /* Primary brand gradient - Evergreen depth */
-  --gradient-primary: linear-gradient(135deg, #0f4633 0%, #0a2f23 100%);
-  --gradient-accent: linear-gradient(135deg, #c99a3f 0%, #d7b257 100%);
-  
-  /* Surface gradients - subtle sacred depth */
-  --gradient-surface: radial-gradient(circle at 18% 20%, rgba(201, 154, 63, 0.08), transparent 38%),
-                      radial-gradient(circle at 82% 8%, rgba(13, 59, 44, 0.08), transparent 40%),
-                      #f4efe4;
-  --gradient-surface-alt: radial-gradient(circle at 12% 40%, rgba(13, 59, 44, 0.06), transparent 35%),
-                          radial-gradient(circle at 88% 70%, rgba(201, 154, 63, 0.06), transparent 45%),
-                          #f3ebdc;
-  --gradient-section: linear-gradient(180deg, #f4efe4 0%, #e9dec9 100%);
-  
-  /* Radial accents - minimal */
-  --gradient-radial-primary: radial-gradient(circle at top right, rgba(13, 59, 44, 0.12), transparent 52%);
-  --gradient-radial-accent: radial-gradient(circle at bottom left, rgba(201, 154, 63, 0.12), transparent 52%);
+  /* Border Colors */
+  --color-border: rgba(15, 138, 95, 0.16);
+  --color-border-strong: rgba(15, 138, 95, 0.26);
+  --color-divider: rgba(15, 138, 95, 0.18);
 
-  /* ===========================
-     Background Pattern Assets
-     =========================== */
-  
-  /* Sacred geometry tile pattern - dark mode optimized */
-  --bg-pattern: url("/assets/img/patterns/sacred-geometry-tile.webp");
-  --bg-pattern-fallback: url("/assets/img/patterns/sacred-geometry-tile.png");
-  --bg-pattern-svg: url("/assets/img/patterns/sacred-geometry-tile.svg");
-  --hero-texture: url("/assets/img/marble-bath.jpg");
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0f8a5f 0%, #0b6f4c 100%);
+  --gradient-accent: linear-gradient(135deg, #18b279 0%, #0f9663 100%);
+  --gradient-surface: radial-gradient(circle at 18% 22%, rgba(24, 178, 121, 0.12), transparent 38%),
+                      radial-gradient(circle at 80% 8%, rgba(12, 79, 53, 0.12), transparent 36%),
+                      #f6edda;
+  --gradient-section: linear-gradient(180deg, #fdf7ec 0%, #ecdfc6 100%);
+
+  /* Background Pattern Assets */
+  --bg-pattern: linear-gradient(135deg, rgba(12, 79, 53, 0.06) 25%, transparent 25%),
+                linear-gradient(225deg, rgba(24, 178, 121, 0.06) 25%, transparent 25%),
+                linear-gradient(45deg, rgba(12, 79, 53, 0.05) 25%, transparent 25%),
+                linear-gradient(315deg, rgba(24, 178, 121, 0.06) 25%, #f6edda 25%);
+  --bg-pattern-size: 32px 32px;
+  --bg-pattern-opacity: 0.35;
+  --hero-texture: url("/assets/img/bathroom-remodel-final.webp");
   --hero-texture-size: cover;
-  --hero-texture-opacity: 0.28;
-  
-  /* Pattern display properties */
-  --bg-pattern-size: 200px;
-  --bg-pattern-opacity: 0.18;
+  --hero-texture-opacity: 0.18;
 
   /* ===========================
      Typography Tokens
      =========================== */
-  
-  /* Font Families */
-  --font-sans: "Inter", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Montserrat", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--font-body);
   --font-mono: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 
   /* Font Sizes */
@@ -107,20 +70,19 @@
   --font-size-5xl: 3rem;
 
   /* Line Heights */
-  --line-height-base: 1.65;
-  --line-height-tight: 1.35;
-  --line-height-relaxed: 1.85;
+  --line-height-base: 1.6;
+  --line-height-tight: 1.2;
+  --line-height-relaxed: 1.75;
 
-  /* Heading Sizes (responsive with clamp) */
-  --heading-1: clamp(2.75rem, 4vw, 3.5rem);
-  --heading-2: clamp(2.1rem, 3vw, 2.75rem);
-  --heading-3: clamp(1.5rem, 2.5vw, 2rem);
-  --heading-4: clamp(1.2rem, 2vw, 1.45rem);
+  /* Heading Sizes */
+  --heading-1: clamp(2.4rem, 4vw, 3.4rem);
+  --heading-2: clamp(2rem, 3vw, 2.75rem);
+  --heading-3: clamp(1.6rem, 2.5vw, 2.1rem);
+  --heading-4: clamp(1.25rem, 2vw, 1.6rem);
 
   /* ===========================
-     Spacing Scale
+     Spacing Scale (8px baseline)
      =========================== */
-  
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -135,7 +97,6 @@
   /* ===========================
      Border Radius
      =========================== */
-  
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1.25rem;
@@ -143,155 +104,46 @@
   --radius-pill: 999px;
 
   /* ===========================
-     Shadows (Minimal + Depth)
+     Shadows
      =========================== */
-  
-   /* Subtle shadows for light theme - depth without heaviness */
-   --shadow-soft: 0 8px 24px rgba(16, 35, 61, 0.08);
-   --shadow-lift: 0 16px 40px rgba(16, 35, 61, 0.12);
-   --shadow-sharp: 0 20px 48px rgba(16, 35, 61, 0.16);
-   --shadow-button: 0 4px 12px rgba(0, 168, 107, 0.15);
-   --shadow-button-hover: 0 8px 20px rgba(0, 168, 107, 0.25);
-   --shadow-glow: 0 0 12px rgba(0, 168, 107, 0.2);
-   --shadow-glow-accent: 0 0 12px rgba(139, 111, 71, 0.15);
+  --shadow-soft: 0 10px 30px rgba(12, 79, 53, 0.12);
+  --shadow-lift: 0 16px 44px rgba(12, 79, 53, 0.16);
+  --shadow-sharp: 0 20px 56px rgba(12, 79, 53, 0.2);
+  --shadow-button: 0 8px 20px rgba(24, 178, 121, 0.22);
+  --shadow-button-hover: 0 12px 28px rgba(24, 178, 121, 0.3);
+  --shadow-glow: 0 0 0 6px rgba(24, 178, 121, 0.16);
 
   /* ===========================
-     Transitions
+     Transitions & Focus
      =========================== */
-  
   --transition-fast: 150ms ease;
   --transition-med: 220ms ease;
   --transition-slow: 350ms ease;
+  --focus-ring: 0 0 0 3px rgba(24, 178, 121, 0.45);
 
-  /* ===========================
-     Layout
-     =========================== */
-
+  /* Layout */
   --shell-width: 1140px;
   --section-padding-y: clamp(3rem, 6vw, 5rem);
   --section-gap: clamp(1.5rem, 3vw, 2.5rem);
-  --focus-ring: 0 0 0 3px rgba(13, 59, 44, 0.35);
 
-  /* ===========================
-     Component-Specific Aliases
-     =========================== */
-  /* Header/Nav backgrounds & borders for sitewide consistency */
-  --header-bg: rgba(244, 239, 228, 0.92); /* translucent parchment */
-  --header-border: rgba(23, 31, 20, 0.16);
+  /* Component aliases */
+  --header-bg: rgba(255, 250, 242, 0.92);
+  --header-border: rgba(12, 79, 53, 0.12);
   --nav-bg: var(--color-surface-elevated);
-  --nav-border: rgba(23, 31, 20, 0.14);
+  --nav-border: rgba(12, 79, 53, 0.16);
 }
 
-/* ===========================
-   Light Mode Overrides
-   =========================== */
-
+/* Light mode */
 html.light {
   color-scheme: light;
-  --color-bg: #f4efe4;
-  --color-surface: #fdfbf7;
-  --color-surface-elevated: #f3ebdc;
-  --color-surface-muted: #e9dec9;
-  --color-surface-highlight: #e2d5be;
-  --color-heading: #171f14;
-  --color-text: #2a3226;
-  --color-text-muted: #3d4637; /* higher contrast */
-  --color-text-subtle: #58614f; /* retain gentle hierarchy */
-  --color-border: rgba(23, 31, 20, 0.14);
-  --color-border-strong: rgba(23, 31, 20, 0.22);
-  --color-divider: rgba(23, 31, 20, 0.18);
-  --shadow-soft: 0 8px 24px rgba(23, 31, 20, 0.08);
-  --shadow-lift: 0 16px 40px rgba(23, 31, 20, 0.12);
-  --shadow-sharp: 0 20px 48px rgba(23, 31, 20, 0.16);
-  --focus-ring: 0 0 0 3px rgba(13, 59, 44, 0.32);
-  
-  /* Background pattern - light mode variant */
-  --bg-pattern-opacity: 0.08;
+  --color-bg: #f6edda;
+  --color-surface: #fffaf2;
+  --color-surface-elevated: #f1e7d5;
+  --color-surface-muted: #e6ddc7;
+  --color-surface-highlight: #ded3ba;
+  --color-heading: #0c4f35;
+  --color-text: #2f2a25;
+  --color-text-muted: #4a4339;
+  --color-text-subtle: #5a534a;
+  --color-border: rgba(15, 138, 95, 0.16);
 }
-
-/* ============================================
-   Utility Classes
-   ============================================ */
-
-/* Typography Utilities */
-.heading-1 { font-size: var(--heading-1); font-weight: 700; line-height: 1.2; color: var(--color-heading); }
-.heading-2 { font-size: var(--heading-2); font-weight: 700; line-height: 1.2; color: var(--color-heading); }
-.heading-3 { font-size: var(--heading-3); font-weight: 700; line-height: 1.2; color: var(--color-heading); }
-.heading-4 { font-size: var(--heading-4); font-weight: 700; line-height: 1.2; color: var(--color-heading); }
-
-.text-primary { color: var(--color-primary) !important; }
-.text-accent { color: var(--color-heading) !important; }
-.text-muted { color: var(--color-text-muted) !important; }
-.text-subtle { color: var(--color-text-subtle) !important; }
-
-/* Background Utilities */
-.bg-primary { background: var(--color-primary) !important; }
-.bg-accent { background: var(--color-accent) !important; }
-.bg-surface { background: var(--color-surface) !important; }
-.bg-surface-elevated { background: var(--color-surface-elevated) !important; }
-
-/* Gradient Utilities */
-.bg-gradient { background: var(--gradient-primary) !important; }
-.bg-gradient-accent { background: var(--gradient-accent) !important; }
-.bg-gradient-surface { background: var(--gradient-surface) !important; }
-.bg-gradient-radial { background: var(--gradient-radial-primary) !important; }
-
-/* Spacing Utilities */
-.mt-1 { margin-top: var(--space-1) !important; }
-.mt-2 { margin-top: var(--space-2) !important; }
-.mt-3 { margin-top: var(--space-3) !important; }
-.mt-4 { margin-top: var(--space-4) !important; }
-.mt-5 { margin-top: var(--space-5) !important; }
-.mt-6 { margin-top: var(--space-6) !important; }
-
-.mb-1 { margin-bottom: var(--space-1) !important; }
-.mb-2 { margin-bottom: var(--space-2) !important; }
-.mb-3 { margin-bottom: var(--space-3) !important; }
-.mb-4 { margin-bottom: var(--space-4) !important; }
-.mb-5 { margin-bottom: var(--space-5) !important; }
-.mb-6 { margin-bottom: var(--space-6) !important; }
-
-.p-1 { padding: var(--space-1) !important; }
-.p-2 { padding: var(--space-2) !important; }
-.p-3 { padding: var(--space-3) !important; }
-.p-4 { padding: var(--space-4) !important; }
-.p-5 { padding: var(--space-5) !important; }
-.p-6 { padding: var(--space-6) !important; }
-
-/* Modern Logical Property Utilities (for better internationalization) */
-.mbs-1 { margin-block-start: var(--space-1) !important; }
-.mbs-2 { margin-block-start: var(--space-2) !important; }
-.mbs-3 { margin-block-start: var(--space-3) !important; }
-.mbs-4 { margin-block-start: var(--space-4) !important; }
-
-.mbe-1 { margin-block-end: var(--space-1) !important; }
-.mbe-2 { margin-block-end: var(--space-2) !important; }
-.mbe-3 { margin-block-end: var(--space-3) !important; }
-.mbe-4 { margin-block-end: var(--space-4) !important; }
-
-.p-inline-1 { padding-inline: var(--space-1) !important; }
-.p-inline-2 { padding-inline: var(--space-2) !important; }
-.p-inline-3 { padding-inline: var(--space-3) !important; }
-.p-inline-4 { padding-inline: var(--space-4) !important; }
-
-.p-block-1 { padding-block: var(--space-1) !important; }
-.p-block-2 { padding-block: var(--space-2) !important; }
-.p-block-3 { padding-block: var(--space-3) !important; }
-.p-block-4 { padding-block: var(--space-4) !important; }
-
-/* Border Utilities */
-.border { border: 1px solid var(--color-border) !important; }
-.border-strong { border: 1px solid var(--color-border-strong) !important; }
-
-.rounded-sm { border-radius: var(--radius-sm) !important; }
-.rounded-md { border-radius: var(--radius-md) !important; }
-.rounded-lg { border-radius: var(--radius-lg) !important; }
-.rounded-xl { border-radius: var(--radius-xl) !important; }
-.rounded-pill { border-radius: var(--radius-pill) !important; }
-
-/* Shadow Utilities */
-.shadow-soft { box-shadow: var(--shadow-soft) !important; }
-.shadow-lift { box-shadow: var(--shadow-lift) !important; }
-.shadow-sharp { box-shadow: var(--shadow-sharp) !important; }
-.shadow-glow { box-shadow: var(--shadow-glow) !important; }
-.shadow-glow-accent { box-shadow: var(--shadow-glow-accent) !important; }
