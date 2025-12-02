@@ -106,7 +106,7 @@
 <style data-critical>
   :root { color-scheme: light; }
   body { margin:0; font-family: var(--font-body, system-ui); background: var(--color-bg,#f6edda); color: var(--color-text,#2f2a25); }
-  .site-header { position:sticky; top:0; z-index:1000; background:color-mix(in srgb, var(--color-surface,#fffaf2) 92%, transparent); backdrop-filter:blur(12px); border-bottom:1px solid var(--color-border,rgba(15,138,95,.16)); }
+  .site-header { position:sticky; top:0; z-index:1000; background:var(--color-surface,#fffaf2); background:color-mix(in srgb, var(--color-surface,#fffaf2) 92%, transparent); backdrop-filter:blur(12px); border-bottom:1px solid var(--color-border,rgba(15,138,95,.16)); }
   .site-header-inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; min-height:4rem; padding:.75rem clamp(.75rem,3vw,1.5rem); }
   .site-logo-img,
   .site-logo-svg { width:clamp(100px,14vw,148px); height:auto; display:block; }
@@ -116,7 +116,7 @@
   .btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-button-hover,0 12px 28px rgba(24,178,121,.3)); background:var(--gradient-accent,linear-gradient(135deg,#18b279,#0f9663)); }
   .btn.btn-ghost { background:var(--color-surface,#fffaf2); color:var(--color-heading,#0c4f35); box-shadow:none; border:1px solid var(--color-border,rgba(15,138,95,.16)); }
   .btn.btn-ghost:hover { background:var(--color-primary-soft,rgba(15,138,95,.14)); border-color:var(--color-border-strong,rgba(15,138,95,.3)); color:var(--color-heading,#0c4f35); }
-  .hero-title { font-family: var(--font-heading, 'Montserrat'); font-weight:800; letter-spacing:-.02em; line-height:1.1; font-size:clamp(2.2rem,3.6vw,3.2rem); margin:0 0 1rem; color:var(--color-heading,#0c4f35); }
+  .hero-title { font-family: var(--font-heading, 'Montserrat', system-ui, sans-serif); font-weight:800; letter-spacing:-.02em; line-height:1.1; font-size:clamp(2.2rem,3.6vw,3.2rem); margin:0 0 1rem; color:var(--color-heading,#0c4f35); }
   .hero-lead { font-size:1.05rem; line-height:1.65; max-width:65ch; margin:0 0 1.25rem; color:var(--color-text-muted,#4a4339); }
   .hero-actions { display:flex; flex-wrap:wrap; gap:.75rem; }
   .eyebrow,.hero-eyebrow { display:inline-block; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; font-weight:700; margin:0 0 .75rem; color:var(--color-heading,#0c4f35); padding:.4rem .9rem; background:var(--color-primary-soft,rgba(15,138,95,.12)); border-left:3px solid var(--color-primary-strong,#0b6f4c); border-radius:.35rem; }

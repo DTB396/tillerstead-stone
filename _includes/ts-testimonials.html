@@ -1,24 +1,25 @@
 {% assign testimonials = include.testimonials | default: page.testimonials %}
 {% unless testimonials %}
-  {% assign testimonials = \
-    site.data.testimonials | default: [
-      {
-        'quote': 'Scheduling was clear, the scope was documented, and every update came with photos. Our rental stayed booked because the repairs were finished ahead of turnover.',
-        'name': 'Mara D., Property Owner',
-        'role': 'Longport, NJ'
-      },
-      {
-        'quote': 'Tile work and waterproofing were meticulous. Communication was steady, and the jobsite stayed clean even while the unit was occupied.',
-        'name': 'James R., HOA Board Member',
-        'role': 'Atlantic County'
-      },
-      {
-        'quote': 'As a landlord, I need fast response and proof of work. Tillerstead delivered both with organized maintenance visits and clear pricing.',
-        'name': 'Priya S., Landlord',
-        'role': 'Galloway, NJ'
-      }
-    ]
-  %}
+  {% capture testimonials_json %}
+[
+  {
+    "quote": "Scheduling was clear, the scope was documented, and every update came with photos. Our rental stayed booked because the repairs were finished ahead of turnover.",
+    "name": "Mara D., Property Owner",
+    "role": "Longport, NJ"
+  },
+  {
+    "quote": "Tile work and waterproofing were meticulous. Communication was steady, and the jobsite stayed clean even while the unit was occupied.",
+    "name": "James R., HOA Board Member",
+    "role": "Atlantic County"
+  },
+  {
+    "quote": "As a landlord, I need fast response and proof of work. Tillerstead delivered both with organized maintenance visits and clear pricing.",
+    "name": "Priya S., Landlord",
+    "role": "Galloway, NJ"
+  }
+]
+  {% endcapture %}
+  {% assign testimonials = site.data.reviews | default: testimonials_json %}
 {% endunless %}
 
 <section class="ts-testimonials" aria-labelledby="ts-testimonials-title">
@@ -40,10 +41,10 @@
       {% endfor %}
     </div>
     <div class="ts-testimonials__logos" aria-label="Trusted by property teams">
-      <div class="ts-testimonials__logo" aria-hidden="true">Shoreline Rentals</div>
-      <div class="ts-testimonials__logo" aria-hidden="true">Boardwalk Homes</div>
-      <div class="ts-testimonials__logo" aria-hidden="true">Atlantic Property Co.</div>
-      <div class="ts-testimonials__logo" aria-hidden="true">Harborview Holdings</div>
+      <div class="ts-testimonials__logo">Shoreline Rentals</div>
+      <div class="ts-testimonials__logo">Boardwalk Homes</div>
+      <div class="ts-testimonials__logo">Atlantic Property Co.</div>
+      <div class="ts-testimonials__logo">Harborview Holdings</div>
     </div>
   </div>
 </section>
