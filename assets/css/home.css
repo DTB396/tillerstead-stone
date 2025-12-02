@@ -156,6 +156,7 @@
   margin-inline: auto;
   padding: 0;
   border-radius: 0;
+  background: var(--color-primary);
   background: var(--color-primary-strong);
   border: none;
   box-shadow: none;
@@ -198,8 +199,8 @@
   letter-spacing: 0.08em;
 }
 
-.hero__title {
-  text-shadow: 0 2px 8px rgba(26, 200, 122, 0.12);
+  .hero__title {
+    text-shadow: 0 2px 8px rgba(19, 179, 143, 0.12);
   margin: 0 auto;
   max-width: 32ch;
 }
@@ -352,6 +353,7 @@
   display: grid;
   place-items: center;
   border-radius: 0.9rem;
+  background: rgba(0, 166, 166, 0.12);
   background: rgba(24, 178, 121, 0.14);
   color: var(--color-accent);
 }
@@ -643,6 +645,7 @@
 .ts-contact__field select:focus-visible,
 .ts-contact__field textarea:focus-visible {
   border-color: var(--color-accent-strong);
+  box-shadow: 0 0 0 3px rgba(0, 166, 166, 0.18);
   box-shadow: 0 0 0 3px rgba(24, 178, 121, 0.18);
   outline: none;
 }
@@ -743,6 +746,14 @@
 .ts-testimonials__logo:hover,
 .ts-testimonials__logo:focus-visible {
   filter: grayscale(0);
+  color: #00e3e3;
+  border-color: rgba(0, 166, 166, 0.55);
+  background: rgba(0, 166, 166, 0.14);
+}
+
+.eyebrow--on-dark {
+  background: rgba(0, 166, 166, 0.18);
+  color: #b8f3f3;
   color: #9df1d2;
   border-color: rgba(24, 178, 121, 0.55);
   background: rgba(24, 178, 121, 0.14);
@@ -850,6 +861,8 @@
   text-transform: uppercase;
   font-weight: 600;
   color: var(--color-accent-strong);
+  background: rgba(0, 166, 166, 0.14);
+  border: 1px solid rgba(26, 43, 76, 0.2);
   background: rgba(24, 178, 121, 0.14);
   border: 1px solid rgba(12, 79, 53, 0.22);
   border-radius: var(--radius-pill);

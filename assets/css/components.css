@@ -109,6 +109,7 @@ button.btn {
 
 .btn-ghost:hover,
 .btn-ghost:focus-visible {
+  background: rgba(0, 166, 166, 0.12);
   background: rgba(24, 178, 121, 0.12);
   border-color: var(--color-accent);
 }
@@ -128,6 +129,7 @@ button.btn {
 
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
+  background: rgba(0, 166, 166, 0.12);
   background: rgba(24, 178, 121, 0.12);
   border-color: var(--color-accent);
 }

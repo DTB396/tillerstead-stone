@@ -36,11 +36,12 @@
 {% endif %}
 
 <!-- Theme / Icons -->
+<meta name="theme-color" content="#0f766e">
 <meta name="theme-color" content="#1a2b4c">
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" sizes="any">
 <link rel="apple-touch-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}">
 <link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}">
-<link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="#0d3b2c">
+<link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="#0f766e">
 
 <!-- Open Graph / Social Meta -->
 {%- assign og_title = page.seo_title | default: page.title | default: site.title -%}
@@ -105,6 +106,24 @@
 <!-- Inline critical CSS: minimal above-the-fold (header, hero, buttons, layout) -->
 <style data-critical>
   :root { color-scheme: light; }
+  body { margin:0; font-family: var(--font-body, system-ui); background: var(--color-bg,#f4ecdc); color: var(--color-text,#1f2a24); }
+  .site-header { position:sticky; top:0; z-index:1000; background:rgba(255,255,255,.95); backdrop-filter:blur(12px); border-bottom:1px solid rgba(13,75,62,.14); }
+  .site-header-inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; min-height:4rem; padding:.75rem clamp(.75rem,3vw,1.5rem); }
+  .site-logo-img,
+  .site-logo-svg { width:clamp(100px,14vw,148px); height:auto; display:block; }
+  .nav-toggle { display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(13,75,62,.2); background:transparent; color:var(--color-text,#1f2a24); font-size:.9rem; font-weight:600; min-width:44px; min-height:44px; padding:.5rem .9rem; border-radius:999px; cursor:pointer; }
+  .nav-toggle:hover { background:rgba(19,179,143,.08); border-color:rgba(19,179,143,.4); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.7rem 1.4rem; font-size:.95rem; font-weight:700; line-height:1.2; border-radius:0.75rem; text-decoration:none; background:linear-gradient(135deg,#0f766e,#0b5f56); color:#ffffff; border:1px solid rgba(13,75,62,.6); box-shadow:0 8px 20px rgba(0,0,0,.12); transition:box-shadow .15s,transform .15s; min-height:44px; }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.18); }
+  .btn.btn-ghost { background:transparent; color:var(--color-text,#1f2a24); box-shadow:none; border:1px solid rgba(13,75,62,.18); }
+  .btn.btn-ghost:hover { background:rgba(19,179,143,.08); border-color:rgba(19,179,143,.35); }
+  .hero-title { font-family: var(--font-heading, 'Montserrat'); font-weight:800; letter-spacing:-.02em; line-height:1.1; font-size:clamp(2.2rem,3.6vw,3.2rem); margin:0 0 1rem; color:#12332b; }
+  .hero-lead { font-size:1.05rem; line-height:1.65; max-width:65ch; margin:0 0 1.25rem; color:var(--color-text-muted,#4a5568); }
+  .hero-actions { display:flex; flex-wrap:wrap; gap:.75rem; }
+  .eyebrow,.hero-eyebrow { display:inline-block; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; font-weight:700; margin:0 0 .75rem; color:#13b38f; padding:.4rem .9rem; background:rgba(19,179,143,.12); border-left:3px solid #0f766e; border-radius:.35rem; }
+  .hero-kpis { display:grid; gap:.75rem; margin:1.25rem 0 0; padding:0; list-style:none; }
+  .hero-kpi { padding:.9rem 1rem; border:1px solid rgba(13,75,62,.16); border-left:4px solid #13b38f; border-radius:1rem; background:linear-gradient(135deg,rgba(15,118,110,.06),rgba(19,179,143,.08)); }
+  .hero-kpi-label { display:block; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; margin:0 0 .25rem; color:#12332b; }
   body { margin:0; font-family: var(--font-body, system-ui); background: var(--color-bg,#f5f5f5); color: var(--color-text,#333333); }
   .site-header { position:sticky; top:0; z-index:1000; background:rgba(255,255,255,.95); backdrop-filter:blur(12px); border-bottom:1px solid rgba(26,43,76,.12); }
   .site-header-inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; min-height:4rem; padding:.75rem clamp(.75rem,3vw,1.5rem); }

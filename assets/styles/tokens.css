@@ -6,6 +6,44 @@
   /* ===========================
      Color Tokens
      =========================== */
+  --color-primary: #0f766e;           /* Emerald for trust and calm */
+  --color-primary-strong: #0b5f56;    /* Darker emerald for hover/active */
+  --color-primary-soft: rgba(15, 118, 110, 0.12);
+  --color-accent: #13b38f;            /* Bright jade accent for calls to action */
+  --color-accent-strong: #0e8c70;
+  --color-accent-soft: rgba(19, 179, 143, 0.16);
+  --color-bg: #f4ecdc;                /* Parchment canvas */
+  --color-surface: #ffffff;           /* Base surface */
+  --color-surface-elevated: #f0e4c8;  /* Elevated surface panels */
+  --color-surface-muted: #e7d9b8;     /* Section wash */
+  --color-surface-highlight: #dccb9d; /* Subtle highlight */
+  --color-dark-primary: #0d4b3e;
+  --color-dark-secondary: #0f3a33;
+
+  /* Text Colors */
+  --color-heading: #12332b;
+  --color-text: #1f2a24;
+  --color-text-muted: #2f3a32;
+  --color-text-subtle: #475347;
+
+  /* Border Colors */
+  --color-border: rgba(13, 75, 62, 0.2);
+  --color-border-strong: rgba(13, 75, 62, 0.32);
+  --color-divider: rgba(13, 75, 62, 0.22);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0f766e 0%, #0b5f56 100%);
+  --gradient-accent: linear-gradient(135deg, #13b38f 0%, #0e8c70 100%);
+  --gradient-surface: radial-gradient(circle at 18% 22%, rgba(19, 179, 143, 0.12), transparent 38%),
+                      radial-gradient(circle at 80% 8%, rgba(15, 118, 110, 0.12), transparent 36%),
+                      #f4ecdc;
+  --gradient-section: linear-gradient(180deg, #f7f1e3 0%, #e9ddc4 100%);
+
+  /* Background Pattern Assets */
+  --bg-pattern: linear-gradient(135deg, rgba(15, 118, 110, 0.05) 25%, transparent 25%),
+                linear-gradient(225deg, rgba(19, 179, 143, 0.06) 25%, transparent 25%),
+                linear-gradient(45deg, rgba(15, 118, 110, 0.05) 25%, transparent 25%),
+                linear-gradient(315deg, rgba(19, 179, 143, 0.06) 25%, #f4ecdc 25%);
   --color-primary: #0f8a5f;           /* Emerald for trust and stability */
   --color-primary-strong: #0b6f4c;    /* Darker emerald for hover/active */
   --color-primary-soft: rgba(15, 138, 95, 0.14);
@@ -106,6 +144,12 @@
   /* ===========================
      Shadows
      =========================== */
+  --shadow-soft: 0 10px 30px rgba(13, 75, 62, 0.08);
+  --shadow-lift: 0 16px 44px rgba(13, 75, 62, 0.12);
+  --shadow-sharp: 0 20px 56px rgba(13, 75, 62, 0.16);
+  --shadow-button: 0 8px 20px rgba(19, 179, 143, 0.22);
+  --shadow-button-hover: 0 12px 28px rgba(19, 179, 143, 0.3);
+  --shadow-glow: 0 0 0 6px rgba(19, 179, 143, 0.16);
   --shadow-soft: 0 10px 30px rgba(12, 79, 53, 0.12);
   --shadow-lift: 0 16px 44px rgba(12, 79, 53, 0.16);
   --shadow-sharp: 0 20px 56px rgba(12, 79, 53, 0.2);
@@ -119,6 +163,7 @@
   --transition-fast: 150ms ease;
   --transition-med: 220ms ease;
   --transition-slow: 350ms ease;
+  --focus-ring: 0 0 0 3px rgba(19, 179, 143, 0.45);
   --focus-ring: 0 0 0 3px rgba(24, 178, 121, 0.45);
 
   /* Layout */
@@ -127,6 +172,10 @@
   --section-gap: clamp(1.5rem, 3vw, 2.5rem);
 
   /* Component aliases */
+  --header-bg: rgba(255, 255, 255, 0.94);
+  --header-border: rgba(13, 75, 62, 0.14);
+  --nav-bg: var(--color-surface-elevated);
+  --nav-border: rgba(13, 75, 62, 0.18);
   --header-bg: rgba(255, 250, 242, 0.92);
   --header-border: rgba(12, 79, 53, 0.12);
   --nav-bg: var(--color-surface-elevated);
@@ -136,6 +185,16 @@
 /* Light mode */
 html.light {
   color-scheme: light;
+  --color-bg: #f4ecdc;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f0e4c8;
+  --color-surface-muted: #e7d9b8;
+  --color-surface-highlight: #dccb9d;
+  --color-heading: #12332b;
+  --color-text: #1f2a24;
+  --color-text-muted: #2f3a32;
+  --color-text-subtle: #475347;
+  --color-border: rgba(13, 75, 62, 0.2);
   --color-bg: #f6edda;
   --color-surface: #fffaf2;
   --color-surface-elevated: #f1e7d5;
