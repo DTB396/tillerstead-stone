@@ -9,6 +9,8 @@
   padding: clamp(1.5rem, 3vw, 2.25rem);
   box-shadow: var(--shadow-soft);
   transition: transform var(--transition-med), box-shadow var(--transition-med);
+  position: relative;
+  overflow: hidden;
 }
 
 .cards,
@@ -178,7 +180,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  background: linear-gradient(180deg, rgba(13, 59, 44, 0.12), rgba(201, 154, 63, 0.12));
 }
 
 .plan-card--featured {
@@ -219,7 +220,7 @@
 .plan-list li {
   position: relative;
   padding-left: 1.5rem;
-  color: var(--color-surface-elevated);
+  color: var(--color-text);
 }
 
 .plan-list li::before {
@@ -259,7 +260,6 @@
 
 .who-card {
   @extend %card-shell;
-  background: var(--color-surface);
   display: grid;
   gap: var(--space-3);
 }
@@ -279,7 +279,6 @@
 
 .why-item {
   @extend %card-shell;
-  background: linear-gradient(180deg, rgba(13, 59, 44, 0.14), rgba(13, 59, 44, 0.09));
 }
 
 .scope-card {
@@ -316,7 +315,6 @@
 
 .process-step {
   @extend %card-shell;
-  background: linear-gradient(180deg, rgba(13, 59, 44, 0.12), rgba(13, 59, 44, 0.06));
   color: var(--color-text);
 }
 
@@ -378,7 +376,6 @@
 
 .plan-card-compact {
   @extend %card-shell;
-  background: linear-gradient(180deg, rgba(13, 59, 44, 0.12), rgba(13, 59, 44, 0.06));
 }
 
 .plan-card-compact ul {
@@ -395,7 +392,6 @@
 .plans-cta,
 .services-cta {
   @extend %card-shell;
-  background: linear-gradient(180deg, rgba(13, 59, 44, 0.12), rgba(13, 59, 44, 0.06));
   gap: var(--space-3);
   color: var(--color-text);
 }
@@ -423,7 +419,6 @@
 .about-card,
 .about-cta {
   @extend %card-shell;
-  background: linear-gradient(180deg, rgba(13, 59, 44, 0.12), rgba(13, 59, 44, 0.08));
 }
 
 .about-cta {

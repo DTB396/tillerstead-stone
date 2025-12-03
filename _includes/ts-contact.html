@@ -8,7 +8,18 @@
       <p class="text-muted">You'll receive a detailed written scope covering materials, timelines, waterproofing specs, and transparent pricing so landlords and owners can approve quickly. All work is owner-operated and fully documented.</p>
       <p>Request a site visit to discuss your tile installation, remodel, or property maintenance needs. Serving Atlantic, Ocean, and Cape May Counties—most consultations are scheduled within 3 business days.</p>
       <p class="text-muted">You'll receive a detailed written scope including materials, timelines, waterproofing specs, and transparent pricing. All work is owner-operated and fully documented.</p>
-      <form class="ts-contact__form" name="homepage-contact" method="post" action="/contact/" data-netlify="true" netlify-honeypot="bot-field" aria-describedby="ts-contact-title">
+      <form
+        class="ts-contact__form"
+        name="homepage-contact"
+        method="post"
+        action="/contact/"
+        data-netlify="true"
+        data-contact-form
+        data-contact-email="{{ site.company.email }}"
+        data-contact-phone="{{ site.company.phone_display }}"
+        netlify-honeypot="bot-field"
+        aria-describedby="ts-contact-title"
+      >
         <input type="hidden" name="form-name" value="homepage-contact">
         <p class="sr-only">
           <label for="bot-field">Do not fill this field</label>
@@ -43,6 +54,7 @@
             <textarea name="message" rows="4" required aria-required="true" placeholder="Share the scope, address or area, and timing."></textarea>
           </label>
         </div>
+        <div class="form-status sr-only" aria-live="polite" data-form-status></div>
         <button type="submit" class="btn btn--primary ts-contact__submit">Send my request</button>
       </form>
     </div>

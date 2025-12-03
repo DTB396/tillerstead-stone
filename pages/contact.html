@@ -58,6 +58,8 @@ hero_kpis:
       id="contact-form"
       class="contact-form"
       data-contact-form
+      data-contact-email="{{ site.company.email }}"
+      data-contact-phone="{{ site.company.phone_display }}"
       method="post"
       action="{{ page.url | relative_url }}"
       aria-describedby="form-intro"
@@ -227,7 +229,7 @@ hero_kpis:
         Your information stays with Tillerstead. It’s used only to coordinate your scope, prepare documentation,
         and keep you updated — never sold or shared.
       </p>
-      <div class="form-status sr-only" aria-live="polite" id="form-status"></div>
+      <div class="form-status sr-only" aria-live="polite" id="form-status" data-form-status></div>
 
       <button type="submit" class="btn btn-primary" aria-describedby="privacy-note">Submit request</button>
     </form>

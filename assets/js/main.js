@@ -270,14 +270,17 @@
      - Netlify: normal POST
      - GitHub Pages: fake success
   ========================= */
-  const contactForm = document.forms?.contact || $("[data-contact-form]");
-  if (contactForm) {
-    contactForm.addEventListener("submit", async (e) => {
-      const isNetlify = !!(
-        contactForm.getAttribute("data-netlify") || contactForm.action
-      );
-      if (isNetlify) return; // Netlify handles it
+  const contactForms = $$('[data-contact-form], form[name="contact"]');
+  const encodeForm = (form) => {
+    const data = new FormData(form);
+    if (!data.get("form-name") && form.getAttribute("name")) {
+      data.append("form-name", form.getAttribute("name"));
+    }
+    return new URLSearchParams(data).toString();
+  };
 
+  contactForms.forEach((contactForm) => {
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const submitBtn = $(
         'button[type="submit"], input[type="submit"]',
@@ -285,33 +288,57 @@
       );
       submitBtn?.setAttribute("disabled", "true");
 
+      const statusEl =
+        contactForm.querySelector("[data-form-status]") ||
+        document.getElementById("form-status");
+      const showStatus = (message, isError = false) => {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        statusEl.classList.remove("sr-only");
+        statusEl.classList.toggle("has-error", isError);
+      };
+
       const invalid = $$("[required]", contactForm).find(
         (el) => !el.value?.trim(),
       );
       if (invalid) {
-        const status = document.getElementById("form-status");
-        if (status) {
-          status.textContent = "Please fill in all required fields.";
-          status.classList.remove("sr-only");
-        }
-        alert("Please fill in all required fields.");
+        showStatus("Please fill in all required fields.", true);
         submitBtn?.removeAttribute("disabled");
         invalid.focus();
         return;
       }
 
+      const action = contactForm.getAttribute("action") || "/";
+      const fallbackEmail =
+        contactForm.getAttribute("data-contact-email") || "info@tillerstead.com";
+      const fallbackPhone =
+        contactForm.getAttribute("data-contact-phone") || "(609) 862-8808";
+
       try {
-        await new Promise((r) => setTimeout(r, 250));
-        const status = document.getElementById("form-status");
-        if (status) {
-          status.textContent = "Request received. I’ll review and reply shortly (usually within 1 business day).";
-          status.classList.remove("sr-only");
+        const response = await fetch(action, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encodeForm(contactForm),
+        });
+
+        if (!response.ok && response.type !== "opaque") {
+          throw new Error(`Status ${response.status}`);
         }
+
+        showStatus(
+          "Request received. I’ll review and reply shortly (usually within 1 business day).",
+        );
         alert("Thanks! Your message has been submitted.");
         contactForm.reset();
+      } catch (err) {
+        console.error("Form submission failed", err);
+        showStatus(
+          `We couldn’t submit the form automatically. Please email ${fallbackEmail} or call ${fallbackPhone}.`,
+          true,
+        );
       } finally {
         submitBtn?.removeAttribute("disabled");
       }
     });
-  }
+  });
 })();

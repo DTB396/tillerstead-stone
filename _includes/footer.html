@@ -1,4 +1,4 @@
-<footer class="site-footer ts-footer" style="background:var(--color-primary,#0f766e);color:#fff;" role="contentinfo" itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
+<footer class="site-footer ts-footer" role="contentinfo" itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
   <meta itemprop="name" content="Tillerstead LLC">
   <meta itemprop="@id" content="{{ site.url }}/#contractor">
   <meta itemprop="url" content="{{ site.url }}/">
@@ -18,8 +18,7 @@
           width="220"
           height="80"
           loading="lazy"
-          decoding="async"
-          style="background:var(--color-primary,#0f766e);border-radius:12px;padding:8px;">
+          decoding="async">
       </a>
       <p class="footer-tagline">
         <strong>Property Maintenance &middot; Remodeling &middot; Tile</strong><br>
@@ -76,10 +75,10 @@
 
   <style>
     .site-footer.ts-footer {
-      background: var(--color-primary, #0f766e);
-      color: #fff;
+      background: var(--color-surface-elevated, #0f2240);
+      color: var(--color-heading, #f8fbff);
       font-family: var(--font-sans, 'Segoe UI', Arial, sans-serif);
-      padding: 3rem 1rem 1.5rem 1rem;
+      padding: 3rem 1rem 1.75rem 1rem;
       border-top: 0;
     }
     .footer-flex {
@@ -98,9 +97,11 @@
     .footer-logo-img {
       display: block;
       margin-bottom: 1rem;
-      background: var(--color-primary, #0f766e);
-      border-radius: 12px;
-      padding: 8px;
+      max-width: 220px;
+      max-height: 72px;
+      height: auto;
+      width: 100%;
+      object-fit: contain;
     }
     .footer-tagline {
       font-size: 1.1rem;
@@ -108,8 +109,9 @@
     }
     .footer-desc {
       font-size: 0.95rem;
-      color: #fff;
+      color: #e6efff;
       margin-bottom: 1rem;
+      line-height: 1.6;
     }
     .footer-nav {
       flex: 1 1 180px;
@@ -124,15 +126,19 @@
       gap: 0.5rem;
     }
     .footer-link {
-      color: #fff;
+      color: #f1f7ff;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
+      font-weight: 600;
+      transition: color 0.2s, text-decoration-color 0.2s;
     }
     .footer-link:hover,
     .footer-link:focus {
-      color: var(--color-accent, #ffd700);
+      color: var(--color-primary, #1ac87a);
       text-decoration: underline;
+    }
+    .footer-link:focus-visible {
+      outline: 2px solid var(--color-primary, #1ac87a);
+      outline-offset: 3px;
     }
     .footer-contact-area {
       flex: 1 1 220px;

@@ -59,3 +59,13 @@
   color: #ef4444;
   margin-top: var(--space-2);
 }
+
+.form-status {
+  margin-top: var(--space-3);
+  font-weight: 700;
+  color: var(--color-heading);
+
+  &.has-error {
+    color: #ffb4b4;
+  }
+}
