@@ -78,7 +78,7 @@ jobs:
             echo "ERROR: Homepage missing CSS link tags"
             exit 1
           fi
-          if ! grep -q "<!doctype html>" _site/index.html; then
+          if ! grep -qi "<!doctype html>" _site/index.html; then
             echo "ERROR: Homepage missing DOCTYPE"
             exit 1
           fi
