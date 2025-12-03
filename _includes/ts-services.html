@@ -1,20 +1,5 @@
 {% assign summary = include.summary | default: page.services_summary | default: 'Consistent finish work, waterproof assemblies, and recurring care that keep rentals, shore homes, and owner-occupied properties in top shape.' %}
-{% assign services = include.services | default: page.services %}
-
-{% unless services %}
-  {%- comment -%}
-    Default services are defined here so the homepage and any page that omits a custom
-    services list still renders service cards. Each entry is a pipe-delimited string that
-    is split into icon, title, description, and URL when iterating below.
-  {%- endcomment -%}
-  {% capture default_services %}
-    paint|Finish painting & trim|Clean lines, cabinet refreshes, and durable interior repainting|/services/#paint;
-    flooring|Resilient flooring installs|Vinyl plank, tile, subfloor prep, and clean transitions|/services/#flooring;
-    waterproof|Waterproof tile assemblies|Custom pans, backer prep, heated floors, and moisture protection|/services/#tile;
-    maintenance|Turnover-ready upkeep|Seasonal inspections, quick repairs, and landlord-ready reporting|/services/#maintenance
-  {% endcapture %}
-  {% assign services = default_services | split: ';' %}
-{% endunless %}
+{% assign services = include.services | default: page.services | default: site.data.services.services %}
 
 <section class="ts-services" aria-labelledby="ts-services-title">
   <div class="container">

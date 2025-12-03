@@ -351,8 +351,10 @@
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.ts-service-card {
-  background: linear-gradient(145deg, #ffffff 0%, #f1f4f9 100%);
+
+/* Card base shared across homepage sections */
+.ts-card {
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: clamp(1.25rem, 3vw, 1.75rem);
@@ -362,11 +364,15 @@
   transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
 }
 
-.ts-service-card:hover,
-.ts-service-card:focus-within {
+.ts-card:hover,
+.ts-card:focus-within {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lift);
   border-color: var(--color-primary);
+}
+
+.ts-service-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f1f4f9 100%);
 }
 
 .ts-service-card__header {
@@ -448,7 +454,9 @@
 
 /* Plans */
 .ts-plans {
-  background: linear-gradient(180deg, #f7f1e6 0%, #efe5d2 100%);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .ts-plans__header {
@@ -466,13 +474,7 @@
 }
 
 .ts-plan-card {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-soft);
   background: var(--color-surface);
-  display: grid;
-  gap: var(--space-3);
-  padding: clamp(1.4rem, 3vw, 1.85rem);
 }
 
 .ts-plan-card--accent {
