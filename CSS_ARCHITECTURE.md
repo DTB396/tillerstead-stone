@@ -141,9 +141,6 @@ Styles ONLY used on the homepage:
 
 ### Special Components
 
-#### (Deprecated) construction-banner.css
-Removed November 2025. Banner and loading screen were deprecated to simplify above-the-fold rendering and reduce unused CSS. Historical references retained here for traceability.
-
 #### pattern-showcase.css
 **Location:** `assets/css/pattern-showcase.css`
 

@@ -366,7 +366,7 @@
 
 ## 📦 Asset Files
 
-### CSS Files (12 total)
+### CSS Files (11 total)
 ```
 assets/css/
 ├── base.css                    ✓ Existing (not modified)
@@ -378,7 +378,6 @@ assets/css/
 ├── gallery.css                 ✨ NEW
 ├── home-refactored.css         ✨ NEW
 ├── home.css                    ✓ Existing (not modified)
-├── construction-banner.css     ✓ Existing (not modified)
 ├── pattern-showcase.css        ✓ Existing (not modified)
 └── [old components overrides]  ✓ Existing (not modified)
 ```
