@@ -25,10 +25,10 @@
 
 .site-header-inner {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-3);
   align-items: center;
   justify-content: space-between;
-  padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(0.65rem, 1.8vw, 0.95rem) clamp(1rem, 3vw, 1.75rem);
   max-width: var(--shell-width);
   margin: 0 auto;
 }
@@ -76,6 +76,12 @@
   flex-shrink: 0;
 }
 
+/* Header logo sizing lives here; keeps CTA + menu balanced */
+.ts-logo-link--header {
+  display: inline-flex;
+  align-items: center;
+}
+
 .site-logo {
   display: inline-block;
   line-height: 0;
@@ -96,14 +102,14 @@
 
 .site-logo-img {
   display: block;
-  width: clamp(180px, 32vw, 260px);
+  width: clamp(180px, 30vw, 240px);
   height: auto;
-  max-height: 96px;
+  max-height: 88px;
   border-radius: var(--radius-sm);
 
   @media (max-width: 640px) {
-    width: clamp(170px, 50vw, 220px);
-    max-height: 84px;
+    width: clamp(170px, 55vw, 210px);
+    max-height: 80px;
   }
 }
 
@@ -280,7 +286,7 @@
 
 .site-header-actions {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
   align-items: center;
   flex-shrink: 0;
 }
@@ -347,7 +353,11 @@
 
 @media (max-width: 920px) {
   .site-header-inner {
-    padding: 0.875rem clamp(1rem, 4vw, 1.5rem);
+    padding: 0.75rem clamp(0.9rem, 4vw, 1.4rem);
+  }
+
+  .site-nav-shell {
+    flex: 0;
   }
 }
 

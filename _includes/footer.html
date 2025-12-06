@@ -10,23 +10,14 @@
 
   <div class="footer-flex">
     <div class="footer-brand-area">
-      <a href="{{ '/' | relative_url }}" aria-label="Tillerstead LLC Home" itemprop="url" rel="home" class="footer-logo-link">
-        <img
-          src="{{ '/assets/img/logo-tillerstead-inverse.svg' | relative_url }}"
-          class="footer-logo-img"
-          alt="Tillerstead LLC"
-          width="360"
-          height="180"
-          loading="lazy"
-          decoding="async">
-      </a>
-      <p class="footer-tagline">
-        <strong>Property Maintenance &middot; Remodeling &middot; Tile</strong><br>
-        <small>NJ Licensed HIC #{{ site.company.hic }}</small>
-      </p>
+      <div class="footer-brand-card">
+        {% include logo-main.html class="ts-logo-link--footer" img_class="ts-logo ts-logo--footer footer-logo-img" %}
+        <p class="footer-tagline">Property Maintenance · Remodeling · Tile</p>
+      </div>
       <p class="footer-desc">
         Monthly maintenance plans, reliable remodeling, and waterproof tile assemblies across Atlantic, Ocean, and Cape May counties.
       </p>
+      <p class="footer-licensing"><strong>NJ Licensed HIC #{{ site.company.hic }}</strong></p>
     </div>
 
     <nav class="footer-nav" aria-label="Footer">
@@ -72,143 +63,4 @@
       <a href="{{ '/sitemap.xml' | relative_url }}" class="footer-link">Sitemap</a>
     </p>
   </div>
-
-  <style>
-    /* FOOTER BASE */
-    .site-footer.ts-footer {
-      background-color: #0f2240 !important; /* force dark background */
-      color: #e6efff;
-      font-family: var(--font-sans, 'Segoe UI', Arial, sans-serif);
-      padding: 3rem 1rem 1.75rem 1rem;
-      border-top: 0;
-    }
-
-    /* Make sure all text inside is readable */
-    .site-footer.ts-footer p,
-    .site-footer.ts-footer small,
-    .site-footer.ts-footer span,
-    .site-footer.ts-footer address,
-    .site-footer.ts-footer strong,
-    .site-footer.ts-footer h2 {
-      color: #e6efff;
-    }
-
-    .footer-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-    }
-
-    .footer-brand-area {
-      flex: 1 1 240px;
-      min-width: 220px;
-      max-width: 340px;
-    }
-
-    .footer-logo-img {
-  display: block;
-  margin-bottom: 1rem;
-  max-width: clamp(220px, 40vw, 320px);
-  max-height: none;
-  height: auto;
-  width: 100%;
-  object-fit: contain;
-  background: transparent;
-  filter: none; /* ensure nothing overrides later */
-}
-
-    .footer-tagline {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #c0ffd1;
-    }
-
-    .footer-tagline small {
-      color: #e6efff;
-    }
-
-    .footer-desc {
-      font-size: 0.95rem;
-      color: #e6efff;
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .footer-nav {
-      flex: 1 1 180px;
-      min-width: 160px;
-      max-width: 220px;
-    }
-
-    .footer-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    /* Override any global footer link styles */
-    .site-footer.ts-footer a,
-    .site-footer.ts-footer .footer-link {
-      color: #8fe29e;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s, text-decoration-color 0.2s;
-    }
-
-    .site-footer.ts-footer .footer-link:hover,
-    .site-footer.ts-footer .footer-link:focus {
-      color: #bdfcc8;
-      text-decoration: underline;
-    }
-
-    .site-footer.ts-footer .footer-link:focus-visible {
-      outline: 2px solid #bdfcc8;
-      outline-offset: 3px;
-    }
-
-    .footer-contact-area {
-      flex: 1 1 220px;
-      min-width: 200px;
-      max-width: 320px;
-      font-size: 0.98rem;
-    }
-
-    .footer-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    address {
-      font-style: normal;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      font-size: 0.95rem;
-      color: #e6efff;
-      margin-top: 2rem;
-      border-top: 1px solid rgba(230, 239, 255, 0.2);
-      padding-top: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .footer-flex {
-        flex-direction: column;
-        gap: 2rem;
-      }
-      .footer-brand-area,
-      .footer-nav,
-      .footer-contact-area {
-        max-width: 100%;
-      }
-    }
-  </style>
 </footer>
