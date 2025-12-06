@@ -1,8 +1,27 @@
 {%- comment -%}
 Main Tillerstead logo include.
-Uses compact header logo on all viewports; CSS controls size.
+Accepts optional `class` and `img_class` params for modifier classes.
 {%- endcomment -%}
 
-<a href="{{ '/' | relative_url }}" class="ts-logo-link" rel="home" aria-label="Tillerstead LLC home">
-  <img src="{{ 'assets/img/logo/tillerstead-logo-header.svg' | relative_url }}" alt="Tillerstead LLC logo" width="220" height="80" loading="eager" decoding="async" />
+{%- assign logo_link_classes = 'ts-logo-link' -%}
+{%- if include.class -%}
+  {%- assign logo_link_classes = logo_link_classes | append: ' ' | append: include.class -%}
+{%- endif -%}
+
+{%- assign logo_img_classes = 'ts-logo ts-logo--header' -%}
+{%- if include.img_class -%}
+  {%- assign logo_img_classes = include.img_class -%}
+{%- endif -%}
+
+<a href="{{ '/' | relative_url }}"
+   class="{{ logo_link_classes }}"
+   rel="home"
+   aria-label="Tillerstead LLC home">
+  <img src="{{ 'assets/img/logo/tillerstead-logo-header.svg' | relative_url }}"
+       alt="Tillerstead LLC logo"
+       width="240"
+       height="90"
+       loading="eager"
+       decoding="async"
+       class="{{ logo_img_classes }}" />
 </a>

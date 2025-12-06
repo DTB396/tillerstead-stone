@@ -6,18 +6,7 @@
   <div class="site-header-inner">
     <!-- Brand -->
     <div class="ts-brand">
-      <a class="site-logo"
-         href="{{ '/' | relative_url }}"
-         aria-label="Tillerstead LLC - Return to homepage"
-         rel="home">
-        <img src="{{ 'assets/img/logo-tillerstead-inverse.svg' | relative_url }}"
-             alt="Tillerstead LLC logo"
-             width="360"
-             height="180"
-             loading="eager"
-             decoding="async"
-             class="site-logo-img" />
-      </a>
+      {% include logo-main.html class="ts-logo-link--header" img_class="ts-logo ts-logo--header" %}
     </div>
 
     <!-- Navigation container -->

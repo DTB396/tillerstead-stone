@@ -2,6 +2,30 @@
    Logo Treatments
    ============================================ */
 
+/* Base logo sizing and aspect ratio control (used across header/hero/footer) */
+.ts-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: clamp(200px, 34vw, 280px);
+}
+
+/* Header logo keeps the wordmark balanced next to the CTA/menu */
+.ts-logo--header {
+  max-width: clamp(180px, 30vw, 240px);
+}
+
+/* Hero logo can breathe a bit more inside the intro card */
+.ts-logo--hero {
+  max-width: clamp(220px, 42vw, 320px);
+  margin-inline: auto;
+}
+
+/* Footer logo is capped to prevent oversized marks on small screens */
+.ts-logo--footer {
+  max-width: clamp(180px, 50vw, 220px);
+}
+
 .ts-logo-link,
 .ts-logo-footer,
 .ts-logo-hero {
