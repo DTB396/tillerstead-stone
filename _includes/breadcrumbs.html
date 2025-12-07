@@ -31,10 +31,9 @@ Examples:
 {%- endfor -%}
 
 {%- assign is_root_leaf = segment_count <= 1 -%}
+{%- assign show_breadcrumbs = page.breadcrumb != false and is_home_page == false and is_root_leaf == false -%}
 
-{%- if is_home_page or is_root_leaf or page.breadcrumb == false -%}
-  {#-- No breadcrumbs rendered on home or root-level pages --#}
-{%- else -%}
+{%- if show_breadcrumbs -%}
   {%- assign clean_segments = '' | split: '' -%}
   {%- for segment in segments -%}
     {%- unless segment == '' -%}
@@ -78,7 +77,7 @@ Examples:
           <meta itemprop="position" content="{{ position }}">
         </li>
         {%- assign position = position | plus: 1 -%}
-      {%- endfor -%}
+  {%- endfor -%}
     </ol>
   </nav>
 {%- endif -%}
