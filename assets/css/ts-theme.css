@@ -369,31 +369,12 @@ body.nav-open { overflow: hidden; }
 
 @media (max-width: 919px) {
   .site-header-inner { grid-template-columns: 1fr auto; grid-template-areas: "brand actions"; }
-  .site-nav-shell {
-    position: fixed;
-    inset: 0;
-    z-index: 1100;
-    display: block;
-    pointer-events: none;
-  }
+  .site-nav-shell { position: fixed; inset: 0; z-index: 1400; display: block; pointer-events: none; }
   .site-nav-shell.is-open,
   .site-nav-shell[data-open="true"] { pointer-events: auto; }
-  .site-nav-backdrop {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background: rgba(5, 10, 20, 0.68);
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 180ms ease;
-    z-index: 0;
-  }
+  .site-nav-backdrop { display: block; position: fixed; inset: 0; background: linear-gradient(145deg, rgba(9, 14, 22, 0.78), rgba(9, 14, 22, 0.6)); backdrop-filter: blur(4px) saturate(140%); opacity: 0; pointer-events: none; transition: opacity 180ms ease; z-index: 0; }
   .site-nav-shell.is-open .site-nav-backdrop,
-  .site-nav-shell[data-open="true"] .site-nav-backdrop {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .site-nav-shell[data-open="true"] .site-nav-backdrop { opacity: 1; pointer-events: auto; }
   .site-nav {
     position: fixed;
     top: 0;
@@ -401,14 +382,14 @@ body.nav-open { overflow: hidden; }
     bottom: 0;
     width: min(85vw, 360px);
     max-width: 100%;
-    background: radial-gradient(circle at top left, #122635, #050b11);
+    background: linear-gradient(180deg, rgba(12, 22, 32, 0.94), rgba(7, 12, 19, 0.92));
     transform: translateX(100%);
     border-radius: 0 var(--ts-radius-lg) var(--ts-radius-lg) 0;
     border-left: 1px solid rgba(255, 255, 255, 0.06);
     border-right: none;
     border-top: none;
     border-bottom: none;
-    box-shadow: var(--ts-shadow-soft);
+    box-shadow: -18px 0 48px rgba(5, 10, 18, 0.45);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);

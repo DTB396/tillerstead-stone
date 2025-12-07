@@ -40,7 +40,16 @@
   justify-content: center;
 
   @media (max-width: 920px) {
+    position: fixed;
+    inset: 0;
+    z-index: 1400;
     justify-content: flex-end;
+    pointer-events: none;
+
+    &.is-open,
+    &[data-open="true"] {
+      pointer-events: auto;
+    }
   }
 }
 
@@ -51,12 +60,12 @@
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(23, 31, 20, 0.35);
-    backdrop-filter: blur(2px);
+    background: linear-gradient(145deg, rgba(9, 14, 22, 0.78), rgba(9, 14, 22, 0.6));
+    backdrop-filter: blur(4px) saturate(140%);
     opacity: 0;
     pointer-events: none;
     transition: opacity var(--transition-med);
-    z-index: 900;
+    z-index: 0;
 
     .site-nav-shell.is-open & {
       opacity: 1;
@@ -130,15 +139,15 @@
     bottom: 0;
     width: min(85vw, 340px);
     max-width: 100%;
-    background: var(--color-surface);
+    background: linear-gradient(180deg, rgba(12, 22, 32, 0.94), rgba(7, 12, 19, 0.92));
     padding: clamp(1rem, 5vw, 2rem);
-    box-shadow: -12px 0 32px rgba(23, 31, 20, 0.18);
-    border-left: 1px solid var(--header-border);
+    box-shadow: -18px 0 48px rgba(5, 10, 18, 0.45);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
     transform: translateX(110%);
     opacity: 0;
     pointer-events: none;
     transition: transform 320ms ease, opacity 220ms ease;
-    z-index: 1200;
+    z-index: 1;
 
     .site-nav-shell.is-open & {
       transform: translateX(0);
