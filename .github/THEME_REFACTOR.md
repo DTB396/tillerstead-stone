@@ -242,7 +242,7 @@ Media management and content showcase:
 
 ## Design Tokens (tokens.css)
 
-**Location:** `assets/styles/tokens.css`
+**Location:** `_sass/base/_tokens.scss`
 
 Contains all design system variables:
 - Colors (primary, accent, text, backgrounds)
@@ -351,7 +351,7 @@ All contrast handled statically via tokens (`styles/tokens.css`). Ensure new col
 
 ### Making Changes to the Theme
 
-1. **Token Changes** → Update `assets/styles/tokens.css` (colors, spacing, shadows)
+1. **Token Changes** → Update `_sass/base/_tokens.scss` (colors, spacing, shadows)
 2. **Component Styling** → Update relevant CSS file (components, cards, gallery)
 3. **Test Accessibility** → Run dev audit overlay (Alt+Shift+A) or PowerShell script
 4. **Mobile Responsive** → Test on mobile, tablet, desktop with Chrome DevTools
@@ -441,7 +441,7 @@ assets/
 
 - **Accessibility Guide**: `.github/instructions/accessibility-tools.md`
 - **Quality Standards**: `.github/instructions/quality-standards.instructions.md`
-- **Design Tokens**: `assets/styles/tokens.css`
+- **Design Tokens**: `_sass/base/_tokens.scss`
 - **CI Pipeline**: `.github/workflows/ci.yml`
 
 ## Summary

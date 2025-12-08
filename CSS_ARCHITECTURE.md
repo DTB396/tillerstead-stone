@@ -23,7 +23,7 @@ assets/css/
 
 ## How to Work With the Theme
 
-- **Design tokens**: Update `assets/styles/tokens.css` to adjust colors, spacing, or typography. Every component pulls from these variables.
+- **Design tokens**: Update `_sass/base/_tokens.scss` to adjust colors, spacing, or typography. Every component pulls from these variables.
 - **Components & layout**: Add or refine patterns inside `assets/css/ts-theme.css`. Keep specificity low and reuse the tokens.
 - **Page-specific styles**: If you truly need a one-off pattern, add a CSS file and reference it from the page `styles:` front matter array.
 

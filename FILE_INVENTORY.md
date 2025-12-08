@@ -7,7 +7,7 @@
 - Removed legacy light-theme bundles and duplicate CSS files.
 
 ## Key Files
-- `assets/styles/tokens.css` — Design tokens for colors, typography, spacing, radius, and glow effects.
+- `_sass/base/_tokens.scss` — Design tokens for colors, typography, spacing, radius, and glow effects.
 - `assets/css/ts-theme.css` — Global layout, header/nav, hero, cards, sections, forms, and footer.
 - `_includes/head.html` — Loads tokens + theme, cleans meta tags.
 - `_includes/unified-hero-home.html` — Canonical homepage hero layout (logo block, badge, CTA row).
@@ -15,7 +15,7 @@
 
 ## Removed Legacy Assets
 - Deprecated CSS bundles: `base.css`, `layout.css`, `components.css`, `home.css`, `cards.css`, `gallery.css`, `breadcrumbs.css`, `theme.css`, `theme-compiled.css`, `pattern-showcase.css`.
-- Outdated duplicate token file: `src/styles/tokens.css`.
+- Outdated duplicate token file: `_sass/base/_tokens.scss`.
 
 ## Notes
 - Page-specific CSS can still be added via the `styles:` front matter array when needed.

@@ -352,7 +352,7 @@ Clean, uncluttered layouts with subtle animations:
 
 ### For Designers
 - Reference `.github/THEME_REFACTOR.md` for complete design specs
-- Use `assets/styles/tokens.css` as single source of truth
+- Use `_sass/base/_tokens.scss` as single source of truth
 - Customize theme by updating token values
 - All changes propagate automatically to components
 
@@ -376,7 +376,7 @@ Clean, uncluttered layouts with subtle animations:
 
 | File | Purpose | Lines |
 |------|---------|-------|
-| `assets/styles/tokens.css` | Design system tokens | 250+ |
+| `_sass/base/_tokens.scss` | Design system tokens | 250+ |
 | `assets/css/hero-refactored.css` | Hero section | 470 |
 | `assets/css/cards.css` | Card components | 380 |
 | `assets/css/gallery.css` | Gallery & media | 520 |
@@ -398,7 +398,7 @@ Clean, uncluttered layouts with subtle animations:
 
 **Colors looking wrong:**
 - Check if CSS is loading (browser DevTools → Network tab)
-- Verify `assets/styles/tokens.css` loaded first
+- Verify `_sass/base/_tokens.scss` loaded first
 - Clear browser cache (Ctrl+Shift+Delete)
 
 **Mobile layout broken:**

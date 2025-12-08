@@ -73,7 +73,7 @@ npx htmlhint *.html
 ## Design System & Theme
 
 ### Design Tokens
-All design tokens are centralized in `src/styles/tokens.css`:
+All design tokens are centralized in `_sass/base/_tokens.scss`:
 - **Colors**: `--color-primary`, `--color-accent`, `--color-surface`, etc.
 - **Typography**: `--font-sans`, `--heading-1` through `--heading-6`
 - **Spacing**: `--space-1` through `--space-12`
@@ -82,7 +82,7 @@ All design tokens are centralized in `src/styles/tokens.css`:
 - **Gradients**: `--gradient-primary`, `--gradient-surface`
 
 ### Making Theme Changes
-1. Edit `src/styles/tokens.css` to modify design tokens
+1. Edit `_sass/base/_tokens.scss` to modify design tokens
 2. Changes propagate throughout the site automatically via CSS custom properties
 3. View all tokens and examples at `public/theme-demo.html`
 
@@ -157,7 +157,7 @@ All pages use `{% include unified-hero.html %}`. Supported front-matter fields:
 5. Lint the file: `npx htmlhint your-page.html`
 
 ### Updating Styles
-1. Modify design tokens in `src/styles/tokens.css` for global changes
+1. Modify design tokens in `_sass/base/_tokens.scss` for global changes
 2. For component-specific styles, edit relevant CSS in `assets/css/`
 3. Test across different viewport sizes
 4. Run linter to check for issues
@@ -202,6 +202,6 @@ npx eslint . --fix
 
 ## Resources
 - Theme demo: `public/theme-demo.html`
-- Design tokens: `src/styles/tokens.css`
+- Design tokens: `_sass/base/_tokens.scss`
 - CI workflow: `.github/workflows/ci.yml`
 - README: Full documentation in `README.md`

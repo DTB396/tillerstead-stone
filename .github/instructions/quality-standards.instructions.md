@@ -43,7 +43,7 @@ Include JSON-LD structured data where appropriate:
 ## 🎨 Brand & Design Standards
 
 ### Design Token Usage
-Always use CSS custom properties from `src/styles/tokens.css`:
+Always use CSS custom properties from `_sass/base/_tokens.scss`:
 - Colors: `var(--color-primary)`, `var(--color-accent)`, etc.
 - Typography: `var(--font-sans)`, `var(--heading-1)`, etc.
 - Spacing: `var(--space-1)` through `var(--space-12)`

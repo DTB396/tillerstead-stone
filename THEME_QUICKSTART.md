@@ -29,7 +29,7 @@ Your Tillerstead website has been completely redesigned with:
 - **Keyboard Navigation**: Press `Tab` to navigate, `Enter/Space` to activate
 
 ### Customize Colors
-Edit `assets/styles/tokens.css`:
+Edit `_sass/base/_tokens.scss`:
 ```css
 /* Change primary color */
 --color-primary: #00a86b; /* Change this to any color */
@@ -42,19 +42,23 @@ Edit `assets/styles/tokens.css`:
 ## 📁 File Locations
 
 ### Design System
-- **Tokens (Colors, Spacing, Shadows)**: `assets/styles/tokens.css`
+- **Tokens (Colors, Spacing, Shadows)**: `_sass/base/_tokens.scss`
 - **Theme Guide**: `.github/THEME_REFACTOR.md` (comprehensive)
 - **Summary**: `.github/THEME_REFACTORING_SUMMARY.md` (overview)
 
-### CSS Files (Load in this order)
-1. `assets/styles/tokens.css` — Design tokens
-2. `assets/css/base.css` — Element defaults
-3. `assets/css/layout.css` — Grid and container
-4. `assets/css/components-refactored.css` — Buttons, forms, utilities
-5. `assets/css/hero-refactored.css` — Hero section
-6. `assets/css/cards.css` — Card components
-7. `assets/css/gallery.css` — Gallery and media
-8. `assets/css/home-refactored.css` — Homepage sections
+### Sass Build System
+The site uses a Sass-based CSS system:
+- **Source files**: `_sass/base/`, `_sass/components/`, `_sass/layout/`, `_sass/utilities/`
+- **Build entry**: `assets/css/main-build.scss`
+- **Output**: `assets/css/main.css` (auto-generated, do not edit)
+- **Build command**: `npm run build:css` (compiles Sass to CSS)
+- **Watch mode**: `npm run watch:css` (auto-recompiles on file changes)
+
+### CSS Files Structure
+1. `_sass/base/_tokens.scss` — Design tokens (colors, spacing, typography)
+2. `_sass/layout/_grid.scss` — Grid and layout utilities
+3. `_sass/components/_theme.scss` — All component styles
+4. Compiled output: `assets/css/main.css` (loaded by all pages)
 
 ### Page Templates
 - **Homepage**: `index.html` (updated with card sections)
@@ -66,7 +70,7 @@ Edit `assets/styles/tokens.css`:
 ## 🎯 Common Tasks
 
 ### Change the Primary Color
-**File:** `assets/styles/tokens.css`
+**File:** `_sass/base/_tokens.scss`
 **Lines:** Find `--color-primary` (around line 10)
 
 ```css
@@ -261,7 +265,7 @@ localStorage.setItem('ts:high-contrast', 'true');
 
 ### Colors Look Wrong
 1. Hard-refresh browser: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
-2. Check `assets/styles/tokens.css` is loading (DevTools → Network tab)
+2. Check `_sass/base/_tokens.scss` is loading (DevTools → Network tab)
 3. Verify no browser extensions modifying styles
 4. Check for CSS conflicts in other files
 
