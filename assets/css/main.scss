@@ -7,24 +7,24 @@
    ============================================ */
 
 /* Base Layer - Foundations */
-@import "base/tokens";           // Design tokens & CSS custom properties
-@import "base/reset";             // Modern CSS reset
-@import "base/typography";        // Typography system
+@import "base/tokens";
+@import "base/reset";
+@import "base/typography";
 
 /* Layout Layer - Page structure */
-@import "layout/container";       // Containers & wrappers
-@import "layout/grid";            // Grid system
+@import "layout/container";
+@import "layout/grid";
 
 /* Component Layer - Reusable UI elements */
-@import "components/buttons";     // Button styles
-@import "components/cards";       // Card components
-@import "components/forms";       // Form elements
-@import "components/header";      // Site header & navigation
-@import "components/footer";      // Site footer
-@import "components/hero";        // Hero sections
+@import "components/buttons";
+@import "components/cards";
+@import "components/forms";
+@import "components/header";
+@import "components/footer";
+@import "components/hero";
 
 /* Utilities Layer - Helper classes */
-@import "utilities/helpers";      // Utility classes
+@import "utilities/helpers";
 
 /* Legacy Theme Support - Backwards compatibility */
-@import "components/theme";       // Existing theme styles
+@import "components/theme";

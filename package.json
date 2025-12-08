@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint . && htmlhint *.html",
     "format": "prettier --write .",
-    "build:css": "sass --load-path=_sass assets/css/main.scss:assets/css/main.css --no-source-map --style=compressed",
+    "build:css": "tail -n +3 assets/css/main.scss | sass --load-path=_sass --stdin assets/css/main.css --no-source-map --style=compressed --quiet-deps",
     "watch:css": "sass --load-path=_sass assets/css/main.scss:assets/css/main.css --watch --no-source-map",
     "dev": "npm run build:css && bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload --livereload-port 35729",
     "build": "npm run build:css && bundle exec jekyll build",
