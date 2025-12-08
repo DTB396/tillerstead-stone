@@ -39,10 +39,14 @@
           {% assign nav_items = site.data.navigation.primary %}
           {% for item in nav_items %}
             {% assign is_current = false %}
-            {% if item.exact and page.url == item.exact %}
-              {% assign is_current = true %}
-            {% elsif item.match and page.url contains item.match %}
-              {% assign is_current = true %}
+            {% if item.exact %}
+              {% if page.url == item.exact %}
+                {% assign is_current = true %}
+              {% endif %}
+            {% elsif item.match %}
+              {% if page.url == item.match or page.url contains item.match and item.match != "/" %}
+                {% assign is_current = true %}
+              {% endif %}
             {% endif %}
             <li class="nav-item">
               <a href="{{ item.url | relative_url }}"
