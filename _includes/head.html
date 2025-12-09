@@ -47,7 +47,7 @@
 <link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="#1cb394">
 
 <!-- Performance: Preload critical assets -->
-<link rel="preload" as="image" href="{{ '/assets/img/logo/tillerstead-logo-header.svg' | relative_url }}" fetchpriority="high">
+<link rel="preload" as="image" type="image/svg+xml" href="{{ '/assets/img/logo/tillerstead-inverse.svg' | relative_url }}" fetchpriority="high">
 <link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}">
 {% if page.is_home or page.hero_image %}
   <link rel="preload" as="image" href="{{ page.hero_image | default: '/assets/img/hero-bg.jpg' | relative_url }}" fetchpriority="high">

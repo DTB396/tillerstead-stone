@@ -34,12 +34,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--ts-spacing-sm);
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  flex-wrap: wrap;
 }
 
 /* -----------------------------
    Brand / Logo
    ----------------------------- */
+
+.site-branding {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.1rem);
+  flex-shrink: 0;
+  min-width: 0;
+}
 
 .site-brand,
 .ts-brand {
@@ -75,7 +84,8 @@
 
 .ts-logo {
   display: block;
-  width: clamp(150px, 30vw, 220px);
+  width: clamp(150px, 28vw, 220px);
+  max-width: min(100%, 240px);
   max-height: 52px;
   height: auto;
   object-fit: contain;
@@ -162,7 +172,7 @@
    ----------------------------- */
 
 .site-nav-shell {
-  flex: 1 1 auto;
+  flex: 1 1 380px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -202,7 +212,8 @@
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 1.2vw, 0.9rem);
+  flex-wrap: wrap;
 }
 
 .site-menu li {
@@ -324,6 +335,7 @@
   .site-header-inner {
     padding: 0.75rem clamp(1rem, 4vw, 1.5rem);
     gap: var(--space-2);
+    align-items: center;
   }
 
   /* Key: drawer lives in its own fixed layer, not as a flex column */
@@ -336,6 +348,7 @@
     flex: 0 0 auto;
     width: 0;
     height: 0;
+    order: 3;
   }
 
   .site-nav-shell.is-open {
