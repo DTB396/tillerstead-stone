@@ -11,26 +11,25 @@
      =========================== */
   --ts-emerald: #0f6a64;
   --ts-emerald-soft: #17a39b;
-  --ts-brass: #c8a046;
+  --ts-gold: #d4af37;
+  --ts-gold-soft: #f4d778;
+  --ts-parchment: #f5f1e8;
   --ts-ink: #0f1a22;
   --ts-navy: #0c1520;
-  --ts-slate: #f3f6f7;
-  --ts-shell: #e2f2ee;
-  --ts-card-dark: #12202d;
   --ts-white: #ffffff;
 
-  --ts-color-bg: var(--ts-slate);
+  --ts-color-bg: var(--ts-parchment);
   --ts-color-surface: #ffffff;
-  --ts-color-surface-muted: #eef3f4;
-  --ts-color-surface-elevated: #f8fbfc;
-  --ts-color-surface-highlight: #e8f0f2;
+  --ts-color-surface-muted: #f8f6f0;
+  --ts-color-surface-elevated: #fdfcf9;
+  --ts-color-surface-highlight: #f0ede3;
 
-  --ts-color-text: var(--ts-ink);
-  --ts-color-muted: color-mix(in srgb, var(--ts-ink) 70%, #5d6a75);
-  --ts-color-heading: color-mix(in srgb, var(--ts-ink) 92%, #000000);
-  --ts-color-accent: var(--ts-brass);
-  --ts-color-accent-strong: color-mix(in srgb, var(--ts-brass) 88%, #8b6b1a);
-  --ts-color-accent-soft: rgba(200, 160, 70, 0.16);
+  --ts-color-text: var(--ts-navy);
+  --ts-color-muted: color-mix(in srgb, var(--ts-navy) 65%, #5d6a75);
+  --ts-color-heading: var(--ts-navy);
+  --ts-color-accent: var(--ts-gold);
+  --ts-color-accent-strong: color-mix(in srgb, var(--ts-gold) 85%, #b8941e);
+  --ts-color-accent-soft: rgba(212, 175, 55, 0.12);
   --ts-color-primary: var(--ts-emerald);
   --ts-color-primary-strong: color-mix(in srgb, var(--ts-emerald) 88%, #0a4b47);
   --ts-color-primary-soft: rgba(15, 106, 100, 0.14);
@@ -49,15 +48,15 @@
 
   /* Gradients & textures */
   --ts-gradient-primary: linear-gradient(135deg, var(--ts-emerald-soft) 0%, var(--ts-emerald) 100%);
-  --ts-gradient-accent: linear-gradient(135deg, var(--ts-brass) 0%, var(--ts-emerald) 100%);
-  --ts-gradient-surface: radial-gradient(circle at 18% 22%, rgba(200, 160, 70, 0.14), transparent 36%),
-                         radial-gradient(circle at 82% 8%, rgba(23, 163, 155, 0.14), transparent 40%),
-                         var(--ts-slate);
-  --ts-gradient-section: linear-gradient(180deg, #ffffff 0%, #edf3f5 55%, #ffffff 100%);
-  --ts-bg-pattern: radial-gradient(circle at 25% 20%, rgba(200, 160, 70, 0.1) 0, rgba(200, 160, 70, 0.1) 8px, transparent 12px),
-                   radial-gradient(circle at 70% 10%, rgba(23, 163, 155, 0.1) 0, rgba(23, 163, 155, 0.1) 10px, transparent 16px);
+  --ts-gradient-accent: linear-gradient(135deg, var(--ts-gold) 0%, var(--ts-emerald) 100%);
+  --ts-gradient-surface: radial-gradient(circle at 18% 22%, rgba(212, 175, 55, 0.08), transparent 36%),
+                         radial-gradient(circle at 82% 8%, rgba(23, 163, 155, 0.10), transparent 40%),
+                         var(--ts-parchment);
+  --ts-gradient-section: linear-gradient(180deg, #ffffff 0%, var(--ts-parchment) 55%, #ffffff 100%);
+  --ts-bg-pattern: radial-gradient(circle at 25% 20%, rgba(212, 175, 55, 0.08) 0, rgba(212, 175, 55, 0.08) 8px, transparent 12px),
+                   radial-gradient(circle at 70% 10%, rgba(23, 163, 155, 0.08) 0, rgba(23, 163, 155, 0.08) 10px, transparent 16px);
   --ts-bg-pattern-size: 220px 220px;
-  --ts-bg-pattern-opacity: 0.12;
+  --ts-bg-pattern-opacity: 0.10;
 
   /* ===========================
      Typography Tokens
@@ -125,8 +124,8 @@
   --ts-shadow-header-scrolled: 0 2px 18px rgba(0, 0, 0, 0.12);
   --ts-shadow-drawer: -24px 0 64px rgba(0, 0, 0, 0.15), -8px 0 24px rgba(0, 0, 0, 0.1);
   --ts-shadow-glow: 0 0 0 3px rgba(15, 106, 100, 0.32);
-  --ts-shadow-glow-accent: 0 0 0 3px rgba(200, 160, 70, 0.3);
-  --focus-ring: 0 0 0 3px rgba(200, 160, 70, 0.4);
+  --ts-shadow-glow-accent: 0 0 0 3px rgba(212, 175, 55, 0.35);
+  --focus-ring: 0 0 0 3px rgba(212, 175, 55, 0.45);
   --transition-fast: 160ms ease;
   --transition-med: 240ms ease;
 
@@ -166,16 +165,16 @@ html[data-theme="dark"] {
   --ts-color-primary: var(--ts-emerald-soft);
   --ts-color-primary-strong: color-mix(in srgb, var(--ts-emerald) 92%, #0a4b47);
   --ts-color-primary-soft: rgba(23, 163, 155, 0.18);
-  --ts-color-accent: var(--ts-brass);
-  --ts-color-accent-strong: color-mix(in srgb, var(--ts-brass) 88%, #8b6b1a);
-  --ts-color-accent-soft: rgba(200, 160, 70, 0.2);
+  --ts-color-accent: var(--ts-gold-soft);
+  --ts-color-accent-strong: var(--ts-gold);
+  --ts-color-accent-soft: rgba(212, 175, 55, 0.18);
   --ts-color-border: rgba(182, 200, 214, 0.28);
   --ts-color-border-strong: rgba(182, 200, 214, 0.45);
   --ts-color-divider: rgba(182, 200, 214, 0.32);
 
   --ts-gradient-primary: linear-gradient(135deg, var(--ts-emerald-soft) 0%, var(--ts-emerald) 100%);
-  --ts-gradient-accent: linear-gradient(135deg, var(--ts-brass) 0%, var(--ts-emerald) 100%);
-  --ts-gradient-surface: radial-gradient(circle at 18% 22%, rgba(200, 160, 70, 0.08), transparent 36%),
+  --ts-gradient-accent: linear-gradient(135deg, var(--ts-gold) 0%, var(--ts-emerald) 100%);
+  --ts-gradient-surface: radial-gradient(circle at 18% 22%, rgba(212, 175, 55, 0.06), transparent 36%),
                          radial-gradient(circle at 82% 8%, rgba(23, 163, 155, 0.12), transparent 40%),
                          #0b1421;
   --ts-gradient-section: linear-gradient(180deg, #101e32 0%, #0f1a2c 55%, #101e32 100%);
@@ -184,8 +183,8 @@ html[data-theme="dark"] {
   --ts-shadow-soft: 0 16px 32px rgba(3, 10, 22, 0.35);
   --ts-shadow-lift: 0 22px 44px rgba(3, 10, 22, 0.4);
   --ts-shadow-glow: 0 0 0 3px rgba(23, 163, 155, 0.38);
-  --ts-shadow-glow-accent: 0 0 0 3px rgba(200, 160, 70, 0.34);
-  --focus-ring: 0 0 0 3px rgba(200, 160, 70, 0.55);
+  --ts-shadow-glow-accent: 0 0 0 3px rgba(212, 175, 55, 0.4);
+  --focus-ring: 0 0 0 3px rgba(212, 175, 55, 0.55);
 
   /* Header & Footer (dark theme) */
   --header-bg: rgba(15, 26, 44, 0.95);

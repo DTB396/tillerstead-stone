@@ -79,16 +79,16 @@
 .btn-accent,
 .btn--accent {
   background: var(--ts-gradient-accent);
-  color: var(--ts-ink);
-  box-shadow: 0 18px 38px rgba(200, 160, 70, 0.35);
+  color: var(--ts-navy);
+  box-shadow: 0 18px 38px rgba(212, 175, 55, 0.30);
   border: none;
   
   &:hover,
   &:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 24px 48px rgba(200, 160, 70, 0.42);
+    box-shadow: 0 24px 48px rgba(212, 175, 55, 0.38);
     text-decoration: none;
-    color: var(--ts-ink);
+    color: var(--ts-navy);
   }
 }
 

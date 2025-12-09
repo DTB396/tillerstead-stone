@@ -376,10 +376,10 @@
     bottom: 0;
     width: min(88vw, 360px);
     max-width: 100%;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    background: var(--ts-color-surface);
     padding: clamp(1.5rem, 6vw, 2.5rem);
     box-shadow: var(--ts-shadow-drawer);
-    border-left: 2px solid var(--color-border);
+    border-left: 3px solid var(--ts-emerald);
     transform: translateX(110%);
     opacity: 0;
     pointer-events: none;
