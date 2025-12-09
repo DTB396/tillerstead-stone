@@ -41,6 +41,13 @@
    Brand / Logo
    ----------------------------- */
 
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  min-width: 0;
+}
+
 .site-brand,
 .ts-brand {
   display: flex;
