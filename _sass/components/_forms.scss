@@ -22,7 +22,7 @@ label {
   
   &.required::after {
     content: "*";
-    color: #ef4444;
+    color: var(--ts-color-error);
     margin-left: 0.25rem;
   }
 }
@@ -77,7 +77,7 @@ select {
   
   &.is-invalid,
   &:invalid {
-    border-color: #ef4444;
+    border-color: var(--ts-color-error);
     
     &:focus {
       box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
@@ -85,7 +85,7 @@ select {
   }
   
   &.is-valid {
-    border-color: #10b981;
+    border-color: var(--ts-color-success);
     
     &:focus {
       box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
@@ -176,7 +176,7 @@ input[type="radio"] {
 /* Form Error */
 .form-error {
   font-size: var(--font-size-sm);
-  color: #ef4444;
+  color: var(--ts-color-error);
   font-weight: 500;
   margin-top: 0.25rem;
   display: flex;
@@ -191,7 +191,7 @@ input[type="radio"] {
 /* Form Success */
 .form-success {
   font-size: var(--font-size-sm);
-  color: #10b981;
+  color: var(--ts-color-success);
   font-weight: 500;
   margin-top: 0.25rem;
   display: flex;
@@ -212,14 +212,14 @@ input[type="radio"] {
   
   &.is-success {
     background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    color: var(--ts-color-success);
     border: 1px solid rgba(16, 185, 129, 0.3);
   }
   
   &.is-error,
   &.has-error {
     background: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
+    color: var(--ts-color-error);
     border: 1px solid rgba(239, 68, 68, 0.3);
   }
   

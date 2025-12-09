@@ -1,0 +1,13 @@
+# Ignore built/compiled files
+_site/
+dist/
+build/
+assets/css/main.css
+assets/css/*.min.css
+
+# Ignore dependencies
+node_modules/
+vendor/
+
+# Ignore old/legacy files
+assets/css/legacy/

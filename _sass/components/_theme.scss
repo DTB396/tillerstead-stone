@@ -4,7 +4,7 @@
 // ============================================
 
 // Tokens (CSS custom properties)
-@import "../styles/tokens";
+@import "../base/tokens";
 
 // ============================================
 // Base reset & typography
@@ -222,12 +222,12 @@ ol {
 
 .btn-accent {
   background: linear-gradient(135deg, var(--color-accent) 0%, #f0d080 100%);
-  color: #1b1504;
+  color: var(--ts-ink);
   box-shadow: 0 18px 36px rgba(216, 178, 90, 0.4);
 
   &:hover,
   &:focus-visible {
-    color: #1b1504;
+    color: var(--ts-ink);
     transform: translateY(-2px);
     box-shadow: 0 24px 48px rgba(216, 178, 90, 0.46);
     text-decoration: none;
@@ -237,7 +237,7 @@ ol {
 .btn-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
+  gap: var(--ts-spacing-sm);
   align-items: center;
 
   &.center {
@@ -450,14 +450,14 @@ ol {
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #c0ffd1;
+  color: var(--ts-footer-success);
   font-size: 0.95rem;
 }
 
 .footer-desc,
 .footer-licensing,
 footer address {
-  color: #e6efff;
+  color: var(--footer-text);
 }
 
 .footer-desc {
@@ -480,14 +480,14 @@ footer address {
 
 .site-footer a,
 .site-footer .footer-link {
-  color: #8fe29e;
+  color: var(--footer-link);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 
   &:hover,
   &:focus-visible {
-    color: #bdfcc8;
+    color: var(--footer-link-hover);
     text-decoration: underline;
   }
 }
@@ -496,7 +496,7 @@ footer address {
   font-size: 1.05rem;
   font-weight: 600;
   margin: 0 0 0.35rem;
-  color: #e6efff;
+  color: var(--footer-text);
 }
 
 .footer-bottom {
@@ -572,7 +572,7 @@ footer address {
 
 .form-error {
   font-size: 0.875rem;
-  color: #ef4444;
+  color: var(--ts-color-error);
   margin-top: var(--space-2);
 }
 

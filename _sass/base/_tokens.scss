@@ -38,6 +38,15 @@
   --ts-color-border-strong: rgba(15, 26, 34, 0.32);
   --ts-color-divider: rgba(15, 26, 34, 0.14);
 
+  /* Semantic state colors */
+  --ts-color-error: #ef4444;
+  --ts-color-error-dark: #dc2626;
+  --ts-color-success: #10b981;
+  --ts-color-warning: #f59e0b;
+  --ts-footer-link: #63f0a0;
+  --ts-footer-link-hover: #bdfcc8;
+  --ts-footer-success: #c0ffd1;
+
   /* Gradients & textures */
   --ts-gradient-primary: linear-gradient(135deg, var(--ts-emerald-soft) 0%, var(--ts-emerald) 100%);
   --ts-gradient-accent: linear-gradient(135deg, var(--ts-brass) 0%, var(--ts-emerald) 100%);
@@ -79,21 +88,15 @@
   /* ===========================
      Spacing Scale (8px baseline)
      =========================== */
-  --ts-spacing-xs: 0.5rem;
-  --ts-spacing-sm: 0.75rem;
-  --ts-spacing-md: 1.25rem;
-  --ts-spacing-lg: 2rem;
-  --ts-spacing-xl: 3rem;
-  --space-1: 0.35rem;
-  --space-2: 0.6rem;
-  --space-3: 0.9rem;
-  --space-4: 1.25rem;
-  --space-5: 1.75rem;
-  --space-6: 2.25rem;
-  --space-7: 3rem;
-  --space-8: 4rem;
-  --space-10: 4.75rem;
-  --space-12: 5.75rem;
+  --ts-spacing-xs: 0.5rem;    /* 8px */
+  --ts-spacing-sm: 0.75rem;   /* 12px */
+  --ts-spacing-md: 1.25rem;   /* 20px */
+  --ts-spacing-lg: 2rem;      /* 32px */
+  --ts-spacing-xl: 3rem;      /* 48px */
+  --ts-spacing-2xl: 4rem;     /* 64px */
+  --ts-spacing-3xl: 5rem;     /* 80px */
+  
+  /* Contextual spacing */
   --hero-padding-mobile: 3rem;
   --hero-padding-desktop: 6rem;
 
@@ -109,8 +112,18 @@
   --ts-radius-pill: 999px;
   --ts-radius-card: var(--ts-radius-lg);
 
-  --ts-shadow-soft: 0 14px 32px rgba(12, 24, 34, 0.16);
+  /* Shadow colors */
+  --ts-color-shadow-light: rgba(0, 0, 0, 0.08);
+  --ts-color-shadow-medium: rgba(0, 0, 0, 0.15);
+  --ts-color-shadow: rgba(12, 24, 34, 0.16);
+  --ts-color-overlay: rgba(9, 14, 22, 0.75);
+  
+  /* Shadow presets */
+  --ts-shadow-soft: 0 14px 32px var(--ts-color-shadow);
   --ts-shadow-lift: 0 18px 38px rgba(12, 24, 34, 0.2);
+  --ts-shadow-header: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --ts-shadow-header-scrolled: 0 2px 18px rgba(0, 0, 0, 0.12);
+  --ts-shadow-drawer: -24px 0 64px rgba(0, 0, 0, 0.15), -8px 0 24px rgba(0, 0, 0, 0.1);
   --ts-shadow-glow: 0 0 0 3px rgba(15, 106, 100, 0.32);
   --ts-shadow-glow-accent: 0 0 0 3px rgba(200, 160, 70, 0.3);
   --focus-ring: 0 0 0 3px rgba(200, 160, 70, 0.4);
@@ -121,7 +134,7 @@
      Layout
      =========================== */
   --shell-width: 1320px;
-  --section-padding-y: clamp(var(--space-7), 6vw, var(--space-12));
+  --section-padding-y: clamp(var(--ts-spacing-xl), 6vw, var(--ts-spacing-3xl));
   --section-gap: clamp(1.4rem, 2.6vw, 2.6rem);
   --header-height: 76px;
   --grid-gap: clamp(1rem, 3vw, 1.6rem);
@@ -137,44 +150,6 @@
   --footer-link: #8fe29e;
   --footer-link-hover: #bdfcc8;
   --footer-border: rgba(230, 239, 255, 0.12);
-
-  /* Legacy aliases to keep existing selectors functional */
-  --color-bg: var(--ts-color-bg);
-  --color-surface: var(--ts-color-surface);
-  --color-surface-elevated: var(--ts-color-surface-elevated);
-  --color-surface-muted: var(--ts-color-surface-muted);
-  --color-surface-highlight: var(--ts-color-surface-highlight);
-  --color-primary: var(--ts-color-primary);
-  --color-primary-strong: var(--ts-color-primary-strong);
-  --color-primary-soft: var(--ts-color-primary-soft);
-  --color-accent: var(--ts-color-accent);
-  --color-accent-strong: var(--ts-color-accent-strong);
-  --color-accent-soft: var(--ts-color-accent-soft);
-  --color-heading: var(--ts-color-heading);
-  --color-text: var(--ts-color-text);
-  --ts-color-ink: var(--ts-ink);
-  --color-text-muted: var(--ts-color-muted);
-  --color-text-subtle: color-mix(in srgb, var(--ts-color-muted) 75%, #ffffff);
-  --color-border: var(--ts-color-border);
-  --color-border-strong: var(--ts-color-border-strong);
-  --color-divider: var(--ts-color-divider);
-  --gradient-primary: var(--ts-gradient-primary);
-  --gradient-accent: var(--ts-gradient-accent);
-  --gradient-surface: var(--ts-gradient-surface);
-  --gradient-section: var(--ts-gradient-section);
-  --bg-pattern: var(--ts-bg-pattern);
-  --bg-pattern-size: var(--ts-bg-pattern-size);
-  --bg-pattern-opacity: var(--ts-bg-pattern-opacity);
-  --radius-sm: var(--ts-radius-sm);
-  --radius-md: var(--ts-radius-md);
-  --radius-lg: var(--ts-radius-lg);
-  --radius-xl: var(--ts-radius-xl);
-  --radius-pill: var(--ts-radius-pill);
-  --radius-card: var(--ts-radius-card);
-  --shadow-soft: var(--ts-shadow-soft);
-  --shadow-lift: var(--ts-shadow-lift);
-  --shadow-glow: var(--ts-shadow-glow);
-  --shadow-glow-accent: var(--ts-shadow-glow-accent);
 }
 
 html[data-theme="dark"] {

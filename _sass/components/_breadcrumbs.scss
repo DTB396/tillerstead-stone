@@ -8,7 +8,7 @@
   align-items: center;
   max-width: var(--shell-width);
   margin: 0 auto;
-  padding: var(--space-3) clamp(1.25rem, 3vw, 2rem);
+  padding: var(--ts-spacing-sm) clamp(1.25rem, 3vw, 2rem);
   position: relative;
 
   /* Hidden on homepage (handled by layout logic) */
@@ -80,9 +80,9 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .ts-breadcrumbs {
-    padding: var(--space-2) clamp(0.9rem, 4vw, 1.4rem);
+    padding: var(--ts-spacing-xs) clamp(0.9rem, 4vw, 1.4rem);
   }
 
   .ts-breadcrumbs__item,

@@ -155,14 +155,14 @@
 .contact-priority-box {
   padding: 1.25rem 1.5rem;
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.05));
-  border: 2px solid #ef4444;
+  border: 2px solid var(--ts-color-error);
   border-radius: var(--ts-radius-md);
   margin: var(--ts-spacing-md) 0;
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.12);
   
   h4 {
     margin: 0 0 0.5rem;
-    color: #ef4444;
+    color: var(--ts-color-error);
     font-size: var(--font-size-lg);
     font-weight: 700;
   }
@@ -174,12 +174,12 @@
   }
   
   a {
-    color: #ef4444;
+    color: var(--ts-color-error);
     font-weight: 700;
     text-decoration: underline;
     
     &:hover {
-      color: #dc2626;
+      color: var(--ts-color-error-dark);
     }
   }
 }

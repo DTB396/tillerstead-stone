@@ -7,7 +7,9 @@
   ],
   "private": true,
   "scripts": {
-    "lint": "eslint . && htmlhint *.html",
+    "lint": "eslint . && htmlhint *.html && stylelint \"**/*.{css,scss}\"",
+    "lint:css": "stylelint \"**/*.{css,scss}\"",
+    "lint:css:fix": "stylelint \"**/*.{css,scss}\" --fix",
     "format": "prettier --write .",
     "build:css": "tail -n +3 assets/css/main.scss | sass --load-path=_sass --stdin assets/css/main.css --no-source-map --style=compressed --quiet-deps",
     "watch:css": "sass --load-path=_sass assets/css/main.scss:assets/css/main.css --watch --no-source-map",
@@ -32,6 +34,9 @@
     "htmlhint": "1.1.4",
     "prettier": "3.3.2",
     "sass": "^1.77.8",
-    "sharp": "0.34.5"
+    "sharp": "0.34.5",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-scss": "^6.8.1"
   }
 }
