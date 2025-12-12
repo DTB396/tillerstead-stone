@@ -29,9 +29,26 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: var(--ts-bg-pattern);
-  background-size: var(--ts-bg-pattern-size);
-  opacity: var(--ts-bg-pattern-opacity);
+  background-image:
+    var(--ts-grid-horizontal),
+    var(--ts-grid-vertical),
+    var(--ts-geometry-overlay);
+  background-size:
+    180px 180px,
+    180px 180px,
+    420px 420px;
+  opacity: 0.5;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.ts-hero__inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--ts-card-geometry);
+  background-size: 100% 100%;
+  opacity: 0.35;
   pointer-events: none;
 }
 

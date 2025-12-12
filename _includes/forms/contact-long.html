@@ -1,6 +1,5 @@
 {% assign form_endpoint = site.forms.endpoint | default: 'https://formsubmit.co/info@tillerstead.com' %}
-{% assign form_redirect = site.forms.redirect_path | default: '/success/?form=contact' %}
-{% assign redirect_url = site.url | append: form_redirect %}
+{% assign redirect_url = '/success/?form=contact' | absolute_url %}
 <form
   name="{{ include.form_name | default: 'contact-long' }}"
   id="{{ include.form_id | default: 'contact-form-long' }}"
@@ -8,6 +7,8 @@
   method="post"
   action="{{ form_endpoint }}"
   netlify-honeypot="_trap"
+  data-contact-form
+  accept-charset="UTF-8"
   aria-describedby="{{ include.aria_describedby | default: 'form-intro' }}"
   aria-live="polite"
 >
@@ -122,4 +123,5 @@
   <button type="submit" class="btn btn--primary ts-button ts-button--primary" aria-describedby="{{ include.prefix }}privacy-note">
     {{ include.button_label | default: 'Submit request' }}
   </button>
+    <p id="{{ include.prefix }}form-status-long" data-form-status class="sr-only" role="status" aria-live="polite"></p>
 </form>

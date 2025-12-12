@@ -8,10 +8,21 @@
 body.ts-theme {
   background-color: var(--ts-color-bg);
   background-image:
+    var(--ts-grid-horizontal),
+    var(--ts-grid-vertical),
+    var(--ts-geometry-overlay),
+    var(--ts-paper-noise),
     var(--ts-bg-pattern),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(247, 241, 227, 0.8));
-  background-size: var(--ts-bg-pattern-size), 100% 100%;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(247, 241, 227, 0.85));
+  background-size:
+    160px 160px,
+    160px 160px,
+    420px 420px,
+    100% 100%,
+    var(--ts-bg-pattern-size),
+    100% 100%;
   background-attachment: fixed;
+  background-blend-mode: soft-light, soft-light, normal, normal, normal, normal;
   color: var(--ts-color-text);
 }
 
@@ -20,10 +31,12 @@ body.ts-theme {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 20% 10%, rgba(200, 157, 79, 0.07), transparent 60%),
-              radial-gradient(circle at 80% 0%, rgba(11, 107, 92, 0.05), transparent 62%);
-  opacity: 0.35;
-  mix-blend-mode: multiply;
+  background-image:
+    linear-gradient(115deg, transparent 0 42%, rgba(31, 176, 145, 0.08) 48%, transparent 54%),
+    linear-gradient(300deg, transparent 0 68%, rgba(208, 160, 90, 0.08) 72%, transparent 78%);
+  background-size: 100% 100%;
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
   z-index: -1;
 }
 
@@ -53,10 +66,26 @@ body.ts-theme {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(90deg, rgba(28, 35, 31, 0.03) 1px, transparent 1px),
-                    linear-gradient(0deg, rgba(28, 35, 31, 0.03) 1px, transparent 1px);
-  background-size: 22px 22px;
-  opacity: 0.6;
+  background-image:
+    var(--ts-card-grid),
+    linear-gradient(90deg, rgba(20, 33, 28, 0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(20, 33, 28, 0.04) 1px, transparent 1px);
+  background-size:
+    32px 32px,
+    18px 18px,
+    18px 18px;
+  opacity: 0.7;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.ts-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--ts-card-geometry);
+  background-size: 100% 100%;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -108,12 +137,28 @@ body.ts-theme {
   overflow: hidden;
 }
 
+.ts-services .container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    var(--ts-grid-horizontal),
+    var(--ts-grid-vertical);
+  background-size: 200px 200px, 200px 200px;
+  opacity: 0.35;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
 .ts-services .container::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 20% 20%, rgba(11, 107, 92, 0.08), transparent 40%),
-                    radial-gradient(circle at 80% 10%, rgba(200, 157, 79, 0.06), transparent 38%);
+  background-image:
+    var(--ts-geometry-overlay),
+    radial-gradient(circle at 20% 20%, rgba(11, 107, 92, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(200, 157, 79, 0.06), transparent 38%);
+  background-size: 420px 420px, 100% 100%, 100% 100%;
   opacity: 0.6;
   pointer-events: none;
 }
@@ -208,6 +253,36 @@ body.ts-theme {
   display: flex;
   flex-direction: column;
   gap: var(--ts-spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    var(--ts-card-grid),
+    linear-gradient(90deg, rgba(20, 33, 28, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px, 56px 56px;
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.ts-service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--ts-card-geometry);
+  background-size: 100% 100%;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.ts-service-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .ts-service-card__icon {

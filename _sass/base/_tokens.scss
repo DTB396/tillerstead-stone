@@ -215,16 +215,16 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --ts-color-bg: #081310;
-  --ts-color-surface: #0e1815;
-  --ts-color-surface-elevated: #12211b;
-  --ts-color-surface-muted: #0d1a16;
-  --ts-color-surface-highlight: #152520;
+  --ts-color-bg: #07110e;
+  --ts-color-surface: #0d1815;
+  --ts-color-surface-elevated: #111f19;
+  --ts-color-surface-muted: #0c1a15;
+  --ts-color-surface-highlight: #182821;
 
-  --ts-color-text: #e1efe7;
-  --ts-color-muted: #a8c0b2;
-  --ts-color-text-subtle: #8da196;
-  --ts-color-heading: #f8fffb;
+  --ts-color-text: #e2efe8;
+  --ts-color-muted: #a6c1b3;
+  --ts-color-text-subtle: #8fa397;
+  --ts-color-heading: #f7fffa;
   --ts-color-primary: var(--ts-emerald-soft);
   --ts-color-primary-strong: color-mix(in srgb, var(--ts-emerald-soft) 80%, #042621);
   --ts-color-primary-soft: rgba(26, 182, 153, 0.18);
@@ -242,6 +242,15 @@ html[data-theme="dark"] {
                          #07110f;
   --ts-gradient-section: linear-gradient(180deg, #0f1f19 0%, #0c1814 55%, #0f1f19 100%);
   --ts-bg-pattern-opacity: 0.22;
+  --ts-grid-line: rgba(26, 182, 153, 0.22);
+  --ts-grid-horizontal: repeating-linear-gradient(0deg, var(--ts-grid-line) 0 1px, transparent 1px 72px);
+  --ts-grid-vertical: repeating-linear-gradient(90deg, var(--ts-grid-line) 0 1px, transparent 1px 72px);
+  --ts-geometry-overlay: radial-gradient(circle at 22% 18%, rgba(200, 157, 79, 0.18) 0 2px, transparent 2px 120px),
+                          radial-gradient(circle at 78% 10%, rgba(26, 182, 153, 0.16) 0 2px, transparent 2px 140px);
+  --ts-paper-noise: radial-gradient(circle at 12% 78%, rgba(255, 255, 255, 0.08) 0, transparent 60%),
+                    radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.06) 0, transparent 55%);
+  --ts-card-grid: repeating-linear-gradient(135deg, rgba(26, 182, 153, 0.12) 0 1px, transparent 1px 18px);
+  --ts-card-geometry: radial-gradient(circle at 75% 4%, rgba(200, 157, 79, 0.18) 0, transparent 55%);
 
   --ts-shadow-soft: 0 16px 32px rgba(0, 0, 0, 0.45);
   --ts-shadow-lift: 0 22px 44px rgba(0, 0, 0, 0.55);

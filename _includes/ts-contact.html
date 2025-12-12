@@ -8,12 +8,14 @@
       <p class="text-muted">You'll receive a detailed written proposal covering materials, timelines, waterproofing specs, and transparent pricing. Licensed HIC #13VH10808800, fully insured, owner-operated. <strong>No pressure, no hidden fees, no surprises.</strong></p>
       {% assign form_endpoint = site.forms.endpoint | default: 'https://formsubmit.co/info@tillerstead.com' %}
       {% assign form_redirect = site.forms.redirect_path | default: '/success/?form=contact' %}
-      {% assign redirect_url = site.url | append: form_redirect %}
+      {% assign redirect_url = form_redirect | absolute_url %}
       <form
         class="ts-contact__form"
         name="homepage-contact"
         method="post"
         action="{{ form_endpoint }}"
+        accept-charset="UTF-8"
+        data-contact-form
         netlify-honeypot="bot-field"
         aria-describedby="ts-contact-title"
       >
