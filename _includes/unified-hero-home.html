@@ -41,14 +41,23 @@
         <p class="ts-hero__lede">{{ hero_summary }}</p>
       {% endif %}
 
-      {% if page.services %}
-        <ul class="ts-hero__bullets">
-          {% for service in page.services limit:4 %}
-            <li>
-              {{ service.title }}
-              {% if service.description %}
-                <span>{{ service.description }}</span>
-              {% endif %}
+      {% assign hero_bullets = include.hero_bullets | default: page.hero_bullets | default: page.services %}
+      {% if hero_bullets %}
+        <ul class="ts-hero__bullets" role="list">
+          {% for bullet in hero_bullets limit:4 %}
+            {% assign bullet_icon = bullet.icon | default: bullet.icon_key | default: bullet.service_icon %}
+            {% assign bullet_title = bullet.title | default: bullet.hero_title | default: bullet.tagline | default: bullet.name %}
+            {% assign bullet_detail = bullet.detail | default: bullet.summary | default: bullet.description %}
+            <li class="ts-hero__bullet">
+              <span class="ts-hero__bullet-icon" aria-hidden="true">
+                {% include ts-service-icon.html icon=bullet_icon class="ts-hero__bullet-mark" %}
+              </span>
+              <div class="ts-hero__bullet-copy">
+                <strong class="ts-hero__bullet-title">{{ bullet_title }}</strong>
+                {% if bullet_detail %}
+                  <span class="ts-hero__bullet-text">{{ bullet_detail }}</span>
+                {% endif %}
+              </div>
             </li>
           {% endfor %}
         </ul>
@@ -111,4 +120,3 @@
     </aside>
   </div>
 </section>
-

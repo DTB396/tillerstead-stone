@@ -60,7 +60,45 @@
 
 /* ===== Backgrounds ===== */
 .bg-surface { background: var(--ts-color-surface) !important; }
-.bg-gradient { background: var(--ts-gradient-primary) !important; }
+.bg-gradient {
+  background: linear-gradient(135deg, #1fbda4 0%, #0d6c5b 55%, #064238 100%) !important;
+  color: #f4fbf7;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bg-gradient .section-header {
+  color: inherit;
+  margin-bottom: var(--ts-spacing-lg);
+}
+
+.bg-gradient .section-header .eyebrow {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.bg-gradient .section-header .heading-2,
+.bg-gradient .section-header .heading-3 {
+  color: #ffffff;
+}
+
+.bg-gradient .section-header .lead {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.bg-gradient .section-action {
+  margin-top: var(--ts-spacing-xl);
+}
+
+.bg-gradient .btn--primary {
+  background: #ffffff;
+  color: var(--ts-color-primary);
+  border: none;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+}
+
+.bg-gradient .btn--primary:hover,
+.bg-gradient .btn--primary:focus-visible {
+  color: var(--ts-color-primary-strong);
+}
 
 /* ===== Borders ===== */
 .rounded-sm { border-radius: var(--ts-radius-sm) !important; }

@@ -102,35 +102,54 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--ts-spacing-sm);
 }
 
-.ts-hero__bullets li {
-  position: relative;
-  padding-left: 1.75rem;
+.ts-hero__bullet {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--ts-spacing-sm);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--ts-radius-md);
+}
+
+.ts-hero__bullet-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--ts-radius-md);
+  border: 1px solid rgba(11, 107, 92, 0.22);
+  background: linear-gradient(135deg, rgba(11, 107, 92, 0.15), rgba(11, 107, 92, 0.05));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ts-color-primary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.ts-hero__bullet-mark {
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.ts-hero__bullet-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ts-hero__bullet-title {
   font-weight: 600;
   color: var(--ts-color-heading);
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
-.ts-hero__bullets li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.35rem;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 2px;
-  background: var(--ts-color-primary);
-  box-shadow: 0 0 0 4px rgba(11, 107, 92, 0.18);
-}
-
-.ts-hero__bullets span {
-  display: block;
+.ts-hero__bullet-text {
   font-size: var(--font-size-sm);
-  font-weight: 500;
   color: var(--ts-color-muted);
+  line-height: 1.45;
 }
 
 .ts-hero__actions {
