@@ -373,3 +373,64 @@ body.ts-theme {
     transition: none;
   }
 }
+/* Emerald & Parchment brand theme (scoped to home sections) */
+  :root {
+    --emerald-600: #059669; /* primary emerald */
+    --emerald-700: #047857;
+    --emerald-300: #6ee7b7;
+    --parchment-50: #f7f3e9; /* light parchment */
+    --parchment-100: #efe6d6;
+    --ink-900: #0f172a; /* deep text */
+  }
+
+  /* Base section spacing and polish */
+  section[aria-labelledby] {
+    padding-top: 2.25rem; /* pt-9 */
+    padding-bottom: 2.75rem; /* pb-11 */
+    margin-bottom: 0.75rem;
+  }
+
+  /* Subtle entrance animation refinement */
+  .animate-in { will-change: opacity, transform; }
+
+  /* Parchment surfaces */
+  .brand-parchment {
+    background: var(--parchment-50);
+    border: 1px solid var(--parchment-100);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  }
+
+  /* Elevated parchment surfaces */
+  .brand-parchment-elevated {
+    background: linear-gradient(180deg, var(--parchment-50), #fff);
+    border: 1px solid var(--parchment-100);
+    border-radius: 0.875rem;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  /* Emerald accent top border for visual rhythm */
+  .brand-accent {
+    border-top: 4px solid var(--emerald-600);
+  }
+
+  /* Gradient card for portfolio highlight */
+  .brand-emerald-gradient {
+    background: linear-gradient(135deg, var(--emerald-700) 0%, var(--emerald-600) 45%, var(--emerald-300) 120%);
+    color: #07211a;
+    border-radius: 0.875rem;
+    box-shadow: 0 16px 28px rgba(4, 120, 87, 0.20);
+  }
+
+  /* Ensure nested content remains readable on gradient */
+  .brand-emerald-gradient a,
+  .brand-emerald-gradient h2,
+  .brand-emerald-gradient h3,
+  .brand-emerald-gradient p { color: #042318; }
+
+  /* Tighten vertical rhythm in lists within sections */
+  section[aria-labelledby] ul { margin-top: 0.75rem; margin-bottom: 0.25rem; }
+  section[aria-labelledby] li { padding: 0.25rem 0; }
+
+  /* Slightly stronger section titles if present */
+  [aria-labelledby] > *:first-child { scroll-margin-top: 5rem; }

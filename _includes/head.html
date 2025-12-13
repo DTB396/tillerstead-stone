@@ -37,15 +37,43 @@
 {% endif %}
 
 <!-- Theme / Icons -->
+<!-- Theme / Icons -->
 <meta name="theme-color" content="#0b1421" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/svg+xml" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" sizes="any">
+
+<!-- SVG favicon (scales well across devices) -->
+<link rel="icon" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" type="image/svg+xml" sizes="any">
+
+<!-- PNG favicons (legacy & wide support) -->
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/logo/tillerstead-icon-16.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/logo/tillerstead-icon-32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/img/logo/tillerstead-icon-48.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/img/logo/tillerstead-icon-192.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/img/logo/tillerstead-icon-512.png' | relative_url }}">
+
+<!-- Apple touch icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/logo/tillerstead-icon-180.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/img/logo/tillerstead-icon-152.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ '/assets/img/logo/tillerstead-icon-120.png' | relative_url }}">
+
+<!-- Legacy favicon & manifest -->
 <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
 <link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}">
+
+<!-- Safari pinned tab / mask icon (uses SVG with a tint color) -->
 <link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="#1cb394">
+
+<!-- Windows tile -->
+<meta name="msapplication-TileColor" content="#1cb394">
+<meta name="msapplication-TileImage" content="{{ '/assets/img/logo/tillerstead-icon-192.png' | relative_url }}">
+
+<!-- Optional: theme-specific PNG fallbacks for older browsers -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/logo/tillerstead-icon-light-32.png' | relative_url }}" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/logo/tillerstead-icon-dark-32.png' | relative_url }}" media="(prefers-color-scheme: dark)">
+
+<!-- Alternate / full logo SVGs for tools that might request them -->
+<link rel="alternate" type="image/svg+xml" href="{{ '/assets/img/logo/tillerstead-logo-full.svg' | relative_url }}" title="Tillerstead Logo">
+
 {% include ts-icon-sprite.html %}
 
 <!-- Performance: Preload critical assets -->
