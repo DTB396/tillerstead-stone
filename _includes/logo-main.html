@@ -1,9 +1,9 @@
-{%- comment -%}
-Main Tillerstead logo include – shared by header, hero, and footer.
+﻿{%- comment -%}
+Main Tillerstead logo include shared by header, hero, and footer.
 
 Params:
   - class: extra classes for the wrapper link
-  - img_class: extra classes for the <img alt="">
+  - img_class: extra classes for the <img>
   - alt: optional alt text override
   - variant: header (default), inverse/on-dark, full, mark, header-dark
 {%- endcomment -%}
@@ -17,34 +17,33 @@ Params:
 {%- if include.img_class -%}
   {%- assign logo_img_classes = logo_img_classes | append: ' ' | append: include.img_class -%}
 {%- endif -%}
+
 {%- comment -%}
-Allow repository-wide configuration of logo asset base path via site.logo_base.
-This makes it easier to restructure assets without editing this include.
+Allow repository-wide configuration of the logo asset base path via site.logo_base.
 {%- endcomment -%}
 
 {%- assign logo_base = site.logo_base | default: '/assets/img/logo' -%}
 
-{%- assign variant = include.variant | default: 'header' -%}
+{%- assign variant = include.variant | default: 'header' | downcase -%}
 {%- case variant -%}
   {%- when 'inverse', 'dark', 'on-dark' -%}
-    {%- assign logo_src = logo_base | append: '/tillerstead-inverse.svg' -%}
+    {%- assign logo_file = 'tillerstead-inverse.svg' -%}
   {%- when 'full' -%}
-    {%- assign logo_src = logo_base | append: '/tillerstead-logo-full.svg' -%}
+    {%- assign logo_file = 'tillerstead-logo-full.svg' -%}
   {%- when 'mark' -%}
-    {%- assign logo_src = logo_base | append: '/tillerstead-logo-mark.svg' -%}
+    {%- assign logo_file = 'tillerstead-logo-mark.svg' -%}
   {%- when 'header-dark' -%}
-    {%- assign logo_src = logo_base | append: '/tillerstead-logo-header-dark.svg' -%}
+    {%- assign logo_file = 'tillerstead-logo-header-dark.svg' -%}
   {%- else -%}
-    {%- assign logo_src = logo_base | append: '/tillerstead-logo-header.svg' -%}
+    {%- assign logo_file = 'tillerstead-logo-header.svg' -%}
 {%- endcase -%}
 
-{%- assign logo_alt = include.alt | default: site.title | default: 'Tillerstead LLC – Professional Tile & Stone' -%}
+{%- assign logo_alt = include.alt | default: site.title | default: 'Tillerstead LLC - Professional Tile & Stone' -%}
 
 <a href="{{ '/' | relative_url }}"
    class="{{ logo_link_classes }}"
-   aria-label="Tillerstead – home">
-  <img src="{{ logo_src | relative_url }}"
+   aria-label="Tillerstead - home">
+  <img src="{{ logo_base }}/{{ logo_file }}"
        class="{{ logo_img_classes }}"
        alt="{{ logo_alt }}">
 </a>
-
