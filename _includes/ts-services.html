@@ -1,4 +1,3 @@
-﻿{% assign summary = include.summary | default: page.services_summary | default: 'Every scope starts with layout math, flood-tested waterproofing, and photos you can hand to a lender, tenant, or GC. No shortcuts, no sliver tiles unless the plan leaves no other choice.' %}
 {% assign summary = include.summary | default: page.services_summary | default: 'Every scope starts with layout math, flood-tested waterproofing, and photos you can hand to a lender, tenant, or GC. No shortcuts, no sliver tiles unless the plan leaves no other choice.' %}
 {% assign services = include.services | default: page.services | default: site.data.services.services %}
 {% assign services_gallery = include.gallery | default: page.services_gallery %}
@@ -82,16 +81,15 @@
           {% assign webp_src = photo.src | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
           <figure class="ts-services__photo">
             <picture>
-              <source type="image/webp" srcset="{{ webp_src | relative_url }}">
+              {% if webp_src %}
+                <source type="image/webp" srcset="{{ webp_src | relative_url }}">
+              {% endif %}
               <img src="{{ photo.src | relative_url }}"
                    alt="{{ photo.alt | default: 'Tile installation detail' }}"
                    {% if photo.width and photo.height %}width="{{ photo.width }}" height="{{ photo.height }}"{% endif %}
                    loading="lazy" decoding="async"
-                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                   style="width:100%;height:auto">
+                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw">
             </picture>
-          <figure class="ts-services__photo">
-            <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt | default: 'Tile installation detail' }}">
             {% if photo.caption %}
               <figcaption>{{ photo.caption }}</figcaption>
             {% endif %}
@@ -101,19 +99,28 @@
     {% else %}
       <div class="ts-services__gallery" aria-label="Recent tile work examples">
         <figure class="ts-services__photo">
-          <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.jpg' | relative_url }}"
-               alt="Marble-look shower with mosaic niche and window returns.">
-          <figcaption>Curbless shower rebuild with sealed shelf, window trims, and waterproof proof photos.</figcaption>
-          <img src="{{ '/assets/img/bathroom-remodel-final.webp' | relative_url }}"
-               alt="Tile shower surround with matte black fixtures.">
-          <figcaption>Curbless shower rebuild with waterproofed bench and matte fixtures.</figcaption>
+          <picture>
+            <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.webp' | relative_url }}">
+            <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-marble-shower-niche.jpg' | relative_url }}"
+                 alt="Marble-look shower with mosaic niche and window returns." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Curbless shower rebuild with sealed shelf, window trims, and waterproof documentation.</figcaption>
+        </figure>
+
+        <figure class="ts-services__photo">
+          <picture>
+            <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-remodel-finished.webp' | relative_url }}">
+            <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-remodel-finished.webp' | relative_url }}"
+                 alt="Tile shower surround with matte black fixtures." loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Finished remodel: waterproof tile, marble trim, and curated fixtures ready for handoff.</figcaption>
         </figure>
 
         <figure class="ts-services__photo ts-services__photo--rotate">
           <picture>
             <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.webp' | relative_url }}">
             <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg' | relative_url }}"
-                 alt="Mid-stage view of the accent wall and shower layout.">
+                 alt="Mid-stage view of the accent wall and shower layout." loading="lazy" decoding="async">
           </picture>
           <figcaption>Mid-stage: tile panels staged and waterproofing confirmed before grout.</figcaption>
         </figure>
@@ -122,11 +129,10 @@
           <picture>
             <source type="image/webp" srcset="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-detail.webp' | relative_url }}">
             <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-detail.jpg' | relative_url }}"
-                 alt="Finished accent wall and shower detail.">
+                 alt="Finished accent wall and shower detail." loading="lazy" decoding="async">
           </picture>
           <figcaption>Final detail: polished accent wall with step shelf and flush grout joints.</figcaption>
         </figure>
-
       </div>
     {% endif %}
   </div>

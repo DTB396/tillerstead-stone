@@ -3,6 +3,7 @@
   Flexible, accessible, and maintainable grid layouts
   Improved for best practices and flexibility
   ============================================ */
+/*
    Modern Grid System
    Flexible, responsive grid layouts
    ============================================ */
@@ -101,8 +102,6 @@
   .col-span-#{$i} {
     grid-column: span #{$i} / span #{$i};
   }
-}
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--auto-grid-min, 280px)), 1fr));
 }
 
 .grid-auto-fill {

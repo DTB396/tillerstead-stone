@@ -74,8 +74,13 @@
             <textarea name="message" rows="4" required aria-required="true" placeholder="Share the scope, address or area, and timing."></textarea>
           </label>
         </div>
+        <div class="ts-contact__cta">
+          <p class="ts-contact__cta-note">
+            Licensed NJ HIC #{{ site.company.hic | default: '13VH10808800' }} — Response within 24-48 hours, emergency service available.
+          </p>
+          <button type="submit" class="btn btn--primary ts-contact__submit">Send my request</button>
+        </div>
         <div class="form-status sr-only" aria-live="polite" data-form-status></div>
-        <button type="submit" class="btn btn--primary ts-contact__submit">Send my request</button>
       </form>
     </div>
     <aside class="ts-contact__panel" aria-label="Company details">

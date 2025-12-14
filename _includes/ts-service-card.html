@@ -1,15 +1,8 @@
 {% assign icon = include.icon | default: 'tile' %}
 
-<article class="card card--service ts-service-card" role="listitem">
-  <header class="card-header">
-    <span class="ts-service-card__icon" aria-hidden="true">
-      {% include ts-service-icon.html icon=icon class="ts-service-card__icon-mark" %}
-    </span>
-{% assign icon = include.icon | default: 'home' %}
-
 {% capture icon_svg %}
   {% case icon %}
-  {% when 'tile' or 'flooring' or 'waterproof' %}
+  {% when 'tile', 'flooring', 'waterproof' %}
     <svg class="ts-service-card__icon-mark ts-icon ts-icon--tile" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
       <rect x="4" y="4" width="16" height="16" rx="2" class="ts-icon__stroke"></rect>
       <rect x="28" y="4" width="16" height="16" rx="2" class="ts-icon__stroke"></rect>
@@ -17,7 +10,7 @@
       <path d="M28 28h16v8c0 3.314-2.686 6-6 6H28V28Z" class="ts-icon__stroke"></path>
       <path d="M4 24h40M24 4v40" class="ts-icon__stroke"></path>
     </svg>
-  {% when 'paint' or 'trim' or 'remodeling' %}
+  {% when 'paint', 'trim', 'remodeling' %}
     <svg class="ts-service-card__icon-mark ts-icon ts-icon--remodel" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
       <path d="M6 22 24 6l18 16" class="ts-icon__stroke"></path>
       <path d="M12 22v18h10V30h4v10h10V22" class="ts-icon__stroke"></path>
@@ -48,28 +41,35 @@
     </div>
   </header>
 
-  <p class="card-desc">{{ include.description }}</p>
+  <div class="ts-service-card__body">
+    <p class="card-desc">{{ include.description }}</p>
 
-  {% if include.details %}
-    <ul class="ts-service-card__points">
-      {% assign detail_items = include.details %}
-      {% if detail_items contains '|' %}
-        {% assign detail_items = detail_items | split: '|' %}
-      {% elsif detail_items contains ';' %}
-        {% assign detail_items = detail_items | split: ';' %}
-      {% elsif detail_items contains ',' %}
-        {% assign detail_items = detail_items | split: ',' %}
-      {% endif %}
-      {% for item in detail_items %}
-        <li>{{ item | strip }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+    {% if include.details %}
+      <ul class="ts-service-card__points">
+        {% assign detail_items = include.details %}
+        {% if detail_items contains '|' %}
+          {% assign detail_items = detail_items | split: '|' %}
+        {% elsif detail_items contains ';' %}
+          {% assign detail_items = detail_items | split: ';' %}
+        {% elsif detail_items contains ',' %}
+          {% assign detail_items = detail_items | split: ',' %}
+        {% endif %}
+        {% for item in detail_items %}
+          {% assign trimmed = item | strip %}
+          {% if trimmed != '' %}
+            <li>{{ trimmed }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
 
   {% if include.url %}
-    <a class="ts-service-card__link" href="{{ include.url | relative_url }}" aria-label="Learn more about {{ include.title }}">
-      <span>Learn more</span>
-      <span aria-hidden="true">&rarr;</span>
-    </a>
+    <footer class="card-footer">
+      <a class="ts-service-card__link" href="{{ include.url | relative_url }}" aria-label="Learn more about {{ include.title }}">
+        <span>Learn more</span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </footer>
   {% endif %}
 </article>

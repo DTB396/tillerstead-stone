@@ -1,16 +1,17 @@
-﻿{% assign hero_eyebrow = include.eyebrow | default: page.hero_eyebrow | default: 'Licensed NJ contractor' %}
-{% assign hero_title = include.title | default: page.hero_title | default: 'Remodels & turnover-ready upkeep for landlords and homeowners' %}
-{% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated remodels, waterproof tile, and organized turnover prep for rentals, condos, and small businessesâ€”delivered with documented scopes and clean job sites.' %}
 {% assign hero_eyebrow = include.eyebrow | default: page.hero_eyebrow | default: 'Licensed NJ contractor' %}
-{% assign hero_title = include.title | default: page.hero_title | default: 'Remodels & turnover-ready upkeep for landlords and homeowners' %}
-{% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated remodels, waterproof tile, and organized turnover prep for rentals, condos, and small businesses—delivered with documented scopes and clean job sites.' %}
 {% assign hero_title = include.title | default: page.hero_title | default: 'Professional Property Upkeep for Landlords & Homeowners' %}
-{% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated waterproofing, refinishing, and maintenance plans that keep every rental or residence show-ready year-round.' %}
+{% assign hero_summary = include.summary | default: page.hero_summary | default: 'Owner-operated remodels, waterproof tile, and organized turnover prep for rentals, condos, and small businesses—delivered with documented scopes and clean job sites.' %}
+{% assign hero_note = include.note | default: page.hero_note | default: 'Owner-operated | NJ HIC #13VH10808800 | Response within 24-48 hours (emergency service available)' %}
 {% assign hero_kpis = include.kpis | default: page.hero_kpis %}
 {% assign hero_primary_url = include.primary_url | default: page.hero_primary_url | default: '/contact/' %}
 {% assign hero_primary_label = include.primary_label | default: page.hero_primary_label | default: 'Request a consultation' %}
 {% assign hero_secondary_url = include.secondary_url | default: page.hero_secondary_url | default: '/portfolio/' %}
 {% assign hero_secondary_label = include.secondary_label | default: page.hero_secondary_label | default: 'See recent work' %}
+{% assign hero_image_src = include.image | default: page.hero_image | default: site.hero_default_image | default: '/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg' %}
+{% assign hero_image_webp = hero_image_src | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
+{% assign hero_image_alt = include.image_alt | default: page.hero_image_alt | default: 'Finished marble-look bathroom with curbless entry by Tillerstead' %}
+{% assign hero_secondary_image = include.secondary_image | default: page.hero_secondary_image | default: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80&fm=webp' %}
+{% assign hero_secondary_alt = include.secondary_image_alt | default: page.hero_secondary_image_alt | default: 'Freshly painted coastal home exterior with clean trim' %}
 
 <section class="hero hero--with-pattern" aria-label="Company overview hero">
   <div class="hero-surface">
@@ -20,25 +21,25 @@
         <h1 class="hero-title">{{ hero_title }}</h1>
         <p class="hero-lead">{{ hero_summary }}</p>
 
-        <div class="hero-actions" role="group" aria-label="Primary actions">
-          <button class="btn btn--primary hero-cta" type="button" aria-label="{{ hero_primary_label }}" onclick="window.location.href='{{ hero_primary_url | relative_url }}'">
-            {{ hero_primary_label }}
-          </button>
-          <a class="btn btn--ghost" href="{{ hero_secondary_url | relative_url }}">{{ hero_secondary_label }}</a>
+        <div class="hero-actions hero-cta-group" role="group" aria-label="Primary actions">
+          <a class="btn btn--primary hero-cta" href="{{ hero_primary_url | relative_url }}">{{ hero_primary_label }}</a>
+          <a class="btn btn--ghost hero-cta" href="{{ hero_secondary_url | relative_url }}">{{ hero_secondary_label }}</a>
         </div>
 
-        <div class="hero-cred">
-                 <p class="hero-note">Owner-operated | NJ HIC #{{ site.company.hic | default: '13VH10808800' }} | Fully insured</p>
-        </div>
+        <p class="hero-note">{{ hero_note }}</p>
       </div>
 
       <div class="hero-visual" aria-label="Examples of cared-for homes">
         <figure class="hero-visual__primary">
-          <img src="{{ '/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg' | relative_url }}" alt="Finished marble-look bathroom with curbless entry by Tillerstead" loading="lazy" decoding="async">
-          <img src="{{ '/assets/img/bathroom-remodel-final.webp' | relative_url }}" alt="Tiled shower with glass door and bright natural light" loading="lazy" decoding="async">
+          <picture>
+            {% if hero_image_webp %}
+              <source type="image/webp" srcset="{{ hero_image_webp | relative_url }}">
+            {% endif %}
+            <img src="{{ hero_image_src | relative_url }}" alt="{{ hero_image_alt }}" loading="lazy" decoding="async">
+          </picture>
         </figure>
         <figure class="hero-visual__secondary">
-          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="Freshly painted coastal home exterior with clean trim" loading="lazy" decoding="async">
+          <img src="{{ hero_secondary_image }}" alt="{{ hero_secondary_alt }}" loading="lazy" decoding="async">
         </figure>
       </div>
 
@@ -55,4 +56,3 @@
     </div>
   </div>
 </section>
-

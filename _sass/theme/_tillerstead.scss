@@ -325,6 +325,12 @@ body.ts-theme {
   margin: 0;
 }
 
+.ts-service-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ts-spacing-md);
+}
+
 .ts-service-card__points {
   list-style: none;
   margin: 0;
@@ -366,6 +372,101 @@ body.ts-theme {
 .ts-service-card__link:focus-visible {
   color: var(--ts-color-primary-strong);
   text-decoration: underline;
+}
+
+/* Contact Section */
+.ts-contact {
+  margin: clamp(3rem, 6vw, 4.5rem) 0;
+
+  .container.ts-contact__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--ts-spacing-lg);
+    padding: clamp(2rem, 4vw, 3rem);
+    background: var(--ts-color-surface);
+    border-radius: var(--ts-radius-xl);
+    border: 1px solid var(--ts-color-border);
+    box-shadow: var(--ts-shadow-soft);
+    align-items: stretch;
+  }
+
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ts-spacing-lg);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ts-spacing-md);
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--ts-spacing-md);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ts-spacing-xxs, 0.35rem);
+  }
+
+  &__field--full {
+    grid-column: 1 / -1;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ts-spacing-xs);
+  }
+
+  &__cta-note {
+    font-size: var(--font-size-sm);
+    color: var(--ts-color-muted);
+    margin: 0;
+  }
+
+  &__submit {
+    align-self: flex-start;
+  }
+
+  &__panel {
+    background: var(--ts-color-surface-elevated);
+    border-radius: var(--ts-radius-lg);
+    padding: var(--ts-spacing-lg);
+    border: 1px solid var(--ts-color-border);
+    box-shadow: var(--ts-shadow-soft);
+  }
+
+  &__panel h3 {
+    margin-top: 0;
+    margin-bottom: var(--ts-spacing-md);
+  }
+
+  &__panel dl {
+    display: grid;
+    gap: 0.25rem 1rem;
+    margin: 0;
+  }
+
+  &__panel dt {
+    font-weight: 600;
+  }
+
+  &__panel dd {
+    margin: 0;
+    color: var(--ts-color-muted);
+  }
+}
+
+@media (max-width: 900px) {
+  .ts-contact .container.ts-contact__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive tweaks */
