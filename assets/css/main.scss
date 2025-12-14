@@ -1,21 +1,35 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@charset "utf-8";
+/* ============================================
+   Tillerstead Main Stylesheet
+   Modern, modular CSS architecture
+   ============================================ */
 
-// Import partials from the `minima` theme.
-@import "minima";
-@import "base/variables";
-@import "base/mixins";
-@import "base/animations";
+/* Base Layer - Foundations */
+@import "base/tokens";
+@import "base/reset";
 @import "base/typography";
-@import "base/layout";
+
+/* Layout Layer - Page structure */
+@import "layout/container";
+@import "layout/grid";
+
+/* Component Layer - Reusable UI elements */
 @import "components/buttons";
 @import "components/cards";
+@import "components/plans";
 @import "components/forms";
-@import "components/navigation";
-@import "components/footer";
-@import "components/hero";
 @import "components/header";
 @import "components/header-brand-improvements";
+@import "components/footer";
+@import "components/hero";
+@import "components/deliver";
+@import "components/breadcrumbs";
+@import "components/social-links";
+
+/* Utilities Layer - Helper classes */
+@import "utilities/helpers";
+
+/* Theme Layer - Brand-specific surfaces */
+@import "theme/tillerstead";
