@@ -5,6 +5,7 @@
   ============================================ */
 
 // Base Container
+
 .container,
 .ts-container {
   width: 100%;
@@ -23,80 +24,63 @@
 .container-narrow {
   max-width: 960px;
 }
-.container-wide {
-  max-width: 1440px;
-}
-.container-full {
-  max-width: 100vw;
-  padding-inline: 0;
-}
-/*
-   Container & Layout System
-   Flexible container and wrapper utilities
-   ============================================ */
-
-/* Base Container */
-.container,
-.ts-container {
-  width: 100%;
-  max-width: var(--shell-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(1rem, 4vw, 2.5rem);
-  padding-right: clamp(1rem, 4vw, 2.5rem);
-}
-
-/* Container Variants */
-.container-narrow {
-  max-width: 960px;
-}
 
 .container-wide {
   max-width: 1440px;
 }
 
 .container-full {
-  max-width: 100%;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
 }
 
-.container-prose {
-  max-width: 72ch;
-}
-
-// Section Wrapper
-.section,
-.ts-section {
-  position: relative;
+.section {
   padding-block: var(--section-padding-y, 4rem);
   width: 100%;
 }
+
+
 .section-inner,
 .ts-section-inner {
   max-width: var(--shell-width, 1200px);
   margin-inline: auto;
   padding-inline: var(--container-gutter, clamp(1rem, 4vw, 2.5rem));
   box-sizing: border-box;
+}
+
 /* Section Wrapper */
-.section,
 .ts-section {
   position: relative;
   padding-top: var(--section-padding-y);
   padding-bottom: var(--section-padding-y);
 }
 
-.section-inner,
-.ts-section-inner {
-  max-width: var(--shell-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(1rem, 4vw, 2.5rem);
-  padding-right: clamp(1rem, 4vw, 2.5rem);
+.aspect-video {
+  aspect-ratio: 16 / 9;
 }
+
+.section, .ts-section {
+  padding-block: clamp(2rem, 6vw, 3rem);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  /* clip: rect(0 0 0 0); removed for modern compliance */
+  white-space: nowrap;
+  border: 0;
+}
+
 
 /* Section Variants */
 .section-compact {
   padding-block: clamp(2rem, 4vw, 3rem);
 }
+/* ============================================
 
 .section-spacious {
   padding-block: clamp(4rem, 8vw, 6rem);
@@ -105,7 +89,7 @@
 // Section Backgrounds
 .section-primary {
   background: var(--ts-gradient-primary, linear-gradient(135deg, #2d3748 0%, #4a5568 100%));
-  color: var(--ts-white, #fff);
+  color: var(--ts-white, #ffffff);
   isolation: isolate;
   padding-top: clamp(2rem, 4vw, 3rem);
   padding-bottom: clamp(2rem, 4vw, 3rem);
@@ -125,14 +109,17 @@
     color: inherit;
   }
 }
+
 .section-muted {
   background: var(--ts-color-surface-muted, #f7fafc);
   color: var(--ts-color-text-muted, #2d3748);
 }
+
 .section-elevated {
-  background: var(--ts-color-surface-elevated, #fff);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  background: var(--ts-color-surface-elevated, #ffffff);
+  box-shadow: 0 2px 16px rgb(0,0,0,0.06);
 }
+
 .section-gradient {
   background: var(--ts-gradient-surface, linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%));
   position: relative;
@@ -154,13 +141,9 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: var(--ts-bg-pattern, none);
-    background-size: var(--ts-bg-pattern-size, 80px 80px);
-    background-repeat: repeat;
-    opacity: var(--ts-bg-pattern-opacity, 0.08);
-    pointer-events: none;
     z-index: 0;
     background-image: var(--ts-bg-pattern);
+    width: 100%;
     background-size: var(--ts-bg-pattern-size);
     background-repeat: repeat;
     opacity: var(--ts-bg-pattern-opacity);
@@ -182,79 +165,29 @@
   --flow-space: 1.5rem;
 }
 
-.flow-lg {
-  --flow-space: 2.5rem;
-}
-
-.flow-xl {
-  --flow-space: 3.5rem;
-}
-
-/* Stack Layout */
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--stack-gap, 1.5rem);
-}
-
-.stack-sm {
-  --stack-gap: 1rem;
-}
 
 .stack-md {
   --stack-gap: 1.5rem;
 }
-.stack-lg {
-  --stack-gap: 2.5rem;
-}
 
-.stack-lg {
-  --stack-gap: 2.5rem;
-}
+// ...existing code...
 
-.stack-xl {
-  --stack-gap: 3.5rem;
-}
+.cluster-lg { --cluster-gap: 1.5rem; }
+.cluster-md { --cluster-gap: 1rem; }
+.cluster-end { justify-content: flex-end; }
 
-/* Cluster Layout - Horizontal grouping with wrapping */
-.cluster {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--cluster-gap, 1rem);
-  align-items: center;
-}
 
-.cluster-sm {
-  --cluster-gap: 0.5rem;
-}
-.cluster-md {
-  --cluster-gap: 1rem;
-}
-.cluster-lg {
-  --cluster-gap: 1.5rem;
-}
 .cluster-xl {
   --cluster-gap: 2.5rem;
 }
 
-.cluster-md {
-  --cluster-gap: 1rem;
-}
 
-.cluster-lg {
-  --cluster-gap: 1.5rem;
-}
 
 .cluster-center {
   justify-content: center;
 }
-.cluster-end {
-  justify-content: flex-end;
-}
 
-.cluster-end {
-  justify-content: flex-end;
-}
+
 
 .cluster-between {
   justify-content: space-between;
@@ -267,26 +200,10 @@
   text-align: center;
 }
 
-.center-x {
-  margin-inline: auto;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Sidebar Layout */
-.sidebar {
-  display: grid;
-  gap: var(--section-gap, 2rem);
-  gap: var(--section-gap);
-  
-  @media (min-width: 960px) {
-    grid-template-columns: 1fr 2fr;
-    
     &.sidebar-right {
       grid-template-columns: 2fr 1fr;
     }
   }
-}
 
 /* Switcher Layout - Responsive columns */
 .switcher {
@@ -314,16 +231,10 @@
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
-.aspect-video {
-  aspect-ratio: 16 / 9;
-}
-.aspect-wide {
-  aspect-ratio: 21 / 9;
-}
 
-.aspect-video {
-  aspect-ratio: 16 / 9;
-}
+
+// ...existing code...
+
 
 .aspect-wide {
   aspect-ratio: 21 / 9;
@@ -339,14 +250,13 @@
   .ts-container {
     padding-inline: clamp(0.5rem, 5vw, 1rem);
   }
+
   .section,
   .ts-section {
     padding-block: clamp(2rem, 6vw, 3rem);
   }
-  .section-inner,
-  .ts-section-inner {
-    padding-inline: clamp(0.5rem, 5vw, 1rem);
-  }
+
+
   .stack,
   .cluster {
     gap: var(--stack-gap-mobile, 1rem);
@@ -371,17 +281,6 @@
 .text-right { text-align: right !important; }
 
 /* Utility: Hide visually but keep accessible */
-.visually-hidden {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
 
 /* Utility: Responsive display helpers */
 .hide-mobile {
@@ -389,6 +288,7 @@
     display: none !important;
   }
 }
+
 .hide-desktop {
   @media (min-width: 641px) {
     display: none !important;
@@ -401,12 +301,15 @@
 .my-auto { margin-block: auto !important; }
 .mt-0 { margin-top: 0 !important; }
 .mb-0 { margin-bottom: 0 !important; }
-.ms-0 { margin-inline-start: 0 !important; }
 .me-0 { margin-inline-end: 0 !important; }
 .mt-4 { margin-top: 1rem !important; }
+
 .mb-4 { margin-bottom: 1rem !important; }
+
+// ...existing code...
 .mt-8 { margin-top: 2rem !important; }
 .mb-8 { margin-bottom: 2rem !important; }
+
 
 // Utility: Padding helpers
 .p-0 { padding: 0 !important; }
@@ -419,14 +322,6 @@
 .pt-4 { padding-top: 1rem !important; }
 .pb-4 { padding-bottom: 1rem !important; }
 .pt-8 { padding-top: 2rem !important; }
-.pb-8 { padding-bottom: 2rem !important; }
-    padding-left: clamp(1rem, 5vw, 1.5rem);
-    padding-right: clamp(1rem, 5vw, 1.5rem);
-  }
-  
-  .section,
-  .ts-section {
-    padding-top: clamp(2rem, 6vw, 3rem);
-    padding-bottom: clamp(2rem, 6vw, 3rem);
-  }
-}
+  .pb-8 { padding-bottom: 2rem !important; }
+
+

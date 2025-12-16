@@ -20,17 +20,17 @@ body.ts-theme {
 }
 
 .ts-surface {
-  background: var(--ts-color-surface, #fff);
+  background: var(--ts-color-surface, #ffffff);
   border-radius: var(--ts-radius-lg, 1rem);
-  border: 1px solid var(--ts-color-border, rgba(15, 23, 42, 0.1));
-  box-shadow: var(--ts-shadow-soft, 0 12px 24px rgba(15, 23, 42, 0.08));
+  border: 1px solid var(--ts-color-border, rgb(15, 23, 42, 0.1));
+  box-shadow: var(--ts-shadow-soft, 0 12px 24px rgb(15, 23, 42, 0.08));
   position: relative;
   overflow: hidden;
 }
 
 .ts-surface--soft {
   background: var(--ts-color-surface-light, #f7f8fa);
-  border-color: rgba(15, 23, 42, 0.05);
+  border-color: rgb(15, 23, 42, 0.05);
 }
 
 .ts-section h2,
@@ -46,7 +46,7 @@ body.ts-theme {
 }
 
 .ts-section__note {
-  color: rgba(15, 23, 42, 0.65);
+  color: rgb(15, 23, 42, 0.65);
   font-size: 0.95rem;
 }
 

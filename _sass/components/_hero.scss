@@ -7,7 +7,7 @@
   width: 100%;
   padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
   background: var(--hero-bg, linear-gradient(180deg, #0f172a 0%, #0b1220 100%));
-  color: var(--hero-text, #fff);
+  color: var(--hero-text, #ffffff);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: clamp(2rem, 4vw, 3rem);
@@ -38,7 +38,7 @@
 
 .ts-hero__lead {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
@@ -53,7 +53,7 @@
   min-height: 280px;
   border-radius: var(--ts-radius-lg);
   overflow: hidden;
-  background: var(--ts-color-surface-dark, rgba(15, 23, 42, 0.85));
+  background: var(--ts-color-surface-dark, rgb(15, 23, 42, 0.85));
   box-shadow: var(--ts-shadow-lg);
 }
 

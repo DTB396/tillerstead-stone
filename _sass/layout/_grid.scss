@@ -30,209 +30,8 @@
 }
 
 /* Column Definitions */
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
+// ...existing code...
 
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
-.grid-cols-12 {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-
-/* Auto-fit Grids - Responsive without media queries */
-.grid-auto-fit {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--auto-grid-min, 240px)), 1fr));
-}
-
-.grid-auto-fill {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-grid-min, 240px)), 1fr));
-}
-
-/* Predefined Auto-fit Sizes */
-.grid-auto-xs { --auto-grid-min: 160px; }
-.grid-auto-sm { --auto-grid-min: 200px; }
-.grid-auto-md { --auto-grid-min: 280px; }
-.grid-auto-lg { --auto-grid-min: 360px; }
-.grid-auto-xl { --auto-grid-min: 480px; }
-
-/* Gap Utilities */
-.gap-0 { gap: 0 !important; }
-.gap-xs { gap: var(--ts-spacing-xs, 0.5rem); }
-.gap-sm { gap: var(--ts-spacing-sm, 1rem); }
-.gap-md { gap: var(--ts-spacing-md, 1.5rem); }
-.gap-lg { gap: var(--ts-spacing-lg, 2rem); }
-.gap-xl { gap: var(--ts-spacing-xl, 3rem); }
-
-// Row/Column gap utilities
-.row-gap-0 { row-gap: 0 !important; }
-.row-gap-xs { row-gap: var(--ts-spacing-xs, 0.5rem); }
-.row-gap-sm { row-gap: var(--ts-spacing-sm, 1rem); }
-.row-gap-md { row-gap: var(--ts-spacing-md, 1.5rem); }
-.row-gap-lg { row-gap: var(--ts-spacing-lg, 2rem); }
-.row-gap-xl { row-gap: var(--ts-spacing-xl, 3rem); }
-
-.col-gap-0 { column-gap: 0 !important; }
-.col-gap-xs { column-gap: var(--ts-spacing-xs, 0.5rem); }
-.col-gap-sm { column-gap: var(--ts-spacing-sm, 1rem); }
-.col-gap-md { column-gap: var(--ts-spacing-md, 1.5rem); }
-.col-gap-lg { column-gap: var(--ts-spacing-lg, 2rem); }
-.col-gap-xl { column-gap: var(--ts-spacing-xl, 3rem); }
-
-/* Grid Item Spanning */
-@for $i from 1 through 12 {
-  .col-span-#{$i} {
-    grid-column: span #{$i} / span #{$i};
-  }
-}
-
-.grid-auto-fill {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-grid-min, 280px)), 1fr));
-}
-
-/* Predefined Auto-fit Sizes */
-.grid-auto-sm {
-  --auto-grid-min: 200px;
-}
-
-.grid-auto-md {
-  --auto-grid-min: 280px;
-}
-
-.grid-auto-lg {
-  --auto-grid-min: 360px;
-}
-
-.grid-auto-xl {
-  --auto-grid-min: 480px;
-}
-
-/* Gap Utilities */
-.gap-xs {
-  gap: var(--ts-spacing-xs);
-}
-
-.gap-sm {
-  gap: var(--ts-spacing-sm);
-}
-
-.gap-md {
-  gap: var(--ts-spacing-md);
-}
-
-.gap-lg {
-  gap: var(--ts-spacing-lg);
-}
-
-.gap-xl {
-  gap: var(--ts-spacing-xl);
-}
-
-/* Grid Item Spanning */
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
-.col-span-3 {
-  grid-column: span 3 / span 3;
-}
-
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
-
-.col-span-full {
-  grid-column: 1 / -1;
-}
-
-// Row spanning
-@for $i from 1 through 12 {
-  .row-span-#{$i} {
-    grid-row: span #{$i} / span #{$i};
-  }
-}
-.row-span-full {
-  grid-row: 1 / -1;
-}
-
-/* Grid Alignment */
-.items-center { align-items: center; }
-.items-start { align-items: flex-start; }
-.items-end { align-items: flex-end; }
-.items-baseline { align-items: baseline; }
-.items-stretch { align-items: stretch; }
-.justify-center { justify-content: center; }
-.justify-between { justify-content: space-between; }
-.justify-start { justify-content: flex-start; }
-.justify-end { justify-content: flex-end; }
-.justify-around { justify-content: space-around; }
-.justify-evenly { justify-content: space-evenly; }
-.place-center { place-items: center; }
-.place-start { place-items: start; }
-.place-end { place-items: end; }
-.place-stretch { place-items: stretch; }
-/* Grid Alignment */
-.items-center {
-  align-items: center;
-}
-
-.items-start {
-  align-items: start;
-}
-
-.items-end {
-  align-items: end;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.place-center {
-  place-items: center;
-}
-
-/* Card Grids */
-.cards,
-.card-grid {
-  display: grid;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  width: 100%;
-  min-width: 0;
-}
-
-/* Responsive Grid Utilities */
-@media (min-width: 480px) {
-  .xs\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-  .xs\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .xs\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .xs\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .xs\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .xs\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-}
 @media (min-width: 640px) {
   .sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
   .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -241,6 +40,7 @@
   .sm\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .sm\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
 }
+
 @media (min-width: 768px) {
   .md\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
   .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -249,6 +49,7 @@
   .md\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
 }
+
 @media (min-width: 1024px) {
   .lg\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
   .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -257,6 +58,7 @@
   .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
 }
+
 @media (min-width: 1280px) {
   .xl\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
   .xl\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }

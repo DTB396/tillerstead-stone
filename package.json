@@ -28,20 +28,20 @@
     "sync:thumbtack": "node scripts/sync_thumbtack_reviews.js"
   },
   "devDependencies": {
-    "concurrently": "8.2.2",
-    "cheerio": "1.0.0-rc.12",
-    "eslint": "8.57.0",
+    "concurrently": "9.2.1",
+    "cheerio": "1.1.2",
+    "eslint": "9.39.2",
     "eslint-config-standard": "17.1.0",
-    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-import": "2.32.0",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "6.2.0",
-    "js-yaml": "4.1.0",
-    "htmlhint": "1.1.4",
-    "prettier": "3.3.2",
-    "sass": "^1.77.8",
+    "eslint-plugin-promise": "7.2.1",
+    "js-yaml": "4.1.1",
+    "htmlhint": "1.8.0",
+    "prettier": "3.7.4",
+    "sass": "1.97.0",
     "sharp": "0.34.5",
-    "stylelint": "^16.10.0",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-scss": "^6.8.1"
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard-scss": "16.0.0",
+    "stylelint-scss": "6.8.1"
   }
 }

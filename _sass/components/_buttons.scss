@@ -24,7 +24,7 @@
   min-width: 2.5em;
   min-height: 2.5em;
   user-select: none;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 5px rgb(0, 0, 0, 0.08);
   outline: none;
 }
 
@@ -32,7 +32,7 @@
 .button:focus-visible {
   outline: 2.5px solid var(--ts-color-primary);
   outline-offset: 4px;
-  box-shadow: 0 0 0 4px rgba(11, 107, 92, 0.15);
+  box-shadow: 0 0 0 4px rgb(11, 107, 92, 0.15);
   z-index: 2;
 }
 
@@ -51,7 +51,7 @@
 .btn--primary {
   background: var(--ts-gradient-primary);
   color: var(--ts-white);
-  box-shadow: 0 2px 12px rgba(11, 107, 92, 0.3);
+  box-shadow: 0 2px 12px rgb(11, 107, 92, 0.3);
 }
 
 .btn-primary:hover:not(:disabled),
@@ -59,7 +59,7 @@
 .btn--primary:hover:not(:disabled),
 .btn--primary:focus-visible {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(11, 107, 92, 0.35);
+  box-shadow: 0 6px 20px rgb(11, 107, 92, 0.35);
 }
 
 .btn-secondary,
@@ -83,7 +83,7 @@
 .btn--accent {
   background: var(--ts-gradient-accent);
   color: var(--ts-color-ink);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 15px rgb(212, 175, 55, 0.25);
 }
 
 .btn-accent:hover:not(:disabled),
@@ -122,7 +122,7 @@
 .btn-text:hover:not(:disabled),
 .btn-text:focus-visible {
   text-decoration: underline;
-  background: rgba(11, 107, 92, 0.08);
+  background: rgb(11, 107, 92, 0.08);
 }
 
 /* Sizing */
