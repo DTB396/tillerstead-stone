@@ -1,0 +1,6 @@
+Unknown command: serve
+Usage: jekyll build [options]
+    -s, --source PATH                Source directory (default: current directory)
+    -d, --destination PATH           Destination directory (default: ./_site)
+        --trace                      Show full backtrace on errors
+    -h, --help                       Show this message

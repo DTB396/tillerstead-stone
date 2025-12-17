@@ -1,0 +1,33 @@
+services:
+  - id: tile
+    name: Custom Tile Installation
+    icon: tile
+    description: Expert installation of ceramic, porcelain, and natural stone tile for showers, floors, backsplashes, and feature walls with precision layout and waterproofing.
+    points:
+      - Custom shower systems
+      - Heated floor installation
+      - Large-format tile (up to 48")
+      - Pattern & layout design
+    url: "/services/#tile"
+
+  - id: stone
+    name: Natural Stone & Slab Work
+    icon: remodeling
+    description: Premium marble, granite, travertine, and porcelain slab installations with professional fabrication coordination and expert sealing.
+    points:
+      - Marble & granite surfaces
+      - Porcelain slab panels
+      - Natural stone features
+      - Professional sealing
+    url: "/services/#stone"
+
+  - id: waterproofing
+    name: Waterproofing Systems
+    icon: maintenance
+    description: Certified waterproof assemblies using Schluter-KERDI, RedGard, and Wedi systems to ensure lasting moisture protection.
+    points:
+      - Schluter certified systems
+      - Pan & membrane installation
+      - Moisture barrier systems
+      - Warranty documentation
+    url: "/services/#waterproofing"

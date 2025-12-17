@@ -1,0 +1,87 @@
+primary:
+  - id: services
+    title: Services
+    url: /services/
+    match: /services/
+  - id: portfolio
+    title: Our Work
+    url: /portfolio/
+    match: /portfolio/
+  - id: reviews
+    title: Reviews
+    url: /reviews/
+    match: /reviews/
+  - id: about
+    title: About
+    url: /about/
+    match: /about/
+  - id: contact
+    title: Contact
+    url: /contact/
+    match: /contact/
+
+secondary:
+  - id: portfolio
+    title: Portfolio
+    url: /portfolio/
+    match: /portfolio/
+  - id: gc
+    title: Contractors
+    url: /for-general-contractors/
+    match: /for-general-contractors/
+  - id: reviews
+    title: Reviews
+    url: /reviews/
+    match: /reviews/
+  - id: about
+    title: About
+    url: /about/
+    match: /about/
+  - id: financing
+    title: Financing
+    url: /financing/
+    match: /financing/
+  - id: contact
+    title: Contact
+    url: /contact/
+    match: /contact/
+  - id: blog
+    title: Blog
+    url: /blog/
+    match: /blog/
+  - id: atlantic-county
+    title: Atlantic County NJ
+    url: /atlantic-county-nj/
+    match: /atlantic-county-nj/
+  - id: ocean-county
+    title: Ocean County NJ
+    url: /ocean-county-nj/
+    match: /ocean-county-nj/
+  - id: cape-may-county
+    title: Cape May County NJ
+    url: /cape-may-county-nj/
+    match: /cape-may-county-nj/
+  - id: download-guide
+    title: Free NJ Tile Guide
+    url: /download/nj-tile-guide/
+    match: /download/
+  - id: privacy
+    title: Privacy
+    url: /privacy/
+    match: /privacy/
+  - id: terms
+    title: Terms & Conditions
+    url: /terms/
+    match: /terms/
+
+footer:
+  - ref: services
+  - ref: portfolio
+  - ref: gc
+  - ref: reviews
+  - ref: financing
+  - ref: about
+  - ref: contact
+  - ref: blog
+  - ref: privacy
+  - ref: terms
