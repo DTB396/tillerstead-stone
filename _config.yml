@@ -59,10 +59,8 @@ company:
 # Optional: global defaults for OG/social
 logo: /assets/img/logo/tillerstead-logo-header.svg
 # Use existing project imagery for social + hero preloads
-default_og_image: /assets/img/social/tillerstead-showcase.jpg
+default_og_image: /assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg
 hero_default_image: /assets/img/tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg
-# Use an existing raster image for social sharing previews
-default_og_image: /assets/img/marble-bath.jpg
 
 # Cache-busting helper
 assets_version: "2025-11-23.1"

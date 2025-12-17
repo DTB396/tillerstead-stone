@@ -127,15 +127,15 @@ projects:
     tags:
       - showers
       - floors
-    file: bathroom-gray.jpg
-    # file_webp: bathroom-gray.webp
+    file: tillerstead-work/bathrooms/bathroom-floor-install-progress.jpg
+    file_webp: tillerstead-work/bathrooms/bathroom-floor-install-progress.webp
     alt: Large-format tile floor and shower installation for a New Jersey general contractor
     caption: "Large-format layout — flat substrate and clean transitions."
   - id: marble-bath
     tags:
       - showers
-    file: marble-bath.jpg
-    # file_webp: marble-bath.webp
+    file: tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg
+    file_webp: tillerstead-work/bathrooms/bathroom-marble-floor-finish.webp
     alt: Marble-look bathroom tile installation completed for a South Jersey builder
     caption: "Stone installation — matched setting materials and sealed stone."
   - id: kitchen-green
@@ -148,15 +148,15 @@ projects:
   - id: kitchen-hex
     tags:
       - backsplashes
-    file: kitchen-hex.jpg
-    # file_webp: kitchen-hex.webp
+    file: tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.jpg
+    file_webp: tillerstead-work/bathrooms/bathroom-accent-wall-and-shower.webp
     alt: Hex backsplash tile detail during a South Jersey renovation
     caption: "Hex feature — balanced cuts and clean terminations."
   - id: backsplash-white
     tags:
       - backsplashes
-    file: backsplash-white.jpg
-    # file_webp: backsplash-white.webp
+    file: concepts/backsplash-white.jpg
+    file_webp: concepts/backsplash-white.webp
     alt: Classic subway backsplash installed by tile subcontractor for local remodeler
     caption: "Classic subway — lippage control and even joints."
   - id: hardwood-room
