@@ -1,10 +1,9 @@
 hero:
-  eyebrow: Licensed NJ Tile Contractor — TCNA-Aligned Systems
-  title: Waterproof tile assemblies for homes, rentals, and shore properties
+  eyebrow: Licensed NJ Home Improvement Contractor
+  title: Tile installation and waterproof assemblies in South Jersey
   summary: >-
-    Built the right way, once. Tillerstead plans and documents complete tile systems—substrates,
-    waterproofing, mortars, movement joints, and layout—so showers, baths, and floors stay dry and
-    solid for years in Atlantic, Ocean, and Cape May Counties.
+    Complete tile systems with documented waterproofing, substrate prep, and planned layout.
+    Based in Atlantic County. Serving Atlantic, Ocean, and Cape May Counties.
   primary:
     label: Request a consult
     url: /contact/
@@ -12,12 +11,12 @@ hero:
     label: View recent projects
     url: /portfolio/
   highlights:
-    - title: Documented waterproofing
-      summary: Photos of pans, drains, membranes, and flood tests—know exactly what’s behind the tile.
-    - title: Planned layout and movement
-      summary: Tile sizes, grout joints, and movement accommodation (per TCNA EJ171) mapped before cuts.
-    - title: Clean, accountable jobsites
-      summary: Daily updates for owners, landlords, and partners—records you can keep for resale or insurance.
+    - title: Waterproofing documented
+      summary: Pans, drains, membranes, and flood tests photographed before tile.
+    - title: Layout planned before cuts
+      summary: Tile sizes, grout joints, and movement accommodation per TCNA EJ171.
+    - title: Daily documentation
+      summary: Progress photos and site logs for owners, landlords, and contractors.
   facts:
     - label: Documented waterproofing
       text: Photos of pans, drains, membranes, and flood tests—know exactly what’s behind the tile.
@@ -27,48 +26,44 @@ hero:
       text: Daily updates for owners, landlords, and partners—records you can keep for resale or insurance.
 
 services:
-  eyebrow: Core capabilities
-  title: Waterproof tile systems planned end-to-end
-  summary: Showers, bathrooms, and tile floors built as complete systems—substrate prep, waterproofing, mortars, layout, and movement accommodation—so they handle South Jersey life without leaks or loose tile.
+  eyebrow: What we do
+  title: Tile and waterproofing services
+  summary: Showers, floors, and backsplashes built as complete assemblies with proper substrate prep, waterproofing, and planned layout.
   cards:
     - icon: waterproof
-      title: Custom Tile & Waterproof Showers
-      tagline: Built to last, not to leak
-      description: Complete waterproof assemblies with proper slope, drain integration, flood testing, and layout planned before thinset.
+      title: Tile Showers & Waterproofing
+      description: Complete waterproof assemblies with proper slope, drain integration, flood testing, and planned layout.
       details:
         - Flood-tested pans
         - Membranes and seams detailed
         - Niches, benches & glass-ready edges
     - icon: tile
       title: Heated Floors & Large-Format Tile
-      tagline: Warm, flat, and quiet
-      description: Heat mats over prepared substrates, decoupling membranes, and LFT layout to minimize lippage and noise.
+      description: Electric heat mats with proper substrate prep, decoupling membranes, and layout to minimize lippage.
       details:
         - Heat mats & controls
         - Decoupling membranes
         - Large-format layout & leveling
     - icon: remodeling
-      title: Stone, Slab & Feature Walls
-      tagline: Statement pieces that endure
-      description: Marble, granite, and porcelain slabs coordinated with structure, waterproofing, and load to perform over time.
+      title: Stone & Slab Installation
+      description: Marble, granite, and porcelain slabs coordinated with structure, waterproofing, and load requirements.
       details:
         - Stone accents
         - Fireplace & TV walls
         - Porcelain slab panels
     - icon: maintenance
-      title: Repairs, Rebuilds & Maintenance
-      tagline: Fixing what failed early
-      description: Honest assessments, targeted repairs, and full rebuilds when prior work skipped waterproofing or movement joints.
+      title: Repairs & Rebuilds
+      description: Assessment, targeted repairs, and full rebuilds when prior work failed due to improper waterproofing or substrate prep.
       details:
         - Leak & moisture checks
         - Forensic tear-outs & reports
         - Owner & GC documentation
   actions:
     primary:
-      label: Book a waterproofing walkthrough
+      label: Request a scope review
       url: /contact/
     secondary:
-      label: Review recent math & installs
+      label: View recent projects
       url: /portfolio/
   note: TCNA-guided installs, daily documentation, and respectful job-sites from demo through punch.
 
@@ -82,23 +77,22 @@ work:
 
 process:
   eyebrow: How we work
-  title: Documented craftsmanship from walk-through to closeout
+  title: Scope, install, document
   summary: >-
-    We plan and build to TCNA guidance: assess structure and flatness, protect and prep, install membranes and
-    seams, set tile with appropriate mortars, allow for movement (per EJ171), grout and seal as specified, then
-    document with photos.
+    Site assessment, written scope, install to TCNA guidance, photo documentation.
+    Substrate prep, waterproofing, tile setting, movement accommodation, and closeout records.
   steps:
-    - title: Walk-through & assessment
-      description: Free on-site consultation to review goals, budgets, and property conditions so every scope starts on solid information.
-    - title: Written scope & approval
-      description: Detailed materials, waterproofing assemblies, timelines, and change-order terms spelled out before work begins.
-    - title: Execution & closeout
-      description: Daily photo updates, clean jobsites, and final checklists with optional maintenance plans for rentals and shore properties.
+    - title: Site assessment
+      description: On-site review of conditions, scope, and budget. Identify structural or moisture issues that affect tile work.
+    - title: Written scope
+      description: Materials, waterproofing assemblies, timeline, and change-order terms documented before work starts.
+    - title: Install & closeout
+      description: Photo logs during install, final inspection checklist, care and maintenance notes provided.
 
 materials:
   eyebrow: Materials & assemblies
-  title: Systems built to stay dry, flat, and quiet
-  summary: Substrates, membranes, mortars, and movement are mapped before tile goes on so coastal homes handle salt, sand, and frequent guests.
+  title: Waterproofing, substrates, and finishes
+  summary: Proper materials and installation sequence for long-term performance. Assemblies follow TCNA and ANSI standards.
   items:
     - icon: waterproof
       title: Waterproofing & drainage
@@ -128,9 +122,9 @@ testimonials:
   limit: 3
 
 cta:
-  eyebrow: Ready to plan your project?
-  title: Tell us about your bathroom, shower, or tile project
-  summary: Full gut, leak concerns, or a rental that needs durable finishes—we’ll respond with a clear next step and realistic options aligned to standards.
+  eyebrow: Start a project
+  title: Request a scope review or estimate
+  summary: Send project details, photos, or plans. We'll respond with availability, process, and pricing structure.
   primary:
     label: Request a consult
     url: /contact/

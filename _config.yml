@@ -6,24 +6,20 @@
 
 # Site identity
 title: Tillerstead LLC
-tagline: Professional Tile & Stone Installation in South Jersey
-description: Expert tile and stone installation specializing in custom showers, heated floors, natural stone surfaces, and waterproof assemblies. Licensed NJ contractor serving Atlantic, Ocean & Cape May Counties with precision craftsmanship.
+tagline: Tile Installation & Waterproofing in South Jersey
+description: Licensed NJ tile contractor specializing in waterproof showers, tile floors, backsplashes, and bathroom remodeling. Serving Atlantic, Ocean, and Cape May Counties with TCNA-aligned installations.
 url: https://tillerstead.com
 baseurl: ""                 # keep empty for apex/root
 timezone: America/New_York
 
 # Global keyword focus for SEO
 keywords:
-  - Professional tile installation South Jersey
-  - Custom shower tile specialist NJ
-  - Heated floor installation Atlantic County
-  - Natural stone installation New Jersey
-  - Marble bathroom tile contractor
-  - Large format tile installation NJ
-  - Waterproofing specialist South Jersey
-  - Schluter certified installer NJ
-  - Porcelain slab installation South Jersey
-  - Licensed tile contractor Atlantic County
+  - Tile installation New Jersey
+  - Waterproof showers NJ
+  - Tile contractor South Jersey
+  - Bathroom remodeling Atlantic County
+  - Large format tile installer NJ
+  - Licensed tile contractor NJ
 
 # Use your own layouts/includes (no injected theme)
 theme: null
@@ -91,13 +87,12 @@ theme:
   respect_reduced_motion: true
 
 ux:
-  cta_primary_label: "Book a consultation"
-  cta_secondary_label: "Explore services"
+  cta_primary_label: "Request a scope review"
+  cta_secondary_label: "View services"
   reassurances:
-    - "NJ Licensed & Insured â€¢ HIC #13VH10808800"
-    - "NJ Licensed & Insured • HIC #13VH10808800"
-    - "Written scopes & change orders"
-    - "Waterproof assemblies by default"
+    - "NJ Licensed HIC #13VH10808800"
+    - "Written scopes and change orders"
+    - "TCNA tile installation standards"
     - "Owner on site and accountable"
   value_props:
     - "Design consultations to align look, budget, and timeline"

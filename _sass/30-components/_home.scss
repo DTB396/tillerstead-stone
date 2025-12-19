@@ -60,6 +60,17 @@
   align-items: start;
 }
 
+/* Single column layout when no image */
+.ts-hero--no-image .ts-hero__inner {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+}
+
+.ts-hero--no-image .ts-hero__body {
+  max-width: 100%;
+}
+
+
 .page-home .ts-hero__tagline {
   margin: 0;
   color: var(--ts-color-muted);

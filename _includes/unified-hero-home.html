@@ -9,19 +9,21 @@
 {%- assign hero_secondary_label = include.secondary_label | default: page.hero_secondary_label | default: 'View recent work' -%}
 
 {%- assign hero_project = include.hero_project | default: page.hero_project_image -%}
-{%- assign hero_project_src = hero_project.src | default: hero_project | default: page.hero_image | default: site.hero_default_image | default: site.default_og_image | default: '/assets/img/tillerstead-work/bathrooms/bathroom-marble-floor-finish.jpg' -%}
-{%- assign hero_project_alt = hero_project.alt | default: page.hero_image_alt | default: 'Featured tile installation' -%}
-{%- assign hero_project_caption = hero_project.caption | default: page.hero_image_caption -%}
+{%- if hero_project -%}
+  {%- assign hero_project_src = hero_project.src | default: hero_project | default: page.hero_image -%}
+  {%- assign hero_project_alt = hero_project.alt | default: page.hero_image_alt | default: 'Featured tile installation' -%}
+  {%- assign hero_project_caption = hero_project.caption | default: page.hero_image_caption -%}
 
-{%- assign hero_project_img = hero_project_src -%}
-{%- unless hero_project_img contains '://' -%}
-  {%- assign hero_project_img = hero_project_img | relative_url -%}
-{%- endunless -%}
+  {%- assign hero_project_img = hero_project_src -%}
+  {%- unless hero_project_img contains '://' -%}
+    {%- assign hero_project_img = hero_project_img | relative_url -%}
+  {%- endunless -%}
+{%- endif -%}
 
 {%- assign hero_bullets = include.bullets | default: include.hero_bullets | default: page.hero_bullets | default: page.services -%}
 {%- assign hero_facts = include.facts | default: page.hero_facts -%}
 
-<section class="ts-hero ts-hero--home" aria-labelledby="home-hero-title">
+<section class="ts-hero ts-hero--home{% unless hero_project %} ts-hero--no-image{% endunless %}" aria-labelledby="home-hero-title">
   <div class="ts-hero__inner">
     <div class="ts-hero__body">
       <div class="ts-hero__brand">
@@ -74,6 +76,7 @@
       </p>
     </div>
 
+    {% if hero_project %}
     <aside class="ts-hero__aside" aria-label="Tile specialist highlights">
       <figure class="ts-hero__project">
         <img src="{{ hero_project_img }}"
@@ -116,5 +119,6 @@
         Laser-leveled layouts, intentional grout joints, and waterproof systems that stay solid for decades.
       </p>
     </aside>
+    {% endif %}
   </div>
 </section>

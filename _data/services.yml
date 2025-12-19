@@ -13,7 +13,7 @@ services:
   - id: stone
     name: Natural Stone & Slab Work
     icon: remodeling
-    description: Premium marble, granite, travertine, and porcelain slab installations with professional fabrication coordination and expert sealing.
+    description: Marble, granite, travertine, and porcelain slab installations with fabrication coordination and professional sealing.
     points:
       - Marble & granite surfaces
       - Porcelain slab panels
