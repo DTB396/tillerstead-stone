@@ -3,6 +3,15 @@
 ## Project Overview
 This is a static website for **Tillerstead LLC**, a New Jersey-licensed home improvement business specializing in tile, bath, and remodeling services. The site is built with pure HTML, CSS, and JavaScript, optimized for GitHub Pages and Netlify.
 
+## Domain Expertise & Voice
+**CRITICAL**: Before creating or modifying any content related to tile, waterproofing, NJ compliance, or marketing copy, consult these expert instruction files:
+
+- **Technical Authority**: `.github/instructions/tcna-nj-hic-trade-expert.md` - Complete TCNA standards, ANSI specs, modern materials, NJ HIC compliance, carpentry requirements, and trade terminology. Use this for all tile/construction technical content.
+
+- **Copy Voice & Strategy**: `.github/instructions/copy-voice-persuasion-strategy.md` - Brand voice, persuasion principles (48 Laws), positioning strategy, and language patterns. Use this for all marketing copy, service descriptions, and client-facing content.
+
+These files define Tillerstead's competitive positioning: TCNA-literate professional with personality and wit, positioned against corner-cutting competitors through technical specificity and authentic communication.
+
 ## Technology Stack
 - **Frontend**: Pure HTML5, CSS3, JavaScript (ES6+)
 - **Site Generator**: Jekyll (custom minimal implementation in `vendor/gems/jekyll`)

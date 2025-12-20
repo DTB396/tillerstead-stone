@@ -1,33 +1,33 @@
 services:
   - id: tile
-    name: Custom Tile Installation
+    name: Tile That Doesn't Crack
     icon: tile
-    description: Expert installation of ceramic, porcelain, and natural stone tile for showers, floors, backsplashes, and feature walls with precision layout and waterproofing.
+    description: TCNA-compliant installation of ceramic, porcelain, and natural stone. Substrate flatness verified, not assumed. Waterproofing that passes flood tests. The boring details that prevent exciting failures.
     points:
-      - Custom shower systems
-      - Heated floor installation
-      - Large-format tile (up to 48")
-      - Pattern & layout design
+      - Waterproof showers (with actual membranes)
+      - Heated floors that heat
+      - Large-format tile (95% coverage, not 60%)
+      - Layout geometry that makes sense
     url: "/services/#tile"
 
   - id: stone
-    name: Natural Stone & Slab Work
+    name: Slabs & Premium Stone
     icon: remodeling
-    description: Marble, granite, travertine, and porcelain slab installations with fabrication coordination and professional sealing.
+    description: Marble, granite, and gauged porcelain slabs requiring A118.15 thinset and someone who won't crack your $900 accent piece. Not for every project—but the right ones last decades.
     points:
-      - Marble & granite surfaces
-      - Porcelain slab panels
-      - Natural stone features
-      - Professional sealing
+      - Book-matched marble installations
+      - 6mm porcelain slab panels
+      - Natural stone properly sealed
+      - Fireplace surrounds that survive heat
     url: "/services/#stone"
 
   - id: waterproofing
-    name: Waterproofing Systems
+    name: Waterproofing (The Important Part)
     icon: maintenance
-    description: Certified waterproof assemblies using Schluter-KERDI, RedGard, and Wedi systems to ensure lasting moisture protection.
+    description: Schluter KERDI, Hydroban, RedGard systems installed to manufacturer specs. Flood tested. Documented. Because "waterproof" is a technical term, not a feeling.
     points:
-      - Schluter certified systems
-      - Pan & membrane installation
-      - Moisture barrier systems
-      - Warranty documentation
+      - ANSI A118.10 compliant systems
+      - Flood testing before tile
+      - Seam details done correctly
+      - Documentation your insurance wants
     url: "/services/#waterproofing"
