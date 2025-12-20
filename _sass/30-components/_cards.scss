@@ -200,9 +200,61 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .card,
-  .ts-card {
+/* ============================================
+   Trade Notes Section
+   Portfolio project details and planning notes
+   ============================================ */
+
+.trade-notes {
+  margin-top: var(--ts-spacing-xl);
+  padding: var(--ts-spacing-xl) 0;
+  border-top: 1px solid var(--ts-color-border);
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--ts-spacing-lg);
+  }
+
+  .lead {
+    color: var(--ts-color-text-subtle);
+    margin-top: var(--ts-spacing-sm);
+  }
+}
+
+.trade-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--ts-spacing-md);
+  margin-bottom: var(--ts-spacing-lg);
+}
+
+.trade-note-card {
+  padding: var(--ts-spacing-md);
+  border-radius: var(--ts-radius-lg);
+  background: var(--ts-color-surface-elevated);
+  border: 1px solid var(--ts-color-border);
+  
+  .heading-4 {
+    color: var(--ts-color-primary);
+    margin-bottom: var(--ts-spacing-sm);
+    font-size: var(--font-size-lg);
+  }
+
+  p {
+    margin: 0;
+    color: var(--ts-color-text);
+    line-height: 1.6;
+  }
+}
+
+.trade-notes-footer {
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--ts-color-primary);
+  margin-top: var(--ts-spacing-lg);
+  font-style: italic;
+}
+
     transition: none !important;
   }
 

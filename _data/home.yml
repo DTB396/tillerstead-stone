@@ -1,29 +1,29 @@
 hero:
-  eyebrow: Licensed NJ Home Improvement Contractor
-  title: Tile installation and waterproof assemblies in South Jersey
+  eyebrow: Licensed & Insured NJ Home Improvement Contractor
+  title: Built to Last. Installed with Judgment.
   summary: >-
-    Complete tile systems with documented waterproofing, substrate prep, and planned layout.
-    Based in Atlantic County. Serving Atlantic, Ocean, and Cape May Counties.
+    Professional tile, bath, and interior renovation for New Jersey homes — planned, measured, 
+    and executed like it matters.
   primary:
-    label: Request a consult
-    url: /contact/
-  secondary:
-    label: View recent projects
+    label: View Recent Work
     url: /portfolio/
+  secondary:
+    label: Request a Site Visit
+    url: /contact/
   highlights:
-    - title: Waterproofing documented
-      summary: Pans, drains, membranes, and flood tests photographed before tile.
-    - title: Layout planned before cuts
-      summary: Tile sizes, grout joints, and movement accommodation per TCNA EJ171.
-    - title: Daily documentation
-      summary: Progress photos and site logs for owners, landlords, and contractors.
+    - title: Layout-driven installs
+      summary: Centered on sightlines, balanced cuts — no slivers, no surprises.
+    - title: Planned before installed
+      summary: Substrate checks, waterproofing sequencing, and movement accommodation mapped out first.
+    - title: Owner on site
+      summary: Tyler oversees every job. Direct accountability from consult through final walk.
   facts:
-    - label: Documented waterproofing
-      text: Photos of pans, drains, membranes, and flood tests—know exactly what’s behind the tile.
-    - label: Planned layout and movement
-      text: Tile sizes, grout joints, and movement accommodation (per TCNA EJ171) mapped before cuts.
-    - label: Clean, accountable jobsites
-      text: Daily updates for owners, landlords, and partners—records you can keep for resale or insurance.
+    - label: Licensed & Insured
+      text: "NJ HIC #13VH10808800 — Written scopes, change orders, and documentation"
+    - label: No Shortcuts
+      text: Substrate flatness, waterproofing sequencing, and layout geometry planned before tile goes in
+    - label: South Jersey Based
+      text: Serving Atlantic, Ocean, and Cape May Counties with direct owner accountability
 
 services:
   eyebrow: What we do
@@ -76,18 +76,28 @@ work:
     url: /portfolio/
 
 process:
-  eyebrow: How we work
-  title: Scope, install, document
+  eyebrow: How Tillerstead Plans a Job
+  title: Before We Touch Tile
   summary: >-
-    Site assessment, written scope, install to TCNA guidance, photo documentation.
-    Substrate prep, waterproofing, tile setting, movement accommodation, and closeout records.
+    Anyone can install tile. Planning is what makes it last.
+    Every project starts with conditions, geometry, and execution strategy — not just material selection.
   steps:
-    - title: Site assessment
-      description: On-site review of conditions, scope, and budget. Identify structural or moisture issues that affect tile work.
-    - title: Written scope
-      description: Materials, waterproofing assemblies, timeline, and change-order terms documented before work starts.
-    - title: Install & closeout
-      description: Photo logs during install, final inspection checklist, care and maintenance notes provided.
+    - title: 1. Existing Conditions
+      description: >-
+        Substrate flatness checks, deflection risk assessment, moisture exposure review, and out-of-plumb realities 
+        documented before we propose a solution.
+    - title: 2. Layout & Geometry
+      description: >-
+        Centering from sightlines (not walls), balanced cuts to avoid slivers, tile module math with grout joints, 
+        and transition logic mapped out on paper first.
+    - title: 3. Execution Strategy
+      description: >-
+        Prep sequencing, waterproofing system selection, inspection choke points identified, and cure times 
+        respected — not rushed to meet arbitrary deadlines.
+    - title: 4. Failure Prevention
+      description: >-
+        Movement accommodation at perimeter, expansion joints where planes change, and future serviceability 
+        considered so the next contractor doesn't curse your name.
 
 materials:
   eyebrow: Materials & assemblies
