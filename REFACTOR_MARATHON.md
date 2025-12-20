@@ -1,4 +1,13 @@
-# Tillerstead Repository Refactoring Marathon Prompt
+# Clean old build artifacts
+rm -rf _site/
+rm -f assets/css/main.css
+
+# Rebuild CSS + Jekyll
+npm run build
+
+# Verify the fixes are in the output
+grep -A5 "min-width.*921px" _site/assets/css/main.css
+grep -A20 "ts-services" _site/index.html# Tillerstead Repository Refactoring Marathon Prompt
 
 **Date**: December 20, 2025  
 **Purpose**: Comprehensive repository refactoring using newly organized AI governance workflows  
