@@ -7,6 +7,10 @@ primary:
     title: Our Work
     url: /portfolio/
     match: /portfolio/
+  - id: products
+    title: Products
+    url: /recommended-products/
+    match: /recommended-products/
   - id: reviews
     title: Reviews
     url: /reviews/
@@ -49,6 +53,10 @@ secondary:
     title: Blog
     url: /blog/
     match: /blog/
+  - id: products
+    title: Recommended Products
+    url: /recommended-products/
+    match: /recommended-products/
   - id: atlantic-county
     title: Atlantic County NJ
     url: /atlantic-county-nj/
@@ -77,6 +85,7 @@ secondary:
 footer:
   - ref: services
   - ref: portfolio
+  - ref: products
   - ref: gc
   - ref: reviews
   - ref: financing

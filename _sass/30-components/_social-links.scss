@@ -55,7 +55,9 @@
 
 .social-link:hover,
 .social-link:focus-visible {
-  background: var(--ts-color-primary-soft);\n  border-color: var(--ts-color-primary);\n  color: var(--ts-color-primary);
+  background: var(--ts-color-primary-soft);
+  border-color: var(--ts-color-primary);
+  color: var(--ts-color-primary);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px var(--shadow-soft);
 }

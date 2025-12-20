@@ -1,0 +1,85 @@
+# Tillerstead LLC Amazon Associate Product Links
+# Supports HTML development fund through affiliate commissions
+# All products are field-tested and used in actual installations
+
+categories:
+  - id: planning-essentials
+    name: Project Planning & DIY Essentials
+    description: >-
+      Start here if you're planning a project, gathering estimates, or want to understand 
+      the scope before committing. These tools help demystify the renovation process.
+    products:
+      - name: Room By Room Project Planner
+        full_name: "Room By Room Project Planner: Organize Interior Design Ideas, Sketch Layouts, Contractor Quotes & More"
+        amazon_url: https://amzn.to/4qls9kO
+        type: Planning & Organization Tool
+        description: >-
+          Track room layouts, design ideas, contractor quotes, material purchases, and timelines in one place. 
+          Especially useful when coordinating multiple trades or phasing a larger renovation. Keeps all the 
+          details you *will* forget if you don't write them down.
+        pro_tip: >-
+          Use this to document existing conditions before demo. Take photos, sketch measurements, 
+          and note electrical/plumbing locations. Your future self (and your contractor) will thank you.
+        author: House To Home Publishing
+        
+      - name: BOSCH Laser Distance Measure
+        full_name: "BOSCH GLM100-23 100 Ft Blaze Laser Distance Measure"
+        amazon_url: https://amzn.to/4atkxIk
+        type: Measurement Tool
+        specs: "100 ft range, ±1/16\" accuracy, includes 2 AA batteries"
+        description: >-
+          Makes estimates way easier for both clients and contractors. One-person measurements, 
+          instant calculations, no more crawling around with a tape measure. Great for planning 
+          tile layouts, estimating square footage, or checking ceiling heights.
+        pro_tip: >-
+          Use it to measure diagonal distances in rooms—helps identify out-of-square walls 
+          before tile layout. Could save you from discovering layout issues mid-installation.
+        brand: BOSCH
+
+  - id: installation-materials
+    name: Professional Installation Materials
+    description: >-
+      Materials we actually use on jobs. TCNA-compliant products that work across 
+      South Jersey's climate challenges—humidity, temperature swings, and structural quirks.
+    products:
+      - name: DGSL Tile Leveling System
+        full_name: "DGSL Tile Leveling System with Plier - 1200-Piece Spacers Clips and 300-Piece Reusable Wedges"
+        amazon_url: https://amzn.to/49rOXIT
+        type: Installation Tool
+        specs: "1/16 inch spacing, includes plier tool"
+        description: >-
+          Keeps large-format tile installations flat and prevents lippage (uneven edges between tiles). 
+          Especially critical for 12"×24" or larger tiles on floors. The system uses disposable clips 
+          and reusable wedges—clips break away after mortar sets, wedges are reusable for future jobs.
+        pro_tip: >-
+          Not sure which grout size or spacing you need? Contact us for a recommendation based 
+          on your specific tile size and project. Wrong spacing can compromise both appearance and performance.
+        note: Choose grout spacing based on tile size—ask us if you're unsure
+        brand: DGSL
+        
+      - name: Cotton Farm Cheesecloth
+        full_name: "Cotton Farm Grade 100 XL Cheese Cloth - Ultra-Dense Butter Muslin"
+        amazon_url: https://amzn.to/4p6jqBU
+        type: Cleaning & Finishing Material
+        specs: "36\"×36\", 100% unbleached cotton, reusable, hemmed edges"
+        description: >-
+          The secret weapon for grout haze removal and final tile cleaning. Grade 100 (ultra-dense) 
+          is ideal for buffing tiles after grouting without scratching. Reusable and washable—one 
+          package lasts multiple jobs. Way better than disposable sponges for final finish work.
+        pro_tip: >-
+          Dampen lightly and use in circular motions for final polish after grout haze removal. 
+          Works on both natural stone and ceramic without leaving lint or scratches.
+        brand: Cotton Farm from Mediterranean
+
+metadata:
+  disclosure: >-
+    Tillerstead LLC is a participant in the Amazon Services LLC Associates Program, 
+    an affiliate advertising program designed to provide a means for sites to earn 
+    advertising fees by advertising and linking to Amazon.com. When you purchase through 
+    these links, we earn a small commission at no extra cost to you. All proceeds support 
+    our free technical blog content and HTML development.
+  
+  policy: >-
+    We only recommend products we've used in actual installations. Not sponsored placements 
+    or marketing fluff—just products that work and have survived real-world installations 
+    across South Jersey.
