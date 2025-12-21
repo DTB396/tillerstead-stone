@@ -108,6 +108,13 @@
   });
 
   // =========================
+  // FORM HANDLING (STATIC HOST)
+  // - Ensures forms are accessible, TCNA/NJ HIC compliant
+  // - Netlify passthrough supported
+  // =========================
+  // (Add form handling logic here as needed, following OUTPUT_RULES.md)
+
+  // =========================
   // MOBILE NAVIGATION DRAWER
   // - Modal dialog pattern (ARIA compliant)
   // - ESC closes, backdrop click closes
@@ -118,28 +125,29 @@
   const navClose = document.querySelector('[data-nav-close]');
   const navBackdrop = document.querySelector('[data-nav-overlay]');
   const navDrawer = document.getElementById('mobile-nav');
-  const _navContainer = document.querySelector('[data-nav-container]');
+  const navContainer = document.querySelector('[data-nav-container]');
 
-  const openNav = () => {
-    navToggle.setAttribute('aria-expanded', 'true');
-    navBackdrop.classList.add('is-open');
-    navDrawer.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+  if (navToggle && navDrawer && navBackdrop) {
+    function openNav() {
+      navToggle.setAttribute('aria-expanded', 'true');
+      navBackdrop.classList.add('is-open');
+      navDrawer.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
 
-    // Focus first link in drawer
-    const firstLink = navDrawer.querySelector('.mobile-nav-link');
-    if (firstLink) {
-      setTimeout(() => firstLink.focus(), 300);
+      // Focus first link in drawer
+      const firstLink = navDrawer.querySelector('.mobile-nav-link');
+      if (firstLink) {
+        setTimeout(() => firstLink.focus(), 300);
+      }
     }
-  };
 
-  const closeNav = () => {
-    navToggle.setAttribute('aria-expanded', 'false');
-    navBackdrop.classList.remove('is-open');
-    navDrawer.classList.remove('is-open');
-    document.body.style.overflow = '';
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navBackdrop.classList.remove('is-open');
+      navDrawer.classList.remove('is-open');
+      document.body.style.overflow = '';
 
-    // Return focus to toggle
+      // Return focus to toggle
       navToggle.focus();
     }
 
@@ -193,7 +201,7 @@
   // - Accessible button toggle
   // =========================
   document.querySelectorAll('[data-read-more]').forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
       const quoteText = this.previousElementSibling;
       if (quoteText && quoteText.classList.contains('is-truncated')) {
         quoteText.classList.remove('is-truncated');
@@ -206,4 +214,5 @@
       }
     });
   });
+
 })();
