@@ -115,6 +115,87 @@
   // (Add form handling logic here as needed, following OUTPUT_RULES.md)
 
   // =========================
+  // MOBILE NAVIGATION DRAWER
+  // - Modal dialog pattern (ARIA compliant)
+  // - ESC closes, backdrop click closes
+  // - Scroll lock when open
+  // - Focus management
+  // =========================
+  const navToggle = document.querySelector('[data-nav-toggle]');
+  const navClose = document.querySelector('[data-nav-close]');
+  const navBackdrop = document.querySelector('[data-nav-overlay]');
+  const navDrawer = document.getElementById('mobile-nav');
+  const navContainer = document.querySelector('[data-nav-container]');
+
+  if (navToggle && navDrawer && navBackdrop) {
+    function openNav() {
+      navToggle.setAttribute('aria-expanded', 'true');
+      navBackdrop.classList.add('is-open');
+      navDrawer.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      
+      // Focus first link in drawer
+      const firstLink = navDrawer.querySelector('.mobile-nav-link');
+      if (firstLink) {
+        setTimeout(() => firstLink.focus(), 300);
+      }
+    }
+
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navBackdrop.classList.remove('is-open');
+      navDrawer.classList.remove('is-open');
+      document.body.style.overflow = '';
+      
+      // Return focus to toggle
+      navToggle.focus();
+    }
+
+    // Toggle button
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    // Close button
+    if (navClose) {
+      navClose.addEventListener('click', closeNav);
+    }
+
+    // Backdrop click
+    navBackdrop.addEventListener('click', closeNav);
+
+    // ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+        closeNav();
+      }
+    });
+
+    // Close on navigation
+    navDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(closeNav, 200);
+      });
+    });
+
+    // Close on resize to desktop
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (window.innerWidth > 1080 && navToggle.getAttribute('aria-expanded') === 'true') {
+          closeNav();
+        }
+      }, 150);
+    });
+  }
+
+  // =========================
   // TESTIMONIAL READ MORE
   // - Expands truncated testimonials
   // - Accessible button toggle
