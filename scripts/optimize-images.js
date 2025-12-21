@@ -48,7 +48,7 @@ async function optimizeImage(imagePath) {
   for (const [sizeName, width] of Object.entries(SIZES)) {
     if (metadata.width >= width) {
       const outputFile = path.join(outputPath, `${filename}-${sizeName}.webp`);
-      
+
       await sharp(imagePath)
         .resize(width, null, {
           withoutEnlargement: true,
@@ -59,7 +59,7 @@ async function optimizeImage(imagePath) {
           effort: 6
         })
         .toFile(outputFile);
-      
+
       console.log(`  ✓ ${sizeName}: ${width}w → WebP`);
     }
   }
@@ -69,7 +69,7 @@ async function optimizeImage(imagePath) {
   await sharp(imagePath)
     .webp({ quality: 90, effort: 6 })
     .toFile(originalWebP);
-  
+
   console.log(`  ✓ Original: ${metadata.width}w → WebP`);
 }
 

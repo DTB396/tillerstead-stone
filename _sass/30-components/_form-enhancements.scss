@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Form Enhancements & Validation
+   Real-time validation, character counters, success states
+   ========================================================================== */
+
+/* Form groups */
+.form-group,
+.field {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Input states */
+input.is-valid,
+textarea.is-valid,
+select.is-valid {
+  border-color: #0d9aaa;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230d9aaa'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+input.is-invalid,
+textarea.is-invalid,
+select.is-invalid {
+  border-color: #d32f2f;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d32f2f'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+/* Error messages */
+.field-error {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #d32f2f;
+  font-weight: 500;
+}
+
+.has-error label {
+  color: #d32f2f;
+}
+
+.has-success label {
+  color: #0d9aaa;
+}
+
+/* Character counter */
+.character-counter {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+  text-align: right;
+}
+
+.character-counter.warning {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* Button loading state */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: btn-spin 0.6s linear infinite;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Button success state */
+.btn-success {
+  background-color: #0d9aaa !important;
+  border-color: #0d9aaa !important;
+  animation: btn-success-flash 0.4s ease;
+}
+
+@keyframes btn-success-flash {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Notification system */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  max-width: 400px;
+  padding: 1rem 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(calc(100% + 40px));
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10000;
+}
+
+.notification.is-visible {
+  transform: translateX(0);
+}
+
+.notification--success {
+  border-left: 4px solid #0d9aaa;
+}
+
+.notification--error {
+  border-left: 4px solid #d32f2f;
+}
+
+.notification p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* Smooth scroll active link indicator */
+a[href^="#"].is-active {
+  color: var(--ts-color-primary);
+  font-weight: 600;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .notification,
+  .btn-success,
+  .btn-loading::after {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
