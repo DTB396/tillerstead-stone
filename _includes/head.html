@@ -1,110 +1,166 @@
 <!-- Core meta -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+{%- comment -%}
+TITLE (fixes "Missing title tag")
+Priority:
+1) page.seo_title
+2) page.title
+3) site.title
+{%- endcomment -%}
+{%- assign _site_title = site.title | default: "Tillerstead" -%}
+{%- assign _page_title = page.seo_title | default: page.title -%}
+{%- if _page_title and _page_title != "" -%}
+<title>{{ _page_title | strip | escape }} | {{ _site_title | escape }}</title>
+{%- else -%}
+<title>{{ _site_title | escape }}</title>
+{%- endif -%}
+
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-{%- assign meta_description = page.description | default: site.description | default: 'NJ HIC #13VH12057400. Tillerstead: TCNA-compliant tile, stone, and waterproofing by licensed professionals. No shortcuts—just technical excellence.' -%}
-<meta name="description" content="{{ meta_description | escape }}">
+{%- comment -%}
+DESCRIPTION
+Priority:
+1) page.description
+2) site.description
+3) fallback string
+{%- endcomment -%}
+{%- assign meta_description = page.description | default: site.description | default: "NJ HIC #13VH12057400.
+Tillerstead: TCNA-compliant tile, stone, and waterproofing by licensed professionals. No shortcuts—just technical
+excellence." -%}
+<meta name="description" content="{{ meta_description | strip_html | strip_newlines | escape | truncate: 160 }}">
 
-{%- assign meta_keywords = page.keywords | default: site.keywords | default: 'tile, stone, waterproofing, NJ HIC, TCNA, bathroom remodeling, Atlantic County, Tillerstead' -%}
-<meta name="keywords" content="{{ meta_keywords | join: ', ' }}">
+{%- comment -%}
+KEYWORDS
+Support either:
+- site.keywords as array
+- site.keywords as string
+- page.keywords as array
+- page.keywords as string
+{%- endcomment -%}
+{%- assign _kw = page.keywords | default: site.keywords -%}
+{%- if _kw == nil or _kw == "" -%}
+{%- assign _kw = "tile, stone, waterproofing, NJ HIC, TCNA, bathroom remodeling, Atlantic County, Tillerstead" -%}
+{%- endif -%}
+{%- if _kw.first -%}
+<meta name="keywords" content="{{ _kw | join: ', ' | escape }}">
+{%- else -%}
+<meta name="keywords" content="{{ _kw | escape }}">
+{%- endif -%}
 
-<meta name="author" content="{{ site.company.owner | default: 'Tillerstead LLC (NJ HIC #13VH12057400)' }}">
+<meta name="author" content="{{ site.company.owner | default: 'Tillerstead LLC (NJ HIC #13VH12057400)' | escape }}">
 <meta name="geo.region" content="US-NJ">
-<meta name="geo.placename" content="{{ site.company.address_locality | default: 'Atlantic County' }}, NJ">
+<meta name="geo.placename" content="{{ site.company.address_locality | default: 'Atlantic County' | escape }}, NJ">
 <meta name="format-detection" content="telephone=no">
 
 {% if page.noindex %}
-  <meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow">
 {% else %}
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 {% endif %}
 
-{% if site.url %}
-  <link rel="canonical" href="{{ page.url | replace: 'index.html','' | absolute_url }}">
-{% endif %}
+{%- comment -%}
+CANONICAL (fixes "Missing canonical link")
+Use absolute_url and strip index.html reliably.
+{%- endcomment -%}
+{%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url -%}
+<link rel="canonical" href="{{ canonical_url }}">
 
 <!-- Theme / icons -->
-<meta name="theme-color" content="var(--color-navy-800)" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="var(--ts-white)" media="(prefers-color-scheme: light)">
-<link rel="icon" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" type="image/svg+xml" sizes="any" aria-label="Tillerstead LLC logo, NJ HIC licensed tile contractor">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/logo/tillerstead-icon-32.png' | relative_url }}" aria-label="Tillerstead LLC favicon 32x32">
-<link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/img/logo/tillerstead-icon-48.png' | relative_url }}" aria-label="Tillerstead LLC favicon 48x48">
-<link rel="icon" type="image/png" sizes="180x180" href="{{ '/assets/img/logo/tillerstead-icon-180.png' | relative_url }}" aria-label="Tillerstead LLC Apple touch icon">
-<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/img/logo/tillerstead-icon-192.png' | relative_url }}" aria-label="Tillerstead LLC Android icon">
-<link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/img/logo/tillerstead-icon-512.png' | relative_url }}" aria-label="Tillerstead LLC large icon">
+{%- comment -%}
+meta theme-color does NOT reliably support CSS variables; use hard values.
+You can store these in _config.yml if you want (site.theme_color_dark/light).
+{%- endcomment -%}
+<meta name="theme-color" content="{{ site.theme_color_dark | default: '#0b1f33' }}"
+  media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="{{ site.theme_color_light | default: '#ffffff' }}"
+  media="(prefers-color-scheme: light)">
+
+<link rel="icon" href="{{ '/assets/img/logo/tillerstead-favicon.svg' | relative_url }}" type="image/svg+xml"
+  sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/logo/tillerstead-icon-32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/img/logo/tillerstead-icon-48.png' | relative_url }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/logo/tillerstead-icon-180.png' | relative_url }}">
-<link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}" color="var(--color-brand-teal-400)">
+<link rel="mask-icon" href="{{ '/assets/img/logo/tillerstead-logo-mark.svg' | relative_url }}"
+  color="{{ site.mask_icon_color | default: '#1aa6a6' }}">
 <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
 <link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}">
 
 <!-- Hero image preloads -->
 {%- assign hero_preload_image = page.hero_image | default: site.hero_default_image | default: site.default_og_image -%}
 {% if hero_preload_image %}
-  <link rel="preload" as="image" href="{{ hero_preload_image | relative_url }}" fetchpriority="high" imagesrcset="{{ hero_preload_image | relative_url }} 1x" imagesizes="100vw">
+<link rel="preload" as="image" href="{{ hero_preload_image | relative_url }}" fetchpriority="high">
 {% endif %}
 
 <!-- Open Graph & Twitter cards -->
-{%- assign og_title = page.seo_title | default: page.title | default: site.title -%}
+{%- assign og_title = page.seo_title | default: page.title | default: site.title | default: "Tillerstead" -%}
 {%- assign og_description = meta_description -%}
-{%- assign og_image = page.og_image | default: hero_preload_image | default: '/assets/img/og.jpg' -%}
+{%- assign og_image = page.og_image | default: hero_preload_image | default: site.default_og_image | default:
+'/assets/img/og.jpg' -%}
+{%- assign og_image_abs = og_image | absolute_url -%}
+
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ og_title | truncate: 60 }}">
-<meta property="og:description" content="{{ og_description | escape | truncate: 160 }}">
-<meta property="og:site_name" content="Tillerstead LLC">
+<meta property="og:title" content="{{ og_title | strip | truncate: 60 | escape }}">
+<meta property="og:description" content="{{ og_description | strip_html | strip_newlines | truncate: 160 | escape }}">
+<meta property="og:site_name" content="{{ site.og_site_name | default: 'Tillerstead LLC' | escape }}">
 <meta property="og:locale" content="en_US">
-{% if site.url %}
-  {% assign og_url = page.url | replace: 'index.html','' %}
-  <meta property="og:url" content="{{ site.url }}{{ og_url }}">
-{% endif %}
-<meta property="og:image" content="{{ og_image | absolute_url }}">
-<meta property="og:image:alt" content="Tillerstead LLC - TCNA-compliant tile & stone, NJ HIC #13VH12057400">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ og_image_abs }}">
+<meta property="og:image:alt"
+  content="{{ site.og_image_alt | default: 'Tillerstead LLC - TCNA-compliant tile & stone, NJ HIC #13VH12057400' | escape }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ og_title | truncate: 70 }}">
-<meta name="twitter:description" content="{{ og_description | escape | truncate: 160 }}">
-<meta name="twitter:image" content="{{ og_image | absolute_url }}">
-<meta name="twitter:image:alt" content="Tillerstead LLC - TCNA-compliant tile & stone, NJ HIC #13VH12057400">
+<meta name="twitter:title" content="{{ og_title | strip | truncate: 70 | escape }}">
+<meta name="twitter:description" content="{{ og_description | strip_html | strip_newlines | truncate: 160 | escape }}">
+<meta name="twitter:image" content="{{ og_image_abs }}">
+<meta name="twitter:image:alt"
+  content="{{ site.og_image_alt | default: 'Tillerstead LLC - TCNA-compliant tile & stone, NJ HIC #13VH12057400' | escape }}">
 
 <!-- Business contact microdata -->
-<meta property="business:contact_data:street_address" content="{{ site.company.address_line | default: '' }}">
-<meta property="business:contact_data:locality" content="{{ site.company.address_locality | default: '' }}">
-<meta property="business:contact_data:region" content="{{ site.company.address_region | default: 'NJ' }}">
-<meta property="business:contact_data:postal_code" content="{{ site.company.address_postal_code | default: '' }}">
+<meta property="business:contact_data:street_address" content="{{ site.company.address_line | default: '' | escape }}">
+<meta property="business:contact_data:locality" content="{{ site.company.address_locality | default: '' | escape }}">
+<meta property="business:contact_data:region" content="{{ site.company.address_region | default: 'NJ' | escape }}">
+<meta property="business:contact_data:postal_code"
+  content="{{ site.company.address_postal_code | default: '' | escape }}">
 <meta property="business:contact_data:country_name" content="United States">
-<meta property="business:contact_data:phone_number" content="{{ site.company.phone_display | default: '(609) 862-8808' }}">
-{% if site.url %}
-  <meta property="business:contact_data:website" content="{{ site.url }}">
-{% endif %}
+<meta property="business:contact_data:phone_number"
+  content="{{ site.company.phone_display | default: '(609) 862-8808' | escape }}">
+<meta property="business:contact_data:website" content="{{ site.url | default: 'https://tillerstead.com' | escape }}">
 
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet" crossorigin>
+
 {% if site.fonts and site.fonts.local_preload %}
-  <link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/inter-600.woff2' | relative_url }}" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/inter-700.woff2' | relative_url }}" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/montserrat-700.woff2' | relative_url }}" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/inter-600.woff2' | relative_url }}" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/inter-700.woff2' | relative_url }}" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/montserrat-700.woff2' | relative_url }}"
+  crossorigin>
 {% endif %}
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" media="screen">
 {% if page.styles %}
-  {% for style in page.styles %}
-    <link rel="stylesheet" href="{{ style | relative_url }}" media="screen">
-  {% endfor %}
+{% for style in page.styles %}
+<link rel="stylesheet" href="{{ style | relative_url }}" media="screen">
+{% endfor %}
 {% endif %}
 
 {% if page.schema %}
-  {% for schema in page.schema %}
-    <script type="application/ld+json">
-      {{ schema | jsonify }}
+{% for schema in page.schema %}
+<script type="application/ld+json">
+{{ schema | jsonify }}
     </script>
-  {% endfor %}
+{% endfor %}
 {% endif %}
 
 {% include ts-icon-sprite.html %}
