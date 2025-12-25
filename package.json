@@ -21,6 +21,7 @@
     "dev": "npm run build:css && npm run jekyll -- build && http-server _site -p 4000 -c-1",
     "dev:watch": "concurrently \"npm run watch:css\" \"npm run jekyll -- build --watch\" \"http-server _site -p 4000 -c-1\"",
     "build": "npm run build:css && npm run jekyll -- build",
+    "postbuild": "node scripts/post-build-link.js",
     "serve": "http-server _site -p 4000 -c-1",
     "build:site": "npm run build",
     "build:full": "npm run build:css && npm run build:logos && npm run jekyll -- build",
@@ -39,7 +40,7 @@
     "sync:thumbtack": "node scripts/sync_thumbtack_reviews.js"
   },
   "devDependencies": {
-    "@playwright/test": "^1.48.2",
+    "@playwright/test": "^1.57.0",
     "cheerio": "1.1.2",
     "concurrently": "9.2.1",
     "eslint": "8.57.1",

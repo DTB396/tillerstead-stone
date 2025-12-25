@@ -8,15 +8,15 @@
       }
     ],
     "custom-property-pattern": [
-      "^(ts|tiller|color|spacing|font|z|breakpoint)-[a-z0-9\\-]+$",
+      "^[a-z0-9]+-[a-z0-9\\-]+$",
       {
-        "message": "Custom properties must be prefixed (e.g., tiller-color-primary)"
+        "message": "Custom properties must include a lowercase namespace prefix (e.g., text-scale, tiller-color-primary)"
       }
     ],
     "scss/dollar-variable-pattern": [
-      "^(ts|tiller|color|spacing|font|z|breakpoint)-[a-z0-9\\-]+$",
+      "^[a-z0-9]+-[a-z0-9\\-]+$",
       {
-        "message": "SCSS variables must be prefixed (e.g., $tiller-color-primary)"
+        "message": "SCSS variables must include a lowercase namespace prefix (e.g., $text-scale-base)"
       }
     ],
     "color-function-notation": "legacy",
