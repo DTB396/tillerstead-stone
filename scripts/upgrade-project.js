@@ -13,16 +13,22 @@ import { execSync } from 'node:child_process';
 // Determine project root directory (where package.json resides)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-let projectRoot = __dirname;
-// If the script is in a subdirectory, find the package.json up the tree:
-try {
+
+async function findProjectRoot() {
+  let projectRoot = __dirname;
+  // If the script is in a subdirectory, find the package.json up the tree:
+  try {
     while (!(await fs.stat(path.join(projectRoot, 'package.json'))).isFile()) {
-        projectRoot = path.dirname(projectRoot);
-        if (projectRoot === path.dirname(projectRoot)) break;
+      projectRoot = path.dirname(projectRoot);
+      if (projectRoot === path.dirname(projectRoot)) break;
     }
-} catch {
+  } catch {
     // If fs.stat threw, likely package.json not found in current or parent dirs
+  }
+  return projectRoot;
 }
+
+const projectRoot = await findProjectRoot();
 // Change working directory to project root for relative path consistency
 process.chdir(projectRoot);
 
@@ -178,41 +184,36 @@ async function upgradeSass() {
             }
         }
 
-        content = content.replace(importPattern, (match, importList) => {
-            // This callback handles each @import line (with possibly multiple imports separated by commas)
+        // Find all @import statements and process them async
+        const importPattern = /@import\s+([^;]+);/g;
+        const importSplitPattern = /['"][^'"]+['"]/g;
+        const matches = [...content.matchAll(importPattern)];
+        
+        for (const match of matches) {
+            const [fullMatch, importList] = match;
             let resultLines = '';
-            // Extract individual imports from the list
             const imports = importList.match(importSplitPattern);
-            if (!imports) return match;
-            imports.forEach((imp, i) => {
-                // Remove quotes around import path
+            if (!imports) continue;
+            
+            for (const imp of imports) {
                 let importPath = imp.replace(/^['"]|['"]$/g, '');
                 const originalPath = importPath;
-                // Determine if this is a plain CSS import (ends with .css or URL)
                 const isCSSImport = importPath.endsWith('.css') || importPath.startsWith('http') || importPath.startsWith('url(');
                 if (isCSSImport) {
-                    // Leave CSS imports as-is (or we could use @import in CSS context, but we'll keep them unchanged)
                     resultLines += `@import "${importPath}";`;
                 } else {
-                    // For Sass imports, convert to @use ... as *
-                    // Ensure importPath has proper scss partial form (Dart Sass will find _partial.scss automatically)
-                    // We attempt to verify the file exists.
                     let resolvedPath = null;
-                    // Try finding the file in common locations (same dir, _sass, etc.)
                     const tryPaths = [];
                     if (path.isAbsolute(importPath)) {
                         tryPaths.push(path.join(projectRoot, importPath));
                     } else {
-                        // relative to current file
                         tryPaths.push(path.join(path.dirname(filePath), importPath));
-                        // in _sass directory (if not already in a path containing _sass)
                         tryPaths.push(path.join(projectRoot, '_sass', importPath));
                     }
-                    // Add .scss variations if not specified
                     if (!importPath.endsWith('.scss')) {
                         tryPaths.push(...tryPaths.map(p => p + '.scss'));
-                        tryPaths.push(...tryPaths.map(p => path.join(p, '_index.scss')));  // in case it's a directory import
-                        tryPaths.push(...tryPaths.map(p => path.join(path.dirname(p), '_' + path.basename(p)))); // partial with underscore
+                        tryPaths.push(...tryPaths.map(p => path.join(p, '_index.scss')));
+                        tryPaths.push(...tryPaths.map(p => path.join(path.dirname(p), '_' + path.basename(p))));
                     }
                     for (const p of tryPaths) {
                         try {
@@ -221,22 +222,19 @@ async function upgradeSass() {
                                 resolvedPath = p;
                                 break;
                             }
-                        } catch { /* not found, continue */ }
+                        } catch (_err) { /* not found, continue */ }
                     }
                     if (!resolvedPath) {
-                        // If not resolved, log issue and comment out this import
                         issues.push(`Import "${originalPath}" not found`);
                         resultLines += `// @import "${originalPath}" (file not found)`;
                     } else {
-                        // Convert to @use
                         resultLines += `@use "${importPath}" as *`;
                     }
                 }
-                if (i < imports.length - 1) resultLines += ';\n'; // new line between multiple imports
-            });
-            importCount += 1;
-            return resultLines + ';';
-        });
+                importCount++;
+            }
+            content = content.replace(fullMatch, resultLines);
+        }
 
         if (importCount > 0) {
             // Write changes if any import was replaced

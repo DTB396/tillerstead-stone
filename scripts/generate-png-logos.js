@@ -6,11 +6,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { exec } from 'child_process';
 import sharp from 'sharp';
-import { promisify } from 'util';
-
-const execAsync = promisify(exec);
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const LOGO_DIR = path.join(__dirname, '../assets/img/logo');
@@ -56,8 +52,16 @@ const LOGOS_TO_CONVERT = [
   }
 ];
 
-console.log(`Using: ${tool}\n`);
+async function convertSvgToPng(inputPath, outputPath, width, height) {
+  await sharp(inputPath, { density: 300 })
+    .resize(width, height)
+    .png()
+    .toFile(outputPath);
+}
 
+async function main() {
+  const tool = 'sharp';
+  console.log(`Using: ${tool}\n`);
   let converted = 0;
   let failed = 0;
 
@@ -65,7 +69,7 @@ console.log(`Using: ${tool}\n`);
     const inputPath = path.join(LOGO_DIR, logo.input);
 
     if (!fs.existsSync(inputPath)) {
-      console.log(`⚠️  Skipping ${logo.input} (not found)`);
+      console.log(`Skipping ${logo.input} (not found)`);
       continue;
     }
 
@@ -75,11 +79,11 @@ console.log(`Using: ${tool}\n`);
       const outputPath = path.join(OUTPUT_DIR, output.name);
 
       try {
-        await convertSvgToPng(tool, inputPath, outputPath, output.width, output.height);
-        console.log(`  ✓ ${output.name} (${output.width}×${output.height})`);
+        await convertSvgToPng(inputPath, outputPath, output.width, output.height);
+        console.log(`  OK ${output.name} (${output.width}x${output.height})`);
         converted++;
       } catch (error) {
-        console.error(`  ✗ Failed: ${output.name}`);
+        console.error(`  Failed: ${output.name}`);
         console.error(`    ${error.message}`);
         failed++;
       }
@@ -88,9 +92,9 @@ console.log(`Using: ${tool}\n`);
     console.log('');
   }
 
-  console.log(`\n✨ Complete! Generated ${converted} PNG files.`);
+  console.log(`\nComplete! Generated ${converted} PNG files.`);
   if (failed > 0) {
-    console.log(`⚠️  ${failed} conversions failed.`);
+    console.log(`${failed} conversions failed.`);
   }
 }
 

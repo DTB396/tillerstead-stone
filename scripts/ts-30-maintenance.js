@@ -401,7 +401,7 @@ if (fs.existsSync(assetsImgDir)) {
       if (entry.isDirectory()) {
         removeUnusedImages(entryPath);
         // Remove directory if empty after removals
-        try { fs.rmdirSync(entryPath); } catch { }
+        try { fs.rmdirSync(entryPath); } catch (_err) { /* ignore */ }
       } else if (entry.isFile()) {
         const relPath = path.relative(assetsImgDir, entryPath).replace(/\\/g, '/');
         // Consider both exact file name and path as recorded in usedImages (since usedImages might store just filename or subpath)

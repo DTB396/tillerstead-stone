@@ -73,19 +73,11 @@
   --hex-blue-pale: #e0f2fe;       /* Pale blue - 4 uses */
   
   /* Reds - Alerts & Accents */
-<<<<<<< HEAD
   --hex-red-blood: #DA121A;          /* Rasta red - replaces red */
   --hex-red-bright: #DA121A;      /* Rasta red */
   --hex-red-error: #DA121A;       /* Rasta red */
   --hex-red-deep: #DA121A;        /* Rasta red */
   --hex-red-dark: #DA121A;        /* Rasta red */
-=======
-  --hex-red-blood: #bb0000;          /* Blood red - 24 uses */
-  --hex-red-bright: #d32f2f;      /* Bright red - 10 uses */
-  --hex-red-error: #ef4444;       /* Error red - 4 uses */
-  --hex-red-deep: #dc2626;        /* Deep red - 2 uses */
-  --hex-red-dark: #b91c1c;        /* Dark red - 2 uses */
->>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   
   /* Slate Grays */
   --hex-slate-900: #1e293b;       /* Darkest slate - 8 uses */
@@ -569,7 +561,6 @@
   --ts-gold-soft: var(--color-golden-400);
 
   /* Stone/Ink mapped to slate */
-<<<<<<< HEAD
   --color-stone-50: var(--color-slate-50);
   --color-stone-100: var(--color-slate-100);
   --color-stone-200: var(--color-slate-200);
@@ -580,17 +571,6 @@
   --ts-stone-cool: var(--color-slate-500);
   --ts-ink: var(--color-slate-900);
   --ts-white: var(--hex-white);
-=======
-  --color-stone-50: var(--tiller-slate-50);
-  --color-stone-100: var(--tiller-slate-100);
-  --color-stone-200: var(--tiller-slate-200);
-  --color-ink-900: var(--tiller-slate-900);
-  --color-ink-700: var(--tiller-slate-700);
-  --ts-stone: var(--tiller-slate-700);
-  --ts-stone-warm: var(--tiller-slate-600);
-  --ts-stone-cool: var(--tiller-slate-500);
-  --ts-ink: var(--tiller-slate-900);
->>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
 
   /* Parchment mapped to warm surfaces */
   --ts-parchment: var(--tiller-slate-50);

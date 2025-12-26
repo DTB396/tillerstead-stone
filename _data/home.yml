@@ -1,15 +1,8 @@
 hero:
-<<<<<<< HEAD
-  eyebrow: "Licensed NJ HIC #13VH10808800 · TCNA-Compliant Tile & Waterproofing"
-  title: "TCNA-Compliant Tile & Waterproofing That Survives South Jersey"
-  subtitle: "Licensed contractor, substrate-verified installation, flood-tested waterproofing"
-  summary: "Tile installations built to code, not guesswork. TCNA-compliant substrate prep, ANSI A118.10 waterproofing, and photo documentation for every phase. Serving Atlantic, Ocean & Cape May Counties with technical rigor and transparent communication."
-=======
   eyebrow: "Licensed NJ HIC #13VH10808800 · TCNA 2024 Compliant"
   title: "TCNA-Compliant Tile & Waterproofing That Survives South Jersey"
   subtitle: "Code-built, documented, transparent"
   summary: "Tile installations built to code, not guesswork. Substrate prep that meets spec. Waterproofing systems that pass flood tests—with photo documentation for insurance and warranty."
->>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   primary:
     label: "Request an Estimate"
     url: /contact/
@@ -27,7 +20,7 @@ hero:
       label: "Service Area"
       text: "Atlantic, Ocean, Cape May"
   highlights:
-<<<<<<< HEAD
+
     - "Substrate flatness verified to ±1/8\" per TCNA EJ171—no guesswork"
     - "Waterproofing flood-tested before tile installation, documented with photos"
     - "Daily documentation (photos, measurements, notes) archived for your records"
@@ -65,7 +58,7 @@ services:
         - "Flood testing (24+ hours) with photographic documentation"
         - "All penetrations (valves, drains, niches) detailed per TCNA guidelines"
         - "Care guide and warranty documentation provided upon completion"
-=======
+
     - "Substrate flatness verified with precision tools—installed per ANSI A108"
     - "Waterproofing systems (ANSI A118.10 certified) flood-tested with photo documentation"
     - "Complete installation documentation for insurance, warranty, and resale"
@@ -103,14 +96,14 @@ services:
         - "Flood testing with photographic documentation—proof of performance"
         - "Every penetration (valve, drain, niche) detailed per TCNA guidelines"
         - "Documentation package for insurance, warranty, and peace of mind"
->>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
+
       url: "/services/#waterproofing"
   actions:
     primary:
       label: "Request an Estimate"
       url: /contact/
     secondary:
-<<<<<<< HEAD
+
       label: "Explore Portfolio"
       url: /portfolio/
   note: "All installations meet TCNA 2024 standards and NJ HIC requirements. Every project documented. Written scope, change orders, and warranty terms provided before work begins."
@@ -161,7 +154,7 @@ materials:
         - "Book-matching arranged where feasible for continuous veining appearance"
         - "Substrate and mortar selected per stone manufacturer requirements"
         - "ASTM D4446-compliant sealers; application method per manufacturer"
-=======
+
       label: "View Portfolio"
       url: /portfolio/
   note: "Every installation meets TCNA 2024 standards. Every detail documented. Every promise kept."
@@ -209,7 +202,7 @@ materials:
         - "Book-matching ensures seamless veining continuity"
         - "6mm porcelain slabs installed to manufacturer specs"
         - "Honed finishes for low-visibility areas, polished for durable applications"
->>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
+
 
 testimonials:
   eyebrow: "What My Clients Say (The Nice Stuff)"
@@ -218,25 +211,15 @@ testimonials:
   reviews: null  # Uses site.data.reviews.reviews by default (first 3)
 
 cta:
-<<<<<<< HEAD
-  eyebrow: "Ready to Proceed?"
-  title: "Request an Estimate for TCNA-Compliant Installation"
-  summary: "Submit your project details and site photos. You'll receive a detailed written estimate including scope, methods, timeline, and transparent pricing within 3–5 business days. No obligation, no surprise calls."
-=======
   eyebrow: "Request a Proposal"
   title: "Request a Written Estimate for TCNA-Compliant Installation"
   summary: "We provide written scopes, transparent pricing, and professional documentation. Licensed, TCNA-compliant, serving South Jersey."
->>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
   primary:
     label: "Request an Estimate"
     url: /contact/
   secondary:
-<<<<<<< HEAD
     label: "Call (609) 862-8808"
     url: "tel:+16098628808"
   note: "NJ HIC #13VH10808800 · TCNA 2024 Standards · Licensed & Insured · Serving Atlantic, Ocean & Cape May Counties"
-=======
-    label: "View Portfolio"
-    url: /portfolio/
-  note: "NJ HIC #13VH10808800 · TCNA Compliant · Atlantic, Ocean, Cape May Counties"
->>>>>>> 52f5e57fd681d39db28094186257ed2981d8c848
+
+

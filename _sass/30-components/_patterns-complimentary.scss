@@ -147,6 +147,7 @@
 /* ========== Footer Consistency ========== */
 .site-footer {
   /* Already styled with cross-hatch pattern in _footer.scss */
+
   /* This ensures pattern sizing is consistent */
   
   &::before {
@@ -212,6 +213,7 @@
 }
 
 /* ========== Performance Optimization ========== */
+
 /* Patterns use GPU acceleration for smooth rendering */
 .ts-hero::before,
 .ts-section::before,

@@ -117,7 +117,7 @@ function escapeRe(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function phaseBuild(cfg) {
+function phaseBuild(_cfg) {
   // Build CSS if scripts exist; then Jekyll build if available.
   // We keep it tolerant: won't hard-fail if you don't have Ruby set up, but will report it.
   const pkg = exists('package.json') ? readJson('package.json') : null;
@@ -266,7 +266,7 @@ function phaseScan(cfg) {
   }
 }
 
-function phaseFixes(cfg) {
+function phaseFixes(_cfg) {
   // Safe, minimal auto-fixes for common problems.
   // This phase intentionally avoids “guessing” layout CSS.
   // It DOES create a default .vscode launch config and adds a helpful docs note.
