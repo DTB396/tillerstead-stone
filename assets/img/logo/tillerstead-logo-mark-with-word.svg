@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 578 178"
+     viewBox="0 0 560 178"
      role="img"
      aria-label="Tillerstead logo">
   <style>
     .logo-tile {
       fill:#078930;
       stroke:#FCDD09;
-      stroke-width:10;
+      stroke-width:8;
       stroke-linejoin:round;
       stroke-linecap:round;
     }
@@ -17,14 +17,14 @@
     }
   </style>
 
-  <!-- shifted slightly down so stroke doesn't get clipped -->
   <g class="logo-mark" transform="translate(18 25)">
-    <rect class="logo-tile" x="0"   y="0"   width="42" height="42" rx="6"/>
-    <rect class="logo-tile" x="44"  y="0"   width="42" height="42" rx="6"/>
-    <rect class="logo-tile" x="88"  y="0"   width="42" height="42" rx="6"/>
-    <rect class="logo-tile" x="44"  y="44"  width="42" height="42" rx="6"/>
-    <rect class="logo-tile" x="44"  y="88"  width="42" height="42" rx="6"/>
+    <!-- Professional 3px grout line spacing -->
+    <rect class="logo-tile" x="0"  y="0"  width="38" height="38" rx="5"/>
+    <rect class="logo-tile" x="41" y="0"  width="38" height="38" rx="5"/>
+    <rect class="logo-tile" x="82" y="0"  width="38" height="38" rx="5"/>
+    <rect class="logo-tile" x="41" y="41" width="38" height="38" rx="5"/>
+    <rect class="logo-tile" x="41" y="82" width="38" height="38" rx="5"/>
   </g>
 
-  <text class="logo-word" x="190" y="100">TILLERSTEAD</text>
+  <text class="logo-word" x="170" y="100">TILLERSTEAD</text>
 </svg>
