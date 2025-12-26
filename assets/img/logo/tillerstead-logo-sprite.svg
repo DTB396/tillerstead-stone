@@ -31,20 +31,20 @@
     <!-- Base tile mark shape, padded so stroke is not clipped -->
     <g id="ts-mark-shape" transform="translate(10 10)">
       <rect class="logo-tile" x="0"   y="0"   width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="45"  y="0"   width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="90"  y="0"   width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="45"  y="45"  width="42" height="42" rx="6" />
-      <rect class="logo-tile" x="45"  y="90"  width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="44"  y="0"   width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="88"  y="0"   width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="44"  y="44"  width="42" height="42" rx="6" />
+      <rect class="logo-tile" x="44"  y="88"  width="42" height="42" rx="6" />
     </g>
   </defs>
 
   <!-- MARK ONLY -->
 
-  <symbol id="logo-mark" viewBox="0 0 152 152">
+  <symbol id="logo-mark" viewBox="0 0 150 150">
     <use href="#ts-mark-shape" />
   </symbol>
 
-  <symbol id="logo-mark-mono" viewBox="0 0 152 152">
+  <symbol id="logo-mark-mono" viewBox="0 0 150 150">
     <!-- CSS variables on <use> are not reliable across browsers,
          so we set them on the referenced group via this trick: -->
     <use href="#ts-mark-shape"
