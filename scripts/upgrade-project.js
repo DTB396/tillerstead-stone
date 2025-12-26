@@ -288,7 +288,7 @@ async function upgradeDependencies() {
               const data = await res.json();
               latestVersion = data['dist-tags']?.latest;
             }
-          } catch (error) { 
+          } catch (error) {
             // Ignore fetch errors
           }
           if (!latestVersion) latestVersion = '1.68.0'; // fallback to a known recent version if fetch fails
