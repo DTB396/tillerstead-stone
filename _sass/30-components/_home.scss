@@ -59,13 +59,13 @@
 .page-home .ts-hero__inner {
   max-inline-size: var(--spacing-container, 1100px);
   margin-inline: auto;
-  padding-block: clamp(2rem, 5vb, 3.5rem) clamp(1.5rem, 4vb, 2.5rem);
-  padding-inline: clamp(1rem, 4vi, 1.75rem);
+  padding-block: clamp(2.5rem, 6vb, 4rem) clamp(2rem, 5vb, 3rem);
+  padding-inline: clamp(1.25rem, 5vi, 2rem);
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-gutter, clamp(1.5rem, 3.5vi, 2.5rem));
   align-items: start;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 /* Remove two-column layout - single column is cleaner for homepage */
@@ -106,8 +106,9 @@
 }
 
 .page-home .ts-hero__brand .ts-logo {
-  max-width: clamp(180px, 25vw, 240px);
+  max-width: clamp(280px, 40vw, 420px);
   height: auto;
+  margin-inline: auto;
 }
 
 .page-home .ts-hero__tagline {
@@ -192,6 +193,36 @@
   max-width: 65ch;
   font-size: var(--font-size-xs);
   line-height: 1.6;
+}
+
+/* Mobile viewport optimizations (iPhone 16 Pro Max and similar) */
+@media (max-width: 430px) {
+  .page-home .ts-hero__brand .ts-logo {
+    max-width: clamp(240px, 60vw, 320px);
+  }
+  
+  .page-home .ts-hero__title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    max-width: 100%;
+  }
+  
+  .page-home .ts-hero__lede {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+  }
+  
+  .page-home .ts-hero__tagline {
+    font-size: clamp(0.75rem, 2.8vw, 0.875rem);
+  }
+  
+  .page-home .ts-hero__actions {
+    width: 100%;
+    
+    .btn {
+      flex: 1 1 100%;
+      min-width: 100%;
+      justify-content: center;
+    }
+  }
 }
 
 /* Hide sidebar project image on homepage - causes alignment issues */
