@@ -24,7 +24,7 @@ hero:
     - "Substrate flatness verified to ±1/8\" per TCNA EJ171—no guesswork"
     - "Waterproofing flood-tested before tile installation, documented with photos"
     - "Daily documentation (photos, measurements, notes) archived for your records"
-    - "Large-format tile installed with 95% thinset coverage, movement joints at all changes of plane"
+    - "Large-format tile installed with proper trowel selection for complete mortar transfer, movement joints at all changes of plane"
 
 services:
   eyebrow: "Technical Excellence, Code Compliance, Lasting Results"
@@ -37,7 +37,7 @@ services:
       description: "Ceramic, porcelain, natural stone installed to TCNA standards. Substrate flatness verified, proper thinset selected per material and size, movement joints at all changes of plane, and grout sealed where applicable. Includes layout optimization to minimize cuts and balance symmetry."
       details:
         - "Substrate prep verified to ±1/8\" flatness per TCNA EJ171"
-        - "Large-format tile (≥15\") installed with 95% thinset coverage and back-buttering"
+        - "Large-format tile (≥15\") installed with proper back-buttering and trowel selection per TCNA guidelines"
         - "Movement joints, caulked perimeter transitions per ASTM C920"
         - "Layout centered on sightlines; minimal cuts; no slivers"
       url: "/services/#tile"
@@ -62,7 +62,7 @@ services:
     - "Substrate flatness verified with precision tools—installed per ANSI A108"
     - "Waterproofing systems (ANSI A118.10 certified) flood-tested with photo documentation"
     - "Complete installation documentation for insurance, warranty, and resale"
-    - "Large-format tile set with full mortar coverage—95% minimum per TCNA"
+    - "Large-format tile set with proper trowel selection for complete mortar coverage per TCNA"
 
 services:
   eyebrow: "Expert Execution—From Foundation to Finish"
@@ -72,11 +72,11 @@ services:
   cards:
     - icon: tile
       title: "Tile Installation & Waterproofing"
-      description: "Porcelain, ceramic, natural stone—installed with TCNA precision. We engineer the substrate, waterproof to ANSI standards (A118.10), and ensure 95% mortar coverage on large-format tile. Professional tile installation requires proper methodology."
+      description: "Porcelain, ceramic, natural stone—installed with TCNA precision. We engineer the substrate, waterproof to ANSI standards (A118.10), and ensure proper mortar coverage on large-format tile through correct trowel selection. Professional tile installation requires proper methodology."
       details:
         - "Substrate flatness verified to specification—tested, not estimated"
         - "Showers built to withstand water intrusion—flood-tested before completion"
-        - "Large-format tile (≥15\") set with full coverage per manufacturer specs"
+        - "Large-format tile (≥15\") set with proper trowel selection per manufacturer and TCNA specifications"
         - "Layout geometry optimized for minimal cuts and balanced appearance"
       url: "/services/#tile"
     - icon: stone
@@ -84,7 +84,7 @@ services:
       description: "Marble, granite, and gauged porcelain slabs require specialized handling. We book-match for seamless veining, seal with penetrating products (ASTM-compliant), and set with the correct mortar for each stone type."
       details:
         - "Book-matched marble for seamless veining continuity"
-        - "6mm porcelain slabs set to manufacturer specs—verified, not approximate"
+        - "6mm porcelain slabs set to manufacturer specifications with proper mortar selection"
         - "Natural stone sealed with breathable, ASTM-compliant products"
         - "Thermal movement engineered for fireplaces and heated applications"
       url: "/services/#stone"
