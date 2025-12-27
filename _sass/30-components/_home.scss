@@ -41,11 +41,16 @@
   margin-bottom: clamp(1.25rem, 2.2vw, 2rem);
   max-width: 70ch;
   margin-inline: auto;
+  text-align: center; /* Center all section headers */
 }
 
 .section-action {
   margin-top: clamp(1.25rem, 2.2vw, 2rem);
-  text-align: center;
+  text-align: center; /* Center action buttons */
+  display: flex;
+  justify-content: center;
+  gap: var(--ts-spacing-sm);
+  flex-wrap: wrap;
 }
 
 /* Hero (home) — integrates with premium hero base styles */

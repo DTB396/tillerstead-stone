@@ -33,7 +33,7 @@
   flex-direction: column;
   gap: var(--ts-spacing-md);
   padding: var(--spacing-card-pad, clamp(1.25rem, 3vw, 2rem));
-  border-radius: var(--ts-radius-xl);
+  border-radius: var(--ts-radius-lg); /* 33px rounded corners */
   border: var(--color-border-width-thin) solid var(--color-border-color-light);
   background: var(--ts-color-surface-elevated);
   box-shadow: var(--ts-shadow-soft);
@@ -44,6 +44,12 @@
   position: relative;
   min-width: 0;
   overflow: hidden;
+  
+  /* Center standalone cards */
+  &:only-child {
+    margin-inline: auto;
+    max-width: 600px;
+  }
 
   /* Subtle gradient overlay */
   &::before {

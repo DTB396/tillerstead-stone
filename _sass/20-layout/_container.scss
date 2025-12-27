@@ -39,6 +39,14 @@
 .ts-section {
   inline-size: 100%;
   padding-block: var(--spacing-section-pad-y, clamp(2.5rem, 6vi, 5.25rem));
+  border-radius: var(--ts-radius-lg); /* 33px rounded corners for sections */
+  
+  /* Center standalone sections */
+  &:only-child,
+  &.section--standalone {
+    margin-inline: auto;
+    max-width: var(--spacing-container, 1100px);
+  }
 }
 
 .section-inner,
